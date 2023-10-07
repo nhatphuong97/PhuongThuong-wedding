@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* @layer components {
+  .btn-main {
+    @apply bg-sky-600 hover:bg-sky-700 px-5 py-3 text-white rounded-lg;
+  }
+} */
+
+.App .active {
+  & h1 {
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    font-size: large;
+    font-weight: bold;
+  }
+}
+
+.tw-menu-item-show {
+  @apply absolute lg:relative  w-full flex-col text-center lg:flex-row z-50 top-10 lg:top-0 bg-white lg:bg-transparent;
+}
+/* tailwind : tw ddawt ten class */
+.tw-top-menu-item {
+  @apply cursor-pointer py-1 relative hover:text-red-400 
+                            after:lg:h-0.5 after:lg:w-0 hover:after:lg:w-full after:lg:transition-all
+                             after:lg:bg-red-500 after:lg:absolute after:lg:bottom-0 after:lg:right-0;
+}
+
+.tw-badge-item {
+  @apply rounded-full text-white text-xs text-center px-1.5;
+}
+
+.tw-icon {
+  @apply w-6 h-6;
+}

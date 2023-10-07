@@ -1,0 +1,11 @@
+.category {
+  @apply grid justify-center mt-2 mb-2;
+  .hello {
+    @apply text-2xl font-sans text-white mb-2 justify-center bg-red-600 border-l-4 border-red-200;
+  }
+  .button-group {
+    .Button {
+      @apply bg-slate-400;
+    }
+  }
+}
