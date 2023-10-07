@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/PhuongThuong-wedding/static/css/main.a01849fa.css",
-    "main.js": "/PhuongThuong-wedding/static/js/main.f2009eca.js",
+    "main.js": "/PhuongThuong-wedding/static/js/main.2ffb62e3.js",
     "static/js/787.87c8eaef.chunk.js": "/PhuongThuong-wedding/static/js/787.87c8eaef.chunk.js",
     "static/media/DSC_4827.JPG": "/PhuongThuong-wedding/static/media/DSC_4827.8145335c7e7b37c34d75.JPG",
     "index.html": "/PhuongThuong-wedding/index.html",
     "main.a01849fa.css.map": "/PhuongThuong-wedding/static/css/main.a01849fa.css.map",
-    "main.f2009eca.js.map": "/PhuongThuong-wedding/static/js/main.f2009eca.js.map",
+    "main.2ffb62e3.js.map": "/PhuongThuong-wedding/static/js/main.2ffb62e3.js.map",
     "787.87c8eaef.chunk.js.map": "/PhuongThuong-wedding/static/js/787.87c8eaef.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.a01849fa.css",
-    "static/js/main.f2009eca.js"
+    "static/js/main.2ffb62e3.js"
   ]
 }
