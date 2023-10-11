@@ -2,6 +2,12 @@
 module.exports = {
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
+    fontFamily: {
+      dosis: ["Dosis", "sans-serif"],
+      seaweed: ["Seaweed Script", "cursive"],
+      dancing: ["Dancing Script", "cursive"],
+      italianno: ["Italianno", "cursive"],
+    },
     screens: {
       sm: "640px",
       // => @media (min-width: 640px) { ... }
@@ -19,6 +25,11 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      colors: {
+        love: {
+          200: "#f0000",
+        },
+      },
       keyframes: {
         transright: {
           "0%,50%": { transfom: "translateY(-25%)" },

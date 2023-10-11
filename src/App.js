@@ -10,21 +10,20 @@ import ListPage from "./FeatureTodo/component/TodoPage";
 import NotFound from "./FeatureTodo/component/NotFound";
 import CategoriesPage from "./FeatureTodo/component/Category";
 import Tailwind from "./FeatureTodo/component/TaiwindPage";
+import { Switch } from "@material-tailwind/react";
 
 function App() {
   return (
     <div className="App flex flex-col">
-      <header className="App-header font-mono  justify-center">
-         <div className="bg-red-300 grid grid-cols-5 text-center p-2">
-        <NavLink to={"/albums"}> Go To Zing Mp3</NavLink>
-        <NavLink to={"/todo-list"}> To Do List with navlink</NavLink>
-        <NavLink to={"/clone-css"}> Go to test css</NavLink>
-        <NavLink to={"/categories"}> Go to API Categories</NavLink>
-        <NavLink to={"/taiwind"}> Taiwind pages</NavLink>
-      </div>
-      </header>
-
-    
+      {/* <header className="App-header font-mono  justify-center">
+        <div className="bg-red-300 grid grid-cols-5 text-center p-2">
+          <NavLink to={"/albums"}> Go To Zing Mp3</NavLink>
+          <NavLink to={"/todo-list"}> To Do List with navlink</NavLink>
+          <NavLink to={"/clone-css"}> Go to test css</NavLink>
+          <NavLink to={"/categories"}> Go to API Categories</NavLink>
+          <NavLink to={"/taiwind"}> Taiwind pages</NavLink>
+        </div>
+      </header> */}
 
       <Routes>
         {/* Bộ sậu lớn xong rồi ở trong có các route con  */}
@@ -35,7 +34,7 @@ function App() {
         <Route path="/register" element={<Navigate to="/" replace />} />
         <Route path="/register" element={<Navigate to="/" replace />} />
 
-        <Route path="/" element={<PageTodoList />} exact />
+        <Route path="/" element={<Tailwind />} exact />
         <Route path="todo-list" element={<HomePage />}>
           <Route path="pages" element={<ListPage />} />
           <Route path={"detail/:detailId"} element={<PageDetail />} />
