@@ -3,8 +3,9 @@ import PropTypes from "prop-types";
 import { button } from "@material-tailwind/react";
 import { NavLink } from "react-router-dom";
 import { color, motion, Variants } from "framer-motion";
-import logoHeader from "./../../../../src/img/savethedate_wh.gif";
-import airplane from "./../../../../src/img/airplane.png";
+import logoHeader from "./../../img/savethedate_wh.gif";
+import airplane from "./../../img/airplane.png";
+import CountDownTime from "../component/CountDownTime";
 Tailwin.propTypes = {};
 
 function Tailwin(props) {
@@ -65,7 +66,7 @@ function Tailwin(props) {
           className="slider flex relative h-[600px] bg-[url('/src/img/DSC_4827.JPG')] bg-fixed bg-cover
                bg-no-repeat bg-center bg-slate-600 ]"
         >
-          <div className="w-full h-full bg-black bg-opacity-30  flex justify-center ">
+          <div className="w-full h-full bg-black bg-opacity-30  flex flex-col justify-center ">
             <div className="justify-center items-center flex ">
               <div className="tw-name-main">Nhật Phương</div>
               <motion.img
@@ -77,8 +78,11 @@ function Tailwin(props) {
               />
               <div className="tw-name-main">Hoài Thương</div>
             </div>
+            <CountDownTime listData={12}>
+              12 ngày 3 giờ 15 phút 8 giây
+            </CountDownTime>
           </div>
-          <div className=" absolute w-16 lg:w-20 flex bottom-0 left-1/3 ">
+          {/* DIV Máy bay ( đang ẩn) <div className=" absolute w-16 lg:w-20 flex bottom-0 left-1/3 ">
             <motion.img
               initial={{ opacity: 1, x: 0, y: 0 }}
               whileInView={{ opacity: 1, x: 50, y: 0 }}
@@ -88,8 +92,10 @@ function Tailwin(props) {
               alt=""
               className=""
             />
-          </div>
+          </div> */}
         </div>
+
+        {/* END background */}
         <nav className="flex flex-row justify-between items-center sticky z-50 top-0">
           <motion.div
             whileHover={{ color: "#fca5a5", scale: 1.2 }}
