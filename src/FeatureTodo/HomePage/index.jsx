@@ -6,9 +6,9 @@ import { color, motion, Variants } from "framer-motion";
 import logoHeader from "./../../img/savethedate_wh.gif";
 import airplane from "./../../img/airplane.png";
 import CountDownTime from "../component/CountDownTime";
-Tailwin.propTypes = {};
+HomePageWedding.propTypes = {};
 
-function Tailwin(props) {
+function HomePageWedding(props) {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
@@ -63,7 +63,7 @@ function Tailwin(props) {
       <div className="root static">
         {/* <header className="py-6 fixed z-50 w-full"></header> */}
         <div
-          className="slider flex relative h-[600px] bg-[url('/src/img/DSC_4827.JPG')] bg-fixed bg-cover
+          className="slider flex w-full relative h-[600px] bg-[url('/src/img/DSC_4827.JPG')] bg-fixed bg-cover
                bg-no-repeat bg-center bg-slate-600 ]"
         >
           <div className="w-full h-full bg-black bg-opacity-30  flex flex-col justify-center ">
@@ -78,6 +78,8 @@ function Tailwin(props) {
               />
               <div className="tw-name-main">Hoài Thương</div>
             </div>
+          </div>
+          <div className=" flex absolute items-center bottom-0 left-0 right-0 mb-5 justify-center">
             <CountDownTime listData={12}>
               12 ngày 3 giờ 15 phút 8 giây
             </CountDownTime>
@@ -240,4 +242,4 @@ function Tailwin(props) {
   );
 }
 
-export default Tailwin;
+export default HomePageWedding;

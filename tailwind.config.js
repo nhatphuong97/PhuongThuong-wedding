@@ -7,6 +7,7 @@ module.exports = {
       seaweed: ["Seaweed Script", "cursive"],
       dancing: ["Dancing Script", "cursive"],
       italianno: ["Italianno", "cursive"],
+      cuprum: ["Cuprum", "sans-serif"],
     },
     screens: {
       sm: "640px",
