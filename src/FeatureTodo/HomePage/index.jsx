@@ -13,12 +13,11 @@ function HomePageWedding(props) {
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
   useEffect(() => {
-    console.log(showMenu);
+    console.log("show", showMenu);
   }, [showMenu]);
   const displayResponsiveMenu = () => {
     setShowMenu(!showMenu);
   };
-  const scrollRef = useRef(null);
 
   const showHideVar = {
     visible: { opacity: 1 },
@@ -27,11 +26,20 @@ function HomePageWedding(props) {
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
     console.log({ "1 chạy": "1" });
+    scroll();
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       console.log({ "2 chạy": "2" });
     };
   }, []);
+
+  let lastScrollY = 0;
+  // let ticking = false;
+  window.addEventListener("scroll", function (e) {
+    // lastScrollY = window.scrollY;
+    // console.log(lastScrollY);
+    // scroll();
+  });
 
   const handleOutsideClick = (event) => {
     // console.log("hahs", event.target !== buttonRef.current);
@@ -56,6 +64,43 @@ function HomePageWedding(props) {
     }
   };
 
+  //Event Scroll menu
+  // document.addEventListener("DOMContentLoaded", function () {
+
+  // });
+
+  const scroll = () => {
+    const elementToScroll = document.querySelector(".nav-show");
+    const observer = new IntersectionObserver(
+      (entries, observer) => {
+        // console.log("entries.intersectionRatio", entries.intersectionRatio);
+
+        // console.log({ 1: entries.intersectionRatio });
+
+        entries.forEach((entry) => {
+          console.log("nav", entry);
+          console.log("nav", entries.intersectionRatio);
+          entry.target.classList.toggle(
+            "isSticky",
+            entry.intersectionRatio < 1
+          );
+
+          if (entry.intersectionRatio === 1) {
+            entry.target.classList.remove("bg-blue-600");
+            entry.target.classList.add("bg-gray-200");
+          } else {
+            entry.target.classList.add("bg-blue-600");
+            entry.target.classList.remove("bg-gray-200");
+          }
+        });
+      },
+      { threshold: 1 }
+    );
+
+    observer.observe(elementToScroll);
+  };
+
+  // scroll();
   // const addClassName
   return (
     <>
@@ -63,8 +108,8 @@ function HomePageWedding(props) {
       <div className="root static">
         {/* <header className="py-6 fixed z-50 w-full"></header> */}
         <div
-          className="slider flex w-full relative h-[600px] bg-[url('/src/img/DSC_4827.JPG')] bg-fixed bg-cover
-               bg-no-repeat bg-center bg-slate-600 ]"
+          className="slider flex w-full relative lg:h-[700px]  md:h-[600px] h-[500px]  bg-[url('/src/img/DSC_4827.JPG')] bg-local md:bg-fixed bg-cover
+               bg-no-repeat bg-center bg-slate-600 ] -z-10"
         >
           <div className="w-full h-full bg-black bg-opacity-30  flex flex-col justify-center ">
             <div className="justify-center items-center flex ">
@@ -98,45 +143,42 @@ function HomePageWedding(props) {
         </div>
 
         {/* END background */}
-        <nav className="flex flex-row justify-between items-center sticky z-50 top-0">
+        <nav className="nav-show p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-300 py-3 sticky z-50 -top-1">
           <motion.div
-            whileHover={{ color: "#fca5a5", scale: 1.2 }}
+            whileHover={{ color: "#4ddf87", scale: 1.2 }}
             whileTap={{ scale: 0.9 }}
             // animate={{ fontSize: 50 }}
             initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.2 }}
+            whileInView="visible"
+            transition={{ duration: 1 }}
             variants={showHideVar}
-            className="logo font-bold basis-2/6 text-center text-xl font-mono cursor-pointer font-dosis"
+            className="logo font-bold basis-2/6 text-black text-center text-xl lg:text-2xl font-mono cursor-pointer font-dosis"
           >
             WeddingPages.
           </motion.div>
           <ul
             ref={menuRef}
             className={`${showMenu ? "flex" : "hidden"} tw-menu-item-show 
-                lg:flex lg:basis-3/6 font-roboto lg:item-center transition-all duration-300
-                 gap-4 uppercase text-sm text-gray-500 font-medium lg:justify-cente animate-slide-down`}
+                lg:flex lg:basis-3/6 font-cuprum font-bold lg:item-center transition-all duration-300
+                 gap-4 uppercase text-sm text-gray-500 lg:justify-cente animate-slide-down`}
           >
             <li className="tw-top-menu-item">
-              <NavLink to={""}>Home</NavLink>
+              <NavLink to={""}>Introduce</NavLink>
             </li>
             <li className="tw-top-menu-item">
-              <NavLink to={""}>Our Products </NavLink>
+              <NavLink to={""}>Moments</NavLink>
             </li>
             <li className="tw-top-menu-item">
-              <NavLink to={""}>About</NavLink>
+              <NavLink to={""}>Album</NavLink>
             </li>
             <li className="tw-top-menu-item">
-              <NavLink to={""}>Contact</NavLink>
+              <NavLink to={""}>Events</NavLink>
             </li>
             <li className="tw-top-menu-item">
-              <NavLink to={""}>Style Guide</NavLink>
-            </li>
-            <li className="tw-top-menu-item">
-              <NavLink to={""}>Nhật Phương 4697</NavLink>
+              <NavLink to={""}>Send Love</NavLink>
             </li>
           </ul>
-          <ul className="basis-3/6 lg:basis-1/6 flex flex-row justify-end  font-medium ml-5 relative text-gray-500 ">
+          {/* DIV Giỏ Hàng <ul className="basis-3/6 lg:basis-1/6 flex flex-row justify-end  font-medium ml-5 relative text-gray-500 ">
             <li className="tw-top-menu-item">
               <a href="/" className="flex items-center">
                 <svg
@@ -157,7 +199,7 @@ function HomePageWedding(props) {
                 <span className="tw-badge-item bg-red-400">10</span>
               </a>
             </li>
-          </ul>
+          </ul> */}
           <div className="lg:hidden relative  h-full w-full basis-1/6 flex item-center cursor-pointer">
             <svg
               xmlns="http://www.w3.org/2000/svg"

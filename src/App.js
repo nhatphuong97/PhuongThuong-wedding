@@ -24,6 +24,13 @@ function App() {
           <NavLink to={"/taiwind"}> Taiwind pages</NavLink>
         </div>
       </header> */}
+      {/* <head>
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0"
+        ></meta>
+        <title>Happy wedding</title>
+      </head> */}
 
       <Routes>
         {/* Bộ sậu lớn xong rồi ở trong có các route con  */}

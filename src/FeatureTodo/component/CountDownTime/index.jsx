@@ -12,11 +12,10 @@ function CountDownTime(props) {
   const [countDownDayTime, setCountDownDateTime] = useState({
     countdownDays: "0",
     countdownHours: "0",
-    countdownlMinutes: "0",
+    countdownMinutes: "0",
     countdownSeconds: "0",
   });
 
-  const { listData } = props;
   useEffect(() => {
     countDownTime();
   }, []);
@@ -57,7 +56,7 @@ function CountDownTime(props) {
   };
 
   return (
-    <div className="w-full text-center flex flex-row justify-center text-white py-3">
+    <div className="w-full text-center flex flex-row font-dancing justify-center text-white py-3">
       {/* {children} */}
       {/* {listData}
       {props.children} */}
@@ -79,11 +78,7 @@ function CountDownTime(props) {
         <div className="tw-text-item">Phút</div>
       </div>
       <div className="tw-count-down-time-block-item">
-        <motion.div
-          initial={{ opacity: 0, y: 0 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="tw-number-item"
-        >
+        <motion.div className="tw-number-item">
           {countDownDayTime.countdownSeconds}
         </motion.div>
         <div className="tw-text-item">Giây</div>
