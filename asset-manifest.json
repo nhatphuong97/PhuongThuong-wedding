@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/PhuongThuong-wedding/static/css/main.946a32e5.css",
-    "main.js": "/PhuongThuong-wedding/static/js/main.b976b16b.js",
+    "main.css": "/PhuongThuong-wedding/static/css/main.b73406bb.css",
+    "main.js": "/PhuongThuong-wedding/static/js/main.5608b7aa.js",
     "static/js/787.87c8eaef.chunk.js": "/PhuongThuong-wedding/static/js/787.87c8eaef.chunk.js",
     "static/media/DSC_4827.JPG": "/PhuongThuong-wedding/static/media/DSC_4827.8145335c7e7b37c34d75.JPG",
     "static/media/savethedate_wh.gif": "/PhuongThuong-wedding/static/media/savethedate_wh.513ab09bbfae0d24da53.gif",
     "static/media/airplane.png": "/PhuongThuong-wedding/static/media/airplane.0329d9558579085a69df.png",
     "index.html": "/PhuongThuong-wedding/index.html",
-    "main.946a32e5.css.map": "/PhuongThuong-wedding/static/css/main.946a32e5.css.map",
-    "main.b976b16b.js.map": "/PhuongThuong-wedding/static/js/main.b976b16b.js.map",
+    "main.b73406bb.css.map": "/PhuongThuong-wedding/static/css/main.b73406bb.css.map",
+    "main.5608b7aa.js.map": "/PhuongThuong-wedding/static/js/main.5608b7aa.js.map",
     "787.87c8eaef.chunk.js.map": "/PhuongThuong-wedding/static/js/787.87c8eaef.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.946a32e5.css",
-    "static/js/main.b976b16b.js"
+    "static/css/main.b73406bb.css",
+    "static/js/main.5608b7aa.js"
   ]
 }
