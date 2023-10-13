@@ -150,7 +150,7 @@ function HomePageWedding(props) {
             // animate={{ fontSize: 50 }}
             initial="hidden"
             whileInView="visible"
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.2 }}
             variants={showHideVar}
             className="logo font-bold basis-2/6 text-black text-center text-xl lg:text-2xl font-mono cursor-pointer font-dosis"
           >
