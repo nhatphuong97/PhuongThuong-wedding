@@ -8,6 +8,8 @@ module.exports = {
       dancing: ["Dancing Script", "cursive"],
       italianno: ["Italianno", "cursive"],
       cuprum: ["Cuprum", "sans-serif"],
+      pacifico: ["Pacifico", "cursive"],
+      swashed: ["Swashed", "cursive"],
     },
     screens: {
       sm: "640px",
@@ -26,9 +28,22 @@ module.exports = {
       // => @media (min-width: 1536px) { ... }
     },
     extend: {
+      backgroundImage: {
+        "image-main": "url('/src/img/DSC_4827.JPG')",
+        "image-one": "url('/src/img/IMG_3843.jpg')",
+        "image-vo": "url('/src/img/vo.png')",
+        "image-chong": "url('/src/img/chong.png')",
+        cake: "url('/src/img/cake.webp')",
+        image_wedding_1: "url('/src/img/anh_cuoi_1.webp')",
+      },
       colors: {
         love: {
-          200: "#f0000",
+          10: "#A63F52",
+          20: "#F2C2CF",
+          30: "#f9f9f9",
+          40: "#D99Cb2",
+          50: "#BBEDF2",
+          60: "#fcdce2",
         },
       },
       keyframes: {

@@ -1,14 +1,7 @@
 import React from "react";
-import PageTodoList from "./FeatureTodo/component/TodoPage";
 
 import { Routes, Route, Navigate, Link, NavLink } from "react-router-dom";
-import ZingMp3 from "./FeatureTodo/component/ZingMp3";
-import TestCss from "./FeatureTodo/component/TestCss";
-import PageTest from "./FeatureTodo/component";
-import PageDetail from "./FeatureTodo/component/TodoPage/PageDetail";
-import ListPage from "./FeatureTodo/component/TodoPage";
 import NotFound from "./FeatureTodo/component/NotFound";
-import CategoriesPage from "./FeatureTodo/component/Category";
 import HomePage from "./FeatureTodo/HomePage";
 import { Switch } from "@material-tailwind/react";
 
@@ -42,13 +35,13 @@ function App() {
         <Route path="/register" element={<Navigate to="/" replace />} />
 
         <Route path="/" element={<HomePage />} exact />
-        <Route path="todo-list" element={<PageTest />}>
+        {/* <Route path="todo-list" element={<PageTest />}>
           <Route path="pages" element={<ListPage />} />
           <Route path={"detail/:detailId"} element={<PageDetail />} />
         </Route>
         <Route path="/albums" element={<ZingMp3 />} />
         <Route path="/clone-css" element={<TestCss />} />
-        <Route path="/categories" element={<CategoriesPage />} />
+        <Route path="/categories" element={<CategoriesPage />} /> */}
         <Route path="/home" element={<HomePage />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

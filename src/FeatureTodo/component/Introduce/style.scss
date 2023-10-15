@@ -1,0 +1,35 @@
+.introduce-main {
+  @apply flex flex-row;
+}
+
+.introduce-two {
+  @apply bg-local md:bg-fixed bg-cover
+  bg-no-repeat bg-center bg-slate-600;
+}
+
+.introduce-image {
+  @apply bg-red-100 bg-cover w-[300px] h-[300px] sm:h-[350px]  sm:w-[350px] mx-auto md:h-[400px]  md:w-[400px] rounded-full bg-center shadow-md shadow-love-20;
+}
+
+.introduce-info {
+  @apply w-[300px] h-[300px] sm:h-[350px]  sm:w-[350px] mx-auto md:h-[400px]  md:w-[400px] flex bg-love-20 flex-col justify-center  overflow-x-hidden;
+}
+
+.introduce-name {
+  @apply text-white text-4xl text-center p-2 font-dancing font-bold;
+}
+
+.introduce-description {
+  @apply text-white px-4 font-cuprum text-xl;
+}
+
+.introduce-image-vochong {
+  @apply hover:scale-125 scale-110 transition-transform duration-300  bg-top mb-0 flex w-full h-full bg-contain;
+}
+.introduce-title {
+  @apply text-red-400 font-dancing text-4xl my-5 font-bold;
+}
+
+.introduce-line {
+  @apply w-10 h-1 bg-red-200 bg-center mx-3 rounded-sm;
+}

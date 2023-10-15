@@ -1,0 +1,11 @@
+.invitation-main {
+  @apply bg-love-60 flex gap-10 w-full h-full p-10;
+}
+
+.invi-cake {
+  @apply bg-cake w-[400px] h-[400px] basis-1/4 bg-cover;
+}
+
+.invi-content {
+  @apply h-[400px] basis-3/4 bg-image_wedding_1 bg-cover bg-center;
+}

@@ -1,0 +1,8 @@
+.introduce-main {
+  @apply flex flex-row;
+}
+
+.introduce-two {
+  @apply bg-local md:bg-fixed bg-cover
+  bg-no-repeat bg-center bg-slate-600;
+}

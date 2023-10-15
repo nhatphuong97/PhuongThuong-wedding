@@ -5,13 +5,22 @@ import { NavLink } from "react-router-dom";
 import { color, motion, Variants } from "framer-motion";
 import logoHeader from "./../../img/savethedate_wh.gif";
 import airplane from "./../../img/airplane.png";
+import { HashLink as Link } from "react-router-hash-link";
 import CountDownTime from "../component/CountDownTime";
+import Introduce from "../component/Introduce";
+import "./style.scss";
+import Events from "../component/Events";
+import Invitation from "../component/invitation";
+
 HomePageWedding.propTypes = {};
 
 function HomePageWedding(props) {
   const [showMenu, setShowMenu] = useState(false);
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
+  const headerRef = useRef(null);
+  const introduceRef = useRef(null);
+  const events = useRef(null);
   useEffect(() => {
     console.log("show", showMenu);
   }, [showMenu]);
@@ -33,8 +42,6 @@ function HomePageWedding(props) {
     };
   }, []);
 
-  let lastScrollY = 0;
-  // let ticking = false;
   window.addEventListener("scroll", function (e) {
     // lastScrollY = window.scrollY;
     // console.log(lastScrollY);
@@ -42,13 +49,6 @@ function HomePageWedding(props) {
   });
 
   const handleOutsideClick = (event) => {
-    // console.log("hahs", event.target !== buttonRef.current);
-    // console.log({
-    //   event: event.target,
-    //   buttonRef: buttonRef.current,
-    //   menuRef: menuRef.current,
-    //   showMenu: showMenu,
-    // });
     // console.log({
     //   1: menuRef.current,
     //   2: menuRef.current.contains(event.target),
@@ -68,15 +68,14 @@ function HomePageWedding(props) {
   // document.addEventListener("DOMContentLoaded", function () {
 
   // });
+  const handleScrollToHeader = () =>
+    headerRef?.current.scrollIntoView({ behavior: "smooth" });
 
+  //Event scroll Menu
   const scroll = () => {
     const elementToScroll = document.querySelector(".nav-show");
     const observer = new IntersectionObserver(
       (entries, observer) => {
-        // console.log("entries.intersectionRatio", entries.intersectionRatio);
-
-        // console.log({ 1: entries.intersectionRatio });
-
         entries.forEach((entry) => {
           console.log("nav", entry);
           console.log("nav", entries.intersectionRatio);
@@ -86,11 +85,11 @@ function HomePageWedding(props) {
           );
 
           if (entry.intersectionRatio === 1) {
-            entry.target.classList.remove("bg-blue-600");
-            entry.target.classList.add("bg-gray-200");
+            entry.target.classList.remove("isSticky");
+            entry.target.classList.add("isNotSticky");
           } else {
-            entry.target.classList.add("bg-blue-600");
-            entry.target.classList.remove("bg-gray-200");
+            entry.target.classList.add("isSticky");
+            entry.target.classList.remove("isNotSticky");
           }
         });
       },
@@ -106,9 +105,9 @@ function HomePageWedding(props) {
     <>
       {/* ref={scrollRef} style={{ overflow: "scroll" }} */}
       <div className="root static">
-        {/* <header className="py-6 fixed z-50 w-full"></header> */}
         <div
-          className="slider flex w-full relative lg:h-[700px]  md:h-[600px] h-[500px]  bg-[url('/src/img/DSC_4827.JPG')] bg-local md:bg-fixed bg-cover
+          ref={headerRef}
+          className="slider-top flex w-full relative lg:h-[700px]  md:h-[600px] h-[500px] bg-image-main bg-local md:bg-fixed bg-cover
                bg-no-repeat bg-center bg-slate-600 ] -z-10"
         >
           <div className="w-full h-full bg-black bg-opacity-30  flex flex-col justify-center ">
@@ -143,16 +142,17 @@ function HomePageWedding(props) {
         </div>
 
         {/* END background */}
-        <nav className="nav-show p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-300 py-3 sticky z-50 -top-1">
+        <nav className="nav-show p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-3 sticky z-50 -top-1">
           <motion.div
-            whileHover={{ color: "#4ddf87", scale: 1.2 }}
-            whileTap={{ scale: 0.9 }}
-            // animate={{ fontSize: 50 }}
-            initial="hidden"
-            whileInView="visible"
-            transition={{ duration: 0.2 }}
-            variants={showHideVar}
-            className="logo font-bold basis-2/6 text-black text-center text-xl lg:text-2xl font-mono cursor-pointer font-dosis"
+            // whileHover={{ color: "#F14F62", scale: 1.2 }}
+            // whileTap={{ scale: 0.9 }}
+            // // animate={{ fontSize: 50 }}
+            // initial="hidden"
+            // whileInView="visible"
+            // transition={{ duration: 0.2 }}
+            // variants={showHideVar}
+            className="logo font-bold basis-2/6 text-center text-xl lg:text-2xl font-mono cursor-pointer font-dosis"
+            onClick={handleScrollToHeader}
           >
             WeddingPages.
           </motion.div>
@@ -160,22 +160,25 @@ function HomePageWedding(props) {
             ref={menuRef}
             className={`${showMenu ? "flex" : "hidden"} tw-menu-item-show 
                 lg:flex lg:basis-3/6 font-cuprum font-bold lg:item-center transition-all duration-300
-                 gap-4 uppercase text-sm text-gray-500 lg:justify-cente animate-slide-down`}
+                 gap-4 uppercase text-sm lg:justify-cente animate-slide-down`}
           >
             <li className="tw-top-menu-item">
-              <NavLink to={""}>Introduce</NavLink>
+              <Link to={"#introduce"}>Introduce</Link>
             </li>
             <li className="tw-top-menu-item">
-              <NavLink to={""}>Moments</NavLink>
+              <Link to={"#invitation"}>Invitation</Link>
             </li>
             <li className="tw-top-menu-item">
-              <NavLink to={""}>Album</NavLink>
+              <Link to={"#moments"}>Moments</Link>
             </li>
             <li className="tw-top-menu-item">
-              <NavLink to={""}>Events</NavLink>
+              <Link to={"#album"}>Album</Link>
             </li>
             <li className="tw-top-menu-item">
-              <NavLink to={""}>Send Love</NavLink>
+              <Link to={"#events"}>Events</Link>
+            </li>
+            <li className="tw-top-menu-item">
+              <Link to={"#send-love"}>Send Love</Link>
             </li>
           </ul>
           {/* DIV Giỏ Hàng <ul className="basis-3/6 lg:basis-1/6 flex flex-row justify-end  font-medium ml-5 relative text-gray-500 ">
@@ -222,7 +225,7 @@ function HomePageWedding(props) {
             />
           </div>
         </nav>
-        <div className="content-wrapper max-w-screen-2xl mx-auto px-8  text-base bg-slate-200 relative">
+        <div className="content-wrapper text-base relative">
           <main>
             {/* <motion.div
               initial={{ opacity: 0, tra: 20 }}
@@ -232,7 +235,7 @@ function HomePageWedding(props) {
             >
               <div className="w-full h-full bg-black bg-opacity-30"></div>
             </motion.div> */}
-            <div className="test-motion">
+            {/* <div className="test-motion">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -269,13 +272,27 @@ function HomePageWedding(props) {
               >
                 Events & Parties
               </motion.div>
+            </div> */}
+
+            <div id="invitation" className="tw-invitation  mx-auto ">
+              <Invitation />
             </div>
-            <div className="story flex h-[1000px]">story</div>
-            <div className="featured-mugs">featured-mugs</div>
-            <div className="more-product">more-product</div>
-            <div className="coffe-magazines">coffe-magazines</div>
-            <div className="livestyle-stories">livestyle-stories</div>
-            <div className="subscribes">subscribes</div>
+            <div id="introduce" className="tw-introduce my-10 mx-auto">
+              <Introduce ref={introduceRef} />
+            </div>
+
+            <div id="moments" className="tw-moments flex h-[1000px]">
+              Moment
+            </div>
+            <div id="album" className="tw-album flex h-[1000px]">
+              Album
+            </div>
+            <div id="events" className="tw-events flex h-[1000px]">
+              <Events ref={events} />
+            </div>
+            <div id="send-love" className="tw-send-love flex h-[1000px]">
+              Send love
+            </div>
           </main>
           <footer>footer</footer>
         </div>

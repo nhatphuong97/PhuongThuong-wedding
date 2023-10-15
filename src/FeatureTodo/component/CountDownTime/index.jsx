@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { color, motion, Variants } from "framer-motion";
+import { date } from "../../constant/constant";
 
 CountDownTime.propTypes = {
   listData: PropTypes.number,
@@ -8,7 +9,7 @@ CountDownTime.propTypes = {
 };
 
 function CountDownTime(props) {
-  const [expiryTime, setExpiryTime] = useState("6 jan 2024 12:00:00");
+  const [expiryTime, setExpiryTime] = useState(date);
   const [countDownDayTime, setCountDownDateTime] = useState({
     countdownDays: "0",
     countdownHours: "0",
