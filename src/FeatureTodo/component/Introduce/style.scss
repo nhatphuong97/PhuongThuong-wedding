@@ -8,11 +8,11 @@
 }
 
 .introduce-image {
-  @apply bg-red-100 bg-cover w-[300px] h-[300px] sm:h-[350px]  sm:w-[350px] mx-auto md:h-[400px]  md:w-[400px] rounded-full bg-center shadow-md shadow-love-20;
+  @apply bg-red-100 bg-cover w-[300px] h-[300px] sm:h-[350px]  sm:w-[350px] mx-auto  rounded-full bg-center shadow-md shadow-love-20;
 }
 
 .introduce-info {
-  @apply w-[300px] h-[300px] sm:h-[350px]  sm:w-[350px] mx-auto md:h-[400px]  md:w-[400px] flex bg-love-20 flex-col justify-center  overflow-x-hidden;
+  @apply w-[300px] h-[300px] sm:h-[350px]  sm:w-[350px] mx-auto  flex bg-love-20 flex-col justify-center  overflow-x-hidden;
 }
 
 .introduce-name {

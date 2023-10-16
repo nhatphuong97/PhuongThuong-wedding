@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { button } from "@material-tailwind/react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Route } from "react-router-dom";
 import { color, motion, Variants } from "framer-motion";
 import logoHeader from "./../../img/savethedate_wh.gif";
 import airplane from "./../../img/airplane.png";
-import { HashLink as Link } from "react-router-hash-link";
+import { Link, animateScroll as scroll, scroller } from "react-scroll";
+
+// import { HashLink as Link } from "react-router-hash-link";
 import CountDownTime from "../component/CountDownTime";
 import Introduce from "../component/Introduce";
 import "./style.scss";
@@ -35,7 +37,7 @@ function HomePageWedding(props) {
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
     console.log({ "1 chạy": "1" });
-    scroll();
+    scrollMenu();
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
       console.log({ "2 chạy": "2" });
@@ -68,11 +70,16 @@ function HomePageWedding(props) {
   // document.addEventListener("DOMContentLoaded", function () {
 
   // });
-  const handleScrollToHeader = () =>
-    headerRef?.current.scrollIntoView({ behavior: "smooth" });
+  const handleScrollToHeader = () => scroll.scrollToTop();
+  // const handleScrollToHeader = () =>
+  //   window.scroll({
+  //     top: 0,
+  //     left: 0,
+  //     behavior: "smooth",
+  //   });
 
   //Event scroll Menu
-  const scroll = () => {
+  const scrollMenu = () => {
     const elementToScroll = document.querySelector(".nav-show");
     const observer = new IntersectionObserver(
       (entries, observer) => {
@@ -104,7 +111,7 @@ function HomePageWedding(props) {
   return (
     <>
       {/* ref={scrollRef} style={{ overflow: "scroll" }} */}
-      <div className="root static">
+      <div className="root">
         <div
           ref={headerRef}
           className="slider-top flex w-full relative lg:h-[700px]  md:h-[600px] h-[500px] bg-image-main bg-local md:bg-fixed bg-cover
@@ -163,22 +170,95 @@ function HomePageWedding(props) {
                  gap-4 uppercase text-sm lg:justify-cente animate-slide-down`}
           >
             <li className="tw-top-menu-item">
-              <Link to={"#introduce"}>Introduce</Link>
+              <Link
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={400}
+                // delay={1000}
+                isDynamic={true}
+                to={"tw-invitation"}
+              >
+                Invitation
+              </Link>
+            </li>
+            <NavLink
+              style={({ isActive }) => {
+                return isActive ? { color: "red" } : {};
+              }}
+              onClick={() =>
+                scroller.scrollTo("introduce", {
+                  smooth: true,
+                  offset: -70,
+                  duration: 500,
+                })
+              }
+            >
+              Home
+            </NavLink>
+
+            <li className="tw-top-menu-item">
+              <Link
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={400}
+                // delay={1000}
+                isDynamic={true}
+                to={"tw-introduce"}
+              >
+                Introduce
+              </Link>
+            </li>
+
+            <li className="tw-top-menu-item">
+              <Link
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={400}
+                // delay={1000}
+                isDynamic={true}
+                to={"tw-moments"}
+              >
+                Moments
+              </Link>
             </li>
             <li className="tw-top-menu-item">
-              <Link to={"#invitation"}>Invitation</Link>
+              <Link
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={400}
+                isDynamic={true}
+                to={"tw-album"}
+              >
+                Album
+              </Link>
             </li>
             <li className="tw-top-menu-item">
-              <Link to={"#moments"}>Moments</Link>
+              <Link
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={400}
+                isDynamic={true}
+                to={"tw-events"}
+              >
+                Events
+              </Link>
             </li>
             <li className="tw-top-menu-item">
-              <Link to={"#album"}>Album</Link>
-            </li>
-            <li className="tw-top-menu-item">
-              <Link to={"#events"}>Events</Link>
-            </li>
-            <li className="tw-top-menu-item">
-              <Link to={"#send-love"}>Send Love</Link>
+              <Link
+                spy={true}
+                smooth={true}
+                offset={-50}
+                duration={400}
+                isDynamic={true}
+                to={"tw-send-love"}
+              >
+                Send Love
+              </Link>
             </li>
           </ul>
           {/* DIV Giỏ Hàng <ul className="basis-3/6 lg:basis-1/6 flex flex-row justify-end  font-medium ml-5 relative text-gray-500 ">
@@ -231,7 +311,7 @@ function HomePageWedding(props) {
               initial={{ opacity: 0, tra: 20 }}
               whileInView={{ opacity: 1, position: 200 }}
               transition={{ duration: 0.4 }}
-              className="slider flex-row relative flex h-[600px] bg-[url('/src/img/DSC_4827.JPG')] items-center bg-cover bg-no-repeat bg-center bg-slate-600 animate-slide-down "
+              className="slider flex-row relative flex h-[600px] bg-[url('/src/img/DSC_4827.webp')] items-center bg-cover bg-no-repeat bg-center bg-slate-600 animate-slide-down "
             >
               <div className="w-full h-full bg-black bg-opacity-30"></div>
             </motion.div> */}

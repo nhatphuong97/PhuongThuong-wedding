@@ -27,7 +27,7 @@ const Introduce = (props, ref) => {
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
+          transition={{ duration: 1 }}
           className="introduce-image flex overflow-hidden"
         >
           <div className="introduce-image-vochong bg-image-chong"></div>
@@ -52,7 +52,7 @@ const Introduce = (props, ref) => {
         <motion.div
           initial={{ opacity: 0, x: 50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7, delay: 0.6 }}
+          transition={{ duration: 1 }}
           className="introduce-image flex overflow-hidden"
         >
           <div className="bg-image-vo introduce-image-vochong"></div>

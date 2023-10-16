@@ -8,9 +8,10 @@ import { BrowserRouter, HashRouter } from "react-router-dom";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <HashRouter basename="/PhuongThuong-wedding">
+    <HashRouter>
       <App />
     </HashRouter>
+    {/* basename="/PhuongThuong-wedding" */}
   </React.StrictMode>
 );
 

@@ -61,7 +61,21 @@
   .tw-dinhamroi-banoi {
     @apply h-[100vh] w-full bg-red-200 text-2xl font-dosis text-center relative flex flex-col justify-center items-center;
   }
-  html {
+  /* *,html {
     @apply scroll-smooth scroll-pt-10;
+  } */
+  /* html:focus-within {
+  scroll-behavior: auto | smooth;
+} 
+  .root{
+    @apply scroll-smooth scroll-pt-10
+  } */
+
+  html {
+    @apply scroll-smooth;
   }
+
+  /* .root {
+    @apply scroll-smooth;
+  } */
 }

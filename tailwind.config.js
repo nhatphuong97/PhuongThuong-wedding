@@ -29,7 +29,7 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "image-main": "url('/src/img/DSC_4827.JPG')",
+        "image-main": "url('/src/img/DSC_4827.webp')",
         "image-one": "url('/src/img/IMG_3843.jpg')",
         "image-vo": "url('/src/img/vo.png')",
         "image-chong": "url('/src/img/chong.png')",

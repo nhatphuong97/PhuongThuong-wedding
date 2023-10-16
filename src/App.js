@@ -4,6 +4,8 @@ import { Routes, Route, Navigate, Link, NavLink } from "react-router-dom";
 import NotFound from "./FeatureTodo/component/NotFound";
 import HomePage from "./FeatureTodo/HomePage";
 import { Switch } from "@material-tailwind/react";
+import Introduce from "./FeatureTodo/component/Introduce";
+import LandingPage from "./FeatureTodo/component/Demo";
 
 function App() {
   return (
@@ -35,6 +37,9 @@ function App() {
         <Route path="/register" element={<Navigate to="/" replace />} />
 
         <Route path="/" element={<HomePage />} exact />
+        <Route path="/demo" element={<LandingPage />} exact />
+
+        <Route path="/introduce" element={<Introduce />} exact />
         {/* <Route path="todo-list" element={<PageTest />}>
           <Route path="pages" element={<ListPage />} />
           <Route path={"detail/:detailId"} element={<PageDetail />} />
