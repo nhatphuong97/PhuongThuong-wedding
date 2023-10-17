@@ -12,11 +12,11 @@
 }
 
 .introduce-info {
-  @apply w-[300px] h-[300px] sm:h-[350px]  sm:w-[350px] mx-auto  flex bg-white flex-col justify-center  overflow-x-hidden;
+  @apply w-[300px] h-[300px] sm:h-[350px]  sm:w-[350px] mx-auto  flex bg-red-200 flex-col justify-center  overflow-x-hidden;
 }
 
 .introduce-name {
-  @apply text-red-400 text-4xl text-center p-2 font-dancing font-bold;
+  @apply text-white text-4xl text-center p-2 font-dancing font-bold;
 }
 
 .introduce-description {

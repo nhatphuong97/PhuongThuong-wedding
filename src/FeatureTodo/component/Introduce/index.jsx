@@ -22,7 +22,7 @@ const Introduce = (props, ref) => {
         <div className="introduce-line"></div>
         <div className="title bg-heading-tile w-20 bg-origin-border border-spacing-3 h-20 flex bg-contain bg-no-repeat">
           {" "}
-          Đám cưới hả Bà Zà
+          {/* Đám cưới hả Bà Zà */}
         </div>
         <div className="introduce-line"></div>
       </motion.div>

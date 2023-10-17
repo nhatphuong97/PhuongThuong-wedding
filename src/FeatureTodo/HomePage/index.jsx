@@ -2,7 +2,13 @@ import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { button } from "@material-tailwind/react";
 import { NavLink, Route } from "react-router-dom";
-import { color, motion, Variants } from "framer-motion";
+import {
+  color,
+  motion,
+  useScroll,
+  useTransform,
+  Variants,
+} from "framer-motion";
 import logoHeader from "./../../img/savethedate_wh.gif";
 import airplane from "./../../img/airplane.png";
 import { Link, animateScroll as scroll, scroller } from "react-scroll";
@@ -23,12 +29,20 @@ function HomePageWedding(props) {
   const headerRef = useRef(null);
   const introduceRef = useRef(null);
   const events = useRef(null);
+  const divElementRef = useRef(null);
   useEffect(() => {
     console.log("show", showMenu);
   }, [showMenu]);
   const displayResponsiveMenu = () => {
     setShowMenu(!showMenu);
   };
+  const { scrollYProgress } = useScroll({
+    target: { divElementRef },
+    offset: ["0 1", "1.33 1"],
+  });
+
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
 
   const showHideVar = {
     visible: { opacity: 1 },
@@ -106,6 +120,8 @@ function HomePageWedding(props) {
     observer.observe(elementToScroll);
   };
 
+  //Animation transform
+
   // scroll();
   // const addClassName
   return (
@@ -171,7 +187,6 @@ function HomePageWedding(props) {
           >
             <li className="tw-top-menu-item">
               <Link
-                spy={true}
                 smooth={true}
                 offset={-50}
                 duration={400}
@@ -305,9 +320,15 @@ function HomePageWedding(props) {
             />
           </div>
         </nav>
-        <div className="content-wrapper text-base relative">
-          <main>
-            {/* <motion.div
+        <motion.div
+          // ref={divElementRef}
+          // style={{
+          //   // scale: scaleProgress,
+          //   opacity: opacityProgress,
+          // }}
+          className="content-wrapper text-base relative"
+        >
+          {/* <motion.div
               initial={{ opacity: 0, tra: 20 }}
               whileInView={{ opacity: 1, position: 200 }}
               transition={{ duration: 0.4 }}
@@ -315,7 +336,7 @@ function HomePageWedding(props) {
             >
               <div className="w-full h-full bg-black bg-opacity-30"></div>
             </motion.div> */}
-            {/* <div className="test-motion">
+          {/* <div className="test-motion">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -354,28 +375,27 @@ function HomePageWedding(props) {
               </motion.div>
             </div> */}
 
-            <div id="invitation" className="tw-invitation  mx-auto ">
-              <Invitation />
-            </div>
-            <div id="introduce" className="tw-introduce my-10 mx-auto">
-              <Introduce ref={introduceRef} />
-            </div>
+          <div id="invitation" className="tw-invitation  mx-auto ">
+            <Invitation />
+          </div>
+          <div id="introduce" className="tw-introduce my-10 mx-auto">
+            <Introduce ref={introduceRef} />
+          </div>
 
-            <div id="moments" className="tw-moments flex h-[1000px]">
-              Moment
-            </div>
-            <div id="album" className="tw-album flex h-[1000px]">
-              Album
-            </div>
-            <div id="events" className="tw-events flex h-[1000px]">
-              <Events ref={events} />
-            </div>
-            <div id="send-love" className="tw-send-love flex h-[1000px]">
-              Send love
-            </div>
-          </main>
+          <div id="moments" className="tw-moments flex h-[1000px]">
+            Moment
+          </div>
+          <div id="album" className="tw-album flex h-[1000px]">
+            Album
+          </div>
+          <div id="events" className="tw-events flex h-[1000px]">
+            <Events ref={events} />
+          </div>
+          <div id="send-love" className="tw-send-love flex h-[1000px]">
+            Send love
+          </div>
           <footer>footer</footer>
-        </div>
+        </motion.div>
       </div>
     </>
   );
