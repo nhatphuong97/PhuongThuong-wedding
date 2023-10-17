@@ -1,10 +1,13 @@
 import React from "react";
 import { useEffect } from "react";
 import { HashLink as Link } from "react-router-hash-link";
+import { useLocation } from "react-router-dom";
 
-const LandingPage = ({ location }) => {
+const LandingPage = ({ props }) => {
+  const { pathname, hash, key } = useLocation();
+  console.log("hihi", { pathname: pathname, hash: hash, key: key });
   useEffect(() => {
-    const element = document.getElementById(location);
+    const element = document.getElementById(hash);
     console.log(element);
     setTimeout(() => {
       window.scrollTo({
@@ -12,19 +15,19 @@ const LandingPage = ({ location }) => {
         top: element ? element.offsetTop : 0,
       });
     }, 100);
-  }, [location]);
+  }, [hash]);
   return (
     <>
       <nav>
-        <Link smooth={true} to="#services">
+        <Link smooth={true} to="#about">
           About
         </Link>
 
-        <Link smooth to="/#services">
+        <Link smooth to="#profile">
           Profile
         </Link>
 
-        <Link smooth to="/#testimonial">
+        <Link smooth to="#services">
           Services
         </Link>
       </nav>
@@ -56,7 +59,7 @@ const LandingPage = ({ location }) => {
         </p>
       </section>
 
-      <section id="services">
+      <section id="#services">
         <h1> Services </h1>
         <p>
           Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero, nam!

@@ -20,7 +20,10 @@ const Introduce = (props, ref) => {
         className="introduce-title flex flex-row items-center"
       >
         <div className="introduce-line"></div>
-        <div className="title"> Cô dâu & Chú rể</div>
+        <div className="title bg-heading-tile w-20 bg-origin-border border-spacing-3 h-20 flex bg-contain bg-no-repeat">
+          {" "}
+          Đám cưới hả Bà Zà
+        </div>
         <div className="introduce-line"></div>
       </motion.div>
       <div className=" grid md:grid-cols-2 grid-cols-1 grid-flow-row gap-2 transition-all duration-200">

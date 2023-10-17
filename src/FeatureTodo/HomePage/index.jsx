@@ -182,7 +182,7 @@ function HomePageWedding(props) {
                 Invitation
               </Link>
             </li>
-            <NavLink
+            {/* <NavLink
               style={({ isActive }) => {
                 return isActive ? { color: "red" } : {};
               }}
@@ -195,7 +195,7 @@ function HomePageWedding(props) {
               }
             >
               Home
-            </NavLink>
+            </NavLink> */}
 
             <li className="tw-top-menu-item">
               <Link

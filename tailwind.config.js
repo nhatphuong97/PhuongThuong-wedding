@@ -33,6 +33,7 @@ module.exports = {
         "image-one": "url('/src/img/IMG_3843.jpg')",
         "image-vo": "url('/src/img/vo.png')",
         "image-chong": "url('/src/img/chong.png')",
+        "heading-tile": "url('/src/img/heading.webp')",
         cake: "url('/src/img/cake.webp')",
         image_wedding_1: "url('/src/img/anh_cuoi_1.webp')",
       },

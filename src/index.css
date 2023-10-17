@@ -40,10 +40,10 @@
     @apply text-2xl md:text-3xl lg:text-5xl text-white mx-4 font-dancing tracking-wider text-center;
   }
   .tw-count-down-time-block-item {
-    @apply w-20 h-20 mx-3 bg-red-300 bg-opacity-30 border border-b-2 flex flex-col border-white border-spacing-4 rounded-md;
+    @apply w-20 h-20 mx-3  bg-opacity-30 border border-b-2 flex flex-col border-white border-spacing-4 rounded-md;
   }
   .tw-text-item {
-    @apply text-xl py-1 bg-white w-full font-cuprum text-love-40 rounded-b-md;
+    @apply text-xl py-1 bg-white w-full font-cuprum text-red-300 rounded-b-md;
   }
 
   .tw-number-item {
