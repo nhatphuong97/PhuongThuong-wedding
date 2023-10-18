@@ -11,7 +11,7 @@ function Invitation(props) {
         {/* <div className="invi-cake"></div> */}
         <div className="invi-content">
           <div className="bg h-full w-2/4"></div>
-          <div className=" h-full w-1/4">
+          <div className=" h-full w-1/4 flex">
             <Calendar />
           </div>
           <div
