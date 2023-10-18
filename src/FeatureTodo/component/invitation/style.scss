@@ -1,5 +1,5 @@
 .invitation-main {
-  @apply bg-love-60 flex gap-10 w-full h-full p-10;
+  @apply bg-love-60 flex gap-10 w-full h-full pt-32 items-center;
 }
 
 .invi-cake {
@@ -7,5 +7,5 @@
 }
 
 .invi-content {
-  @apply h-[400px] basis-3/4 bg-slate-50 bg-cover bg-center;
+  @apply h-[400px] w-full   bg-cover bg-center flex flex-row justify-between relative;
 }

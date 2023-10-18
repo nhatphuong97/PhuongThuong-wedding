@@ -378,7 +378,7 @@ function HomePageWedding(props) {
           <div id="invitation" className="tw-invitation  mx-auto ">
             <Invitation />
           </div>
-          <div id="introduce" className="tw-introduce my-10 mx-auto">
+          <div id="introduce" className="tw-introduce mt-44 mx-auto">
             <Introduce ref={introduceRef} />
           </div>
 

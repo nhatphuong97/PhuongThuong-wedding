@@ -35,6 +35,7 @@ module.exports = {
         "image-chong": "url('/src/img/chong.png')",
         "heading-tile": "url('/src/img/heading.webp')",
         cake: "url('/src/img/cake.webp')",
+        invitation: "url('/src/img/invitation-bg.jpg')",
         image_wedding_1: "url('/src/img/anh_cuoi_1.webp')",
       },
       colors: {
