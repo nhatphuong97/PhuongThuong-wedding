@@ -31,7 +31,7 @@ function Invitation(props) {
               opacity: 1,
             }}
             transition={{
-              duration: 0.7,
+              duration: 1,
               // delay: 0.3,
               // ease: [0.5, 0.71, 1, 1.5],
             }}
