@@ -10,14 +10,14 @@ const Introduce = (props, ref) => {
   return (
     <div
       ref={itemRef}
-      className="w-full h-full flex flex-col justify-center items-center "
+      className="w-full h-full flex flex-col justify-center items-center"
     >
       {/* <div className="introduce-main mx-auto justify-center my-auto relative"> */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="introduce-title flex flex-row items-center"
+        className="introduce-title flex flex-row items-center  pb-20"
       >
         <div className="introduce-line"></div>
         <div className="title bg-heading-tile w-20 bg-origin-border border-spacing-3 h-20 flex bg-contain bg-no-repeat">
@@ -31,7 +31,7 @@ const Introduce = (props, ref) => {
           initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
-          className="introduce-image flex overflow-hidden"
+          className="introduce-image flex overflow-hidden "
         >
           <div className="introduce-image-vochong bg-image-chong"></div>
         </motion.div>
