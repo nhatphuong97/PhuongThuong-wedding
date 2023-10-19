@@ -375,7 +375,7 @@ function HomePageWedding(props) {
               </motion.div>
             </div> */}
 
-          <div id="invitation" className="tw-invitation  mx-auto ">
+          <div id="invitation" className="tw-invitation  mx-auto">
             <Invitation />
           </div>
           <div id="introduce" className="tw-introduce mt-44 mx-auto">
