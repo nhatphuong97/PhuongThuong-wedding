@@ -2,6 +2,7 @@ import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
 import "./style.scss";
 import { color, motion, Variants } from "framer-motion";
+import logo from "../../../img/damcuiha.png";
 
 const Introduce = (props, ref) => {
   //phần phía trên test ref
@@ -17,13 +18,26 @@ const Introduce = (props, ref) => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="introduce-title flex flex-row items-center  pb-20"
+        className="introduce-title relative flex flex-row justify-center items-center w-full pb-20"
       >
         <div className="introduce-line"></div>
-        <div className="title bg-heading-tile w-20 bg-origin-border border-spacing-3 h-20 flex bg-contain bg-no-repeat">
-          {" "}
-          {/* Đám cưới hả Bà Zà */}
-        </div>
+        <div className="title  bg-heading-tile w-20 bg-origin-border border-spacing-3 h-20 flex bg-contain bg-no-repeat"></div>
+        <motion.div className="absolute bottom-10 ms-32 w-40 h-auto text-white bg-red-300 text-lg rounded-lg px-2 ">
+          {/* Đám cưới hả bà Zà */}
+          {/* <motion.div
+            animate={{
+              // y: [0, 50, 0, 50, 0],
+              opacity: 1,
+            }}
+            transition={{ repeat: Infinity, duration: 1 }}
+            initial={{ opacity: 0 }}
+            src={logo}
+            alt=""
+          >
+            Đám cưới hả bà Zà
+          </motion.div> */}
+        </motion.div>
+
         <div className="introduce-line"></div>
       </motion.div>
       <div className=" grid md:grid-cols-2 grid-cols-1 grid-flow-row gap-2 transition-all duration-200">

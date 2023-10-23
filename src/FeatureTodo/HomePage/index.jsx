@@ -379,7 +379,14 @@ function HomePageWedding(props) {
             <Invitation />
           </div>
           <div className="devide h-[200px]"></div>
-          <div id="introduce" className="tw-introduce mt-44 mx-auto">
+          <div className=" font-dancing text-red-400 ps-20 text-xl pt-5 text-center tracking-normal ">
+            <p>
+              Hạnh phúc nhất không phải giây phút được cùng nhau nắm tay bước
+              đến lễ đường
+            </p>
+            <p> Mà là giữ mãi nụ cười ấy theo năm tháng.</p>
+          </div>
+          <div id="introduce" className="tw-introduce mt-20 mx-auto">
             <Introduce ref={introduceRef} />
           </div>
 
