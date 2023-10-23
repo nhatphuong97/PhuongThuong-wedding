@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import PropTypes from "prop-types";
 import { button } from "@material-tailwind/react";
 import { NavLink, Route } from "react-router-dom";
+import song from "../constant/song";
 import {
   color,
   motion,
@@ -19,6 +20,7 @@ import Introduce from "../component/Introduce";
 import "./style.scss";
 import Events from "../component/Events";
 import Invitation from "../component/invitation";
+import LoveSongMain from "../component/LoveSong";
 
 HomePageWedding.propTypes = {};
 
@@ -398,6 +400,9 @@ function HomePageWedding(props) {
           </div>
           <div id="events" className="tw-events flex h-[1000px]">
             <Events ref={events} />
+          </div>
+          <div id="events" className="tw-events flex h-[1000px]">
+            <LoveSongMain tracks={song} />
           </div>
           <div id="send-love" className="tw-send-love flex h-[1000px]">
             Send love

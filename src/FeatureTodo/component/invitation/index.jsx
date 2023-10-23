@@ -33,7 +33,12 @@ function Invitation(props) {
               <div className="text-lg text-red-400 font-cuprum">
                 Saturday 6 Jan. 2024
               </div>
-              <div className="bg-white w-[200px] h-[3px] rounded-md text-white font-vollkorn mt-5"></div>
+              <motion.div
+                initial={{ width: 0 }}
+                animate={{ width: "300px" }}
+                transition={{ duration: 1.5 }}
+                className="bg-white w-[200px] h-[3px] rounded-md text-white font-vollkorn mt-5"
+              ></motion.div>
 
               <div className="text-2xl tracking-[.35em] uppercase text-white font-vollkorn pt-5">
                 For You Restaurant
