@@ -62,8 +62,8 @@ const listDate5 = [
 function Calendar(props) {
   return (
     <div className="items-center justify-center flex">
-      <table class="w-max text-sm text-left block table-auto font-cuprum">
-        <thead class="text-base text-red-500">
+      <table className="w-max text-sm text-left block table-auto font-cuprum">
+        <thead className="text-base text-red-500">
           <tr>
             {/* <th scope="col" class="px-6 py-3">
               Product name
@@ -78,7 +78,11 @@ function Calendar(props) {
               Price
             </th> */}
             {listTitle.map((value, i) => (
-              <th scope="col" class="px-2 py-3" key={i}>
+              <th
+                scope="col"
+                className="px-2 py-3"
+                key={`listTitle ${value.key}`}
+              >
                 {value.key}
               </th>
             ))}
@@ -89,9 +93,10 @@ function Calendar(props) {
             {listDate1.map((value, i) => (
               <th
                 scope="row"
-                class={`px-2 text-center ${
+                className={`px-2 text-center ${
                   i === 6 ? "bg-white rounded-lg text-red-400" : ""
                 } `}
+                key={`listDate1 ${value.key}`}
               >
                 {value.key}
               </th>
@@ -99,28 +104,44 @@ function Calendar(props) {
           </tr>
           <tr>
             {listDate2.map((value, i) => (
-              <th scope="row" class="px-2 text-center">
+              <th
+                scope="row"
+                className="px-2 text-center"
+                key={`listDate2 ${value.key}`}
+              >
                 {value.key}
               </th>
             ))}
           </tr>
           <tr>
             {listDate3.map((value, i) => (
-              <th scope="row" class="px-2 text-center">
+              <th
+                scope="row"
+                className="px-2 text-center"
+                key={`listDate3 ${value.key}`}
+              >
                 {value.key}
               </th>
             ))}
           </tr>
           <tr>
             {listDate4.map((value, i) => (
-              <th scope="row" class="px-2 text-center">
+              <th
+                scope="row"
+                className="px-2 text-center"
+                key={`listDate4 ${value.key}`}
+              >
                 {value.key}
               </th>
             ))}
           </tr>
           <tr>
             {listDate5.map((value, i) => (
-              <th scope="row" class="px-2 text-center">
+              <th
+                scope="row"
+                className="px-2 text-center"
+                key={`listDate5 ${value.key}`}
+              >
                 {value.key}
               </th>
             ))}

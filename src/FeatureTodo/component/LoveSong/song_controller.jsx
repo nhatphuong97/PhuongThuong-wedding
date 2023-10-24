@@ -13,21 +13,21 @@ function TracksController({
 }) {
   return (
     <div className="flex flex-row gap-10 mx-6 w-[100px] h-auto">
-      <button>
+      <div onClick={toPrevSong}>
         <Prev />
-      </button>
+      </div>
       {!isPlaying ? (
-        <button onClick={() => onPlayPauseClick(true)}>
+        <div onClick={() => onPlayPauseClick(true)}>
           <Play />
-        </button>
+        </div>
       ) : (
-        <button onClick={() => onPlayPauseClick(false)}>
+        <div onClick={() => onPlayPauseClick(false)}>
           <Pause />
-        </button>
+        </div>
       )}
-      <button>
+      <div onClick={toNextSong}>
         <Next />
-      </button>
+      </div>
     </div>
   );
 }

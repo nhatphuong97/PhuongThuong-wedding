@@ -6,6 +6,7 @@ import HomePage from "./FeatureTodo/HomePage";
 import { Switch } from "@material-tailwind/react";
 import Introduce from "./FeatureTodo/component/Introduce";
 import LandingPage from "./FeatureTodo/component/Demo";
+import LoveSongMain from "./FeatureTodo/component/LoveSong";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
         <Route path="/demo" element={<LandingPage />} exact />
 
         <Route path="/introduce" element={<Introduce />} exact />
+        <Route path="/test-song" element={<LoveSongMain />} exact />
         {/* <Route path="todo-list" element={<PageTest />}>
           <Route path="pages" element={<ListPage />} />
           <Route path={"detail/:detailId"} element={<PageDetail />} />

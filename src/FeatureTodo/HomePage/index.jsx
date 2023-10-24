@@ -269,6 +269,18 @@ function HomePageWedding(props) {
               <Link
                 spy={true}
                 smooth={true}
+                offset={-100}
+                duration={400}
+                isDynamic={true}
+                to={"tw-love-song"}
+              >
+                Love Song
+              </Link>
+            </li>
+            <li className="tw-top-menu-item">
+              <Link
+                spy={true}
+                smooth={true}
                 offset={-50}
                 duration={400}
                 isDynamic={true}
@@ -401,7 +413,7 @@ function HomePageWedding(props) {
           <div id="events" className="tw-events flex h-[1000px]">
             <Events ref={events} />
           </div>
-          <div id="events" className="tw-events flex h-[1000px]">
+          <div id="love-song" className="tw-love-song flex h-[1000px]">
             <LoveSongMain tracks={song} />
           </div>
           <div id="send-love" className="tw-send-love flex h-[1000px]">
