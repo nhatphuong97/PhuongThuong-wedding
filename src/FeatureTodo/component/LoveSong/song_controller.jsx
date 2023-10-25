@@ -3,6 +3,7 @@ import { ReactComponent as Play } from "../../../icon/play.svg";
 import { ReactComponent as Pause } from "../../../icon/pause.svg";
 import { ReactComponent as Next } from "../../../icon/next.svg";
 import { ReactComponent as Prev } from "../../../icon/prev.svg";
+import "./style.scss";
 TracksController.propTypes = {};
 
 function TracksController({
@@ -13,9 +14,9 @@ function TracksController({
 }) {
   return (
     <div className="flex flex-row gap-10 mx-6 w-[100px] h-auto">
-      <div onClick={toPrevSong}>
+      <span class="icon_music" onClick={toPrevSong}>
         <Prev />
-      </div>
+      </span>
       {!isPlaying ? (
         <div onClick={() => onPlayPauseClick(true)}>
           <Play />
