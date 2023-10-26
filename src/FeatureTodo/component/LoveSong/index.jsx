@@ -125,14 +125,14 @@ function LoveSongMain({ tracks }) {
         </div>
       </div>
       <div className="bg-red-200 relative">
-        <div className="div-right  flex flex-col relative -top-[70px] left-[20%]">
+        <div className="div-right absolute flex flex-col  -top-[70px] left-[20%]">
           <div className="w-[350px] h-auto -pt-[20%] ">
             <img src={imageFire} alt="" />
           </div>
           <div className="song_name mt-3 text-red-400 text-2xl font-playfair">
             {title}
           </div>
-          <div className="song_artist text-red-400 text-base font-playfair">
+          <div className="song_artist text-red-400 text-sm font-playfair">
             {artist}
           </div>
 
