@@ -25,8 +25,8 @@ function LoveSongMain({ tracks }) {
     ? `${(trackProgress / duration) * 100}%`
     : "0%";
   const trackStyling = `
-  -webkit-gradient(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #fff), color-stop(${currentPercentage}, #777))
-`;
+    -slider-thumb(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #fff), color-stop(${currentPercentage}, #777))
+  `;
 
   const startTimer = () => {
     // Clear any timers already running
@@ -48,6 +48,10 @@ function LoveSongMain({ tracks }) {
       setTrackIndex(trackIndex - 1);
     }
   };
+
+  useEffect(() => {
+    console.log(trackProgress);
+  }, [trackProgress]);
 
   const onScrub = (value) => {
     // Clear any timers already running
@@ -108,7 +112,7 @@ function LoveSongMain({ tracks }) {
   }, []);
   return (
     <div className="div-song-under grid grid-flow-col  grid-cols-2">
-      <div className="div-left bg-red-200 px-5 text-white">
+      <div className="div-left bg-red-200 px-5 text-white text-end">
         <div className="flex flex-col h-full justify-center align-middle">
           <div className="song-title ">Every Song Tells a Story.</div>
           <div className="song-content">
@@ -120,28 +124,47 @@ function LoveSongMain({ tracks }) {
           </div>
         </div>
       </div>
-      <div className="div-right bg-red-300 flex flex-col">
-        <div className="w-[300px] h-auto">
-          <img src={imageFire} alt="" />
+      <div className="bg-red-200 relative">
+        <div className="div-right  flex flex-col relative -top-[70px] left-[20%]">
+          <div className="w-[350px] h-auto -pt-[20%] ">
+            <img src={imageFire} alt="" />
+          </div>
+          <div className="song_name mt-3 text-red-400 text-2xl font-playfair">
+            {title}
+          </div>
+          <div className="song_artist text-red-400 text-base font-playfair">
+            {artist}
+          </div>
+
+          <div className="flex  w-[350px] mt-2 ">
+            <TracksController
+              isPlaying={isPlaying}
+              onPlayPauseClick={setIsPlaying}
+              toNextSong={toPrevTrack}
+              toPrevSong={toNextTrack}
+            />
+            <input
+              type="range"
+              value={trackProgress}
+              step="1"
+              min="0"
+              max={duration ? duration : `${duration}`}
+              className="w-full  bg-gray-200  cursor-pointer"
+              onChange={(e) => onScrub(e.target.value)}
+              onMouseUp={onScrubEnd}
+              onKeyUp={onScrubEnd}
+            />
+            {/* <div
+              class=" bg-white rounded-full  h-2.5 "
+              style={{ width: duration ? duration : `${duration}` }}
+            >
+              <div
+                class="bg-red-300 h-2.5 rounded-full"
+                style={{ width: trackProgress }}
+              ></div>
+            </div> */}
+          </div>
         </div>
-        <TracksController
-          isPlaying={isPlaying}
-          onPlayPauseClick={setIsPlaying}
-          toNextSong={toPrevTrack}
-          toPrevSong={toNextTrack}
-        />
-        <input
-          type="range"
-          value={trackProgress}
-          step="1"
-          min="0"
-          max={duration ? duration : `${duration}`}
-          className="progress"
-          onChange={(e) => onScrub(e.target.value)}
-          onMouseUp={onScrubEnd}
-          onKeyUp={onScrubEnd}
-          style={{ background: trackStyling }}
-        />
       </div>
     </div>
   );

@@ -12,6 +12,7 @@ module.exports = {
       swashed: ["Swashed", "cursive"],
       vollkorn: ["Vollkorn SC", "serif"],
       noto: ["Noto Serif", "serif"],
+      playfair: ["Playfair Display", "serif"],
     },
     screens: {
       sm: "640px",

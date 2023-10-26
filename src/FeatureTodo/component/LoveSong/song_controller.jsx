@@ -13,8 +13,8 @@ function TracksController({
   toPrevSong,
 }) {
   return (
-    <div className="flex flex-row gap-10 mx-6 w-[100px] h-auto">
-      <span class="icon_music" onClick={toPrevSong}>
+    <div className="flex flex-row gap-3 mr-2 w-max h-max justify-center ">
+      <span className="icon_music flex items-center " onClick={toPrevSong}>
         <Prev />
       </span>
       {!isPlaying ? (
@@ -26,9 +26,9 @@ function TracksController({
           <Pause />
         </div>
       )}
-      <div onClick={toNextSong}>
+      <span className="icon_music  flex items-center " onClick={toNextSong}>
         <Next />
-      </div>
+      </span>
     </div>
   );
 }
