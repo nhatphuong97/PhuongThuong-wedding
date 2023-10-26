@@ -1,2 +1,11 @@
-.icon_music {
+.div-song-under {
+  @apply w-full text-end my-20;
+}
+
+.song-title {
+  @apply tracking-wider text-red-400 text-4xl font-bold font-cuprum my-10;
+}
+
+.song-content {
+  @apply tracking-widest text-white text-xl font-dancing;
 }

@@ -392,7 +392,7 @@ function HomePageWedding(props) {
           <div id="invitation" className="tw-invitation  mx-auto">
             <Invitation />
           </div>
-          <div className="devide h-[200px]"></div>
+          <div className="devide h-[400px]"></div>
           <div className=" font-dancing text-red-400 ps-20 text-xl pt-5 text-center tracking-normal ">
             <p>
               Hạnh phúc nhất không phải giây phút được cùng nhau nắm tay bước
@@ -413,7 +413,9 @@ function HomePageWedding(props) {
           <div id="events" className="tw-events flex h-[1000px]">
             <Events ref={events} />
           </div>
-          <div id="love-song" className="tw-love-song flex h-[1000px]">
+          <div className="devide h-[200px]"></div>
+
+          <div id="love-song" className="tw-love-song flex h-[600px]">
             <LoveSongMain tracks={song} />
           </div>
           <div id="send-love" className="tw-send-love flex h-[1000px]">

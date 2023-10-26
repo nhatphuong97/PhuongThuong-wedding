@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import TracksController from "./song_controller";
 import song from "../../constant/song";
+import imageFire from "../../../img/fire.jpg";
 
 LoveSongMain.propTypes = {};
 
@@ -106,29 +107,42 @@ function LoveSongMain({ tracks }) {
     };
   }, []);
   return (
-    <div>
-      {title}
-      {audioSrc}
-      {artist}
-      <TracksController
-        isPlaying={isPlaying}
-        onPlayPauseClick={setIsPlaying}
-        toNextSong={toPrevTrack}
-        toPrevSong={toNextTrack}
-      />
-
-      <input
-        type="range"
-        value={trackProgress}
-        step="1"
-        min="0"
-        max={duration ? duration : `${duration}`}
-        className="progress"
-        onChange={(e) => onScrub(e.target.value)}
-        onMouseUp={onScrubEnd}
-        onKeyUp={onScrubEnd}
-        style={{ background: trackStyling }}
-      />
+    <div className="div-song-under grid grid-flow-col  grid-cols-2">
+      <div className="div-left bg-red-200 px-5 text-white">
+        <div className="flex flex-col h-full justify-center align-middle">
+          <div className="song-title ">Every Song Tells a Story.</div>
+          <div className="song-content">
+            <p>Âm nhạc chạm đến được tâm hồn,</p>
+            <p>Giúp bạn cảm thông được với những thứ mà không thể nói ra</p>
+            <p>
+              Và khi những giai điệu vang lên làm bạn nhớ đến một nửa của mình..
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="div-right bg-red-300 flex flex-col">
+        <div className="w-[300px] h-auto">
+          <img src={imageFire} alt="" />
+        </div>
+        <TracksController
+          isPlaying={isPlaying}
+          onPlayPauseClick={setIsPlaying}
+          toNextSong={toPrevTrack}
+          toPrevSong={toNextTrack}
+        />
+        <input
+          type="range"
+          value={trackProgress}
+          step="1"
+          min="0"
+          max={duration ? duration : `${duration}`}
+          className="progress"
+          onChange={(e) => onScrub(e.target.value)}
+          onMouseUp={onScrubEnd}
+          onKeyUp={onScrubEnd}
+          style={{ background: trackStyling }}
+        />
+      </div>
     </div>
   );
 }
