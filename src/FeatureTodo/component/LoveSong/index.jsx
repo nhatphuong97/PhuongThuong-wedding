@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import TracksController from "./song_controller";
 import song from "../../constant/song";
 import imageFire from "../../../img/fire.jpg";
+import { progress } from "framer-motion";
 
 LoveSongMain.propTypes = {};
 
@@ -19,14 +20,15 @@ function LoveSongMain({ tracks }) {
   const isReady = useRef(false);
 
   //lấy đuration từ audioRef
-  const { duration } = audioRef.current;
-
-  const currentPercentage = duration
-    ? `${(trackProgress / duration) * 100}%`
-    : "0%";
-  const trackStyling = `
-    -slider-thumb(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #fff), color-stop(${currentPercentage}, #777))
-  `;
+  const { duration, currentTime } = audioRef.current;
+  const durationMinute = useRef("00:00");
+  const progressMinute = useRef("00:00");
+  // const currentPercentage = duration
+  //   ? `${(trackProgress / duration) * 100}%`
+  //   : "0%";
+  // const trackStyling = `
+  //   -slider-thumb(linear, 0% 0%, 100% 0%, color-stop(${currentPercentage}, #fff), color-stop(${currentPercentage}, #777))
+  // `;
 
   const startTimer = () => {
     // Clear any timers already running
@@ -48,10 +50,6 @@ function LoveSongMain({ tracks }) {
       setTrackIndex(trackIndex - 1);
     }
   };
-
-  useEffect(() => {
-    console.log(trackProgress);
-  }, [trackProgress]);
 
   const onScrub = (value) => {
     // Clear any timers already running
@@ -87,12 +85,27 @@ function LoveSongMain({ tracks }) {
     console.log("isPlaying", isPlaying);
   }, [isPlaying]);
 
+  const calProgress = () => {
+    const secondProgress = ("0" + Math.floor(trackProgress % 60)).slice(-2);
+    const minuteProgress = ("0" + Math.floor(trackProgress / 60)).slice(-2);
+    progressMinute.current = `${minuteProgress} : ${secondProgress}`;
+  };
+  const calDuration = () => {
+    console.log({ duration: duration });
+    const secondDuration = ("0" + Math.floor(duration % 60)).slice(-2);
+    const minuteDuration = ("0" + Math.floor(duration / 60)).slice(-2);
+    durationMinute.current = `${minuteDuration} : ${secondDuration}`;
+  };
+
+  useEffect(() => {
+    calProgress();
+  }, [duration, trackProgress]);
+
   useEffect(() => {
     audioRef.current.pause();
 
     audioRef.current = new Audio(audioSrc);
     setTrackProgress(audioRef.current.currentTime);
-
     if (isReady.current) {
       audioRef.current.play();
       setIsPlaying(true);
@@ -121,6 +134,8 @@ function LoveSongMain({ tracks }) {
             <p>
               Và khi những giai điệu vang lên làm bạn nhớ đến một nửa của mình..
             </p>
+            <p>{durationMinute.current}</p>
+            <p>{progressMinute.current}</p>
           </div>
         </div>
       </div>
@@ -154,15 +169,6 @@ function LoveSongMain({ tracks }) {
               onMouseUp={onScrubEnd}
               onKeyUp={onScrubEnd}
             />
-            {/* <div
-              class=" bg-white rounded-full  h-2.5 "
-              style={{ width: duration ? duration : `${duration}` }}
-            >
-              <div
-                class="bg-red-300 h-2.5 rounded-full"
-                style={{ width: trackProgress }}
-              ></div>
-            </div> */}
           </div>
         </div>
       </div>
