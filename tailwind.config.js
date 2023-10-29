@@ -40,6 +40,7 @@ module.exports = {
         cake: "url('/src/img/cake.webp')",
         invitation: "url('/src/img/invitation-bg.jpg')",
         image_wedding_1: "url('/src/img/anh_cuoi_1.webp')",
+        perfect: "url('/src/mp3/perfect.webp')",
         flower: "url('/src/img/flower.webp')",
         damcuiha: "url('/src/img/damcuiha.png')",
       },

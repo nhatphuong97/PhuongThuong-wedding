@@ -1,5 +1,5 @@
 .div-song-under {
-  @apply w-full  my-20;
+  @apply w-full  mt-20;
 }
 
 .song-title {
@@ -15,7 +15,6 @@
 
 input[type="range"] {
   -webkit-appearance: none; /*remove default style*/
-  background: none;
 }
 /*style for track*/
 input[type="range"]::-webkit-slider-runnable-track {

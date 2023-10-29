@@ -20,9 +20,24 @@ function LoveSongMain({ tracks }) {
   const isReady = useRef(false);
 
   //lấy đuration từ audioRef
-  const { duration, currentTime } = audioRef.current;
-  const durationMinute = useRef("00:00");
-  const progressMinute = useRef("00:00");
+  const { duration } = audioRef.current;
+  const durationMinute = useRef("00 : 00");
+  const progressMinute = useRef("00 : 00");
+
+  const calProgress = () => {
+    const secondProgress = ("0" + Math.floor(trackProgress % 60)).slice(-2);
+    const minuteProgress = ("0" + Math.floor(trackProgress / 60)).slice(-2);
+    progressMinute.current = `${minuteProgress} : ${secondProgress}`;
+  };
+  const calDuration = () => {
+    console.log({ duration: duration });
+    const secondDuration = ("0" + Math.floor(duration % 60)).slice(-2);
+    const minuteDuration = ("0" + Math.floor(duration / 60)).slice(-2);
+    if (!isNaN(duration)) {
+      durationMinute.current = `${minuteDuration} : ${secondDuration}`;
+    }
+  };
+
   // const currentPercentage = duration
   //   ? `${(trackProgress / duration) * 100}%`
   //   : "0%";
@@ -81,25 +96,24 @@ function LoveSongMain({ tracks }) {
     } else {
       audioRef.current.pause();
     }
+    if (durationMinute.current == "00 : 00") {
+      calDuration();
+    }
 
     console.log("isPlaying", isPlaying);
   }, [isPlaying]);
 
-  const calProgress = () => {
-    const secondProgress = ("0" + Math.floor(trackProgress % 60)).slice(-2);
-    const minuteProgress = ("0" + Math.floor(trackProgress / 60)).slice(-2);
-    progressMinute.current = `${minuteProgress} : ${secondProgress}`;
-  };
-  const calDuration = () => {
-    console.log({ duration: duration });
-    const secondDuration = ("0" + Math.floor(duration % 60)).slice(-2);
-    const minuteDuration = ("0" + Math.floor(duration / 60)).slice(-2);
-    durationMinute.current = `${minuteDuration} : ${secondDuration}`;
-  };
+  // useEffect(() => {
+  //   calDuration();
+  // }, []);
 
   useEffect(() => {
     calProgress();
   }, [duration, trackProgress]);
+
+  useEffect(() => {
+    calDuration();
+  }, [audioSrc]);
 
   useEffect(() => {
     audioRef.current.pause();
@@ -134,8 +148,6 @@ function LoveSongMain({ tracks }) {
             <p>
               Và khi những giai điệu vang lên làm bạn nhớ đến một nửa của mình..
             </p>
-            <p>{durationMinute.current}</p>
-            <p>{progressMinute.current}</p>
           </div>
         </div>
       </div>
@@ -151,24 +163,37 @@ function LoveSongMain({ tracks }) {
             {artist}
           </div>
 
-          <div className="flex  w-[350px] mt-2 ">
-            <TracksController
-              isPlaying={isPlaying}
-              onPlayPauseClick={setIsPlaying}
-              toNextSong={toPrevTrack}
-              toPrevSong={toNextTrack}
-            />
-            <input
-              type="range"
-              value={trackProgress}
-              step="1"
-              min="0"
-              max={duration ? duration : `${duration}`}
-              className="w-full  bg-gray-200  cursor-pointer"
-              onChange={(e) => onScrub(e.target.value)}
-              onMouseUp={onScrubEnd}
-              onKeyUp={onScrubEnd}
-            />
+          <div className="flex w-[350px] h-auto flex-row mt-2 items-center ">
+            <div className="basis-[10%]">
+              <TracksController
+                isPlaying={isPlaying}
+                onPlayPauseClick={setIsPlaying}
+                toNextSong={toPrevTrack}
+                toPrevSong={toNextTrack}
+              />
+            </div>
+            <div className="basis-[55%] flex flex-col justify-center pr-1">
+              <input
+                type="range"
+                value={trackProgress}
+                step="1"
+                min="0"
+                max={duration ? duration : `${duration}`}
+                className="w-full basis-6/10 bg-gray-600  cursor-pointer"
+                onChange={(e) => onScrub(e.target.value)}
+                onMouseUp={onScrubEnd}
+                onKeyUp={onScrubEnd}
+              />
+            </div>
+            {/* <h1 className=" basis-[15%]  font-playfair text-center bg-slate-400 justify-center align-middle text-ellipsis">
+              {progressMinute.current}
+            </h1> */}
+            <h1 className="basis-[12%] text-red-400 w-max font-vollkorn text-sm text-center ">
+              {progressMinute.current}
+            </h1>
+            <h1 className="basis-[15%] text-red-400 w-max font-vollkorn text-sm text-center ">
+              / {durationMinute.current}
+            </h1>
           </div>
         </div>
       </div>

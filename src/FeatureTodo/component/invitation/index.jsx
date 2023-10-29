@@ -35,8 +35,8 @@ function Invitation(props) {
               </div>
               <motion.div
                 initial={{ width: 0 }}
-                animate={{ width: "300px" }}
-                transition={{ duration: 1.5 }}
+                whileInView={{ width: "300px" }}
+                transition={{ duration: 1.5, delay: 0.5 }}
                 className="bg-white w-[200px] h-[3px] rounded-md text-white font-vollkorn mt-5"
               ></motion.div>
 

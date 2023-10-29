@@ -21,6 +21,8 @@ import "./style.scss";
 import Events from "../component/Events";
 import Invitation from "../component/invitation";
 import LoveSongMain from "../component/LoveSong";
+import ParallaxDevide from "../component/ParallaxDevide";
+import classNames from "classnames";
 
 HomePageWedding.propTypes = {};
 
@@ -388,7 +390,7 @@ function HomePageWedding(props) {
                 Events & Parties
               </motion.div>
             </div> */}
-
+          <div className="devide h-[100px] bg-red-200"></div>
           <div id="invitation" className="tw-invitation  mx-auto">
             <Invitation />
           </div>
@@ -418,6 +420,9 @@ function HomePageWedding(props) {
           <div id="love-song" className="tw-love-song flex h-[600px]">
             <LoveSongMain tracks={song} />
           </div>
+          <>
+            <ParallaxDevide className="bg-red-50" />
+          </>
           <div id="send-love" className="tw-send-love flex h-[1000px]">
             Send love
           </div>
