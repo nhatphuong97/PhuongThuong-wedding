@@ -6,8 +6,8 @@ const events = (props, ref) => {
   const itemRef = ref;
   console.log("ref", itemRef);
   return (
-    <div ref={itemRef} className="w-[100vw] flex">
-      <div className="events-main flex flex-row container mx-auto justify-center my-auto relative">
+    <div ref={itemRef} className="w-full flex">
+      <div className="events-main flex flex-row container mx-auto justify-center  relative">
         <div className="events-one basis-1/3 bg-love-20 "> </div>
         <div
           className=" flex basis-2/3 w-[1/2vw] h-[700px] bg-image-one bg-cover

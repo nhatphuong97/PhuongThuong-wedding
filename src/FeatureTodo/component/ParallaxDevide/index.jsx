@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./style.scss";
-import image1 from "./../../../img/IMG_3843.jpg";
+import image1 from "./../../../img/parallax.png";
 import {
   ParallaxProvider,
   useParallax,
@@ -31,13 +31,13 @@ function ParallaxDevide(props) {
     <ParallaxBanner className="h-[500px] ">
       <ParallaxBannerLayer
         style={{ aspectRatio: "2 / 1" }}
-        speed={50}
+        speed={20}
         className="aspect-[2/1] "
         // translate={[-300, -600]}
-        scale={[1, 1.2]}
-        opacity={[0.9, 1]}
+        scale={[1, 1]}
+        opacity={[1, 1]}
       >
-        <img src={image1} alt="image1" className="w-full h-auto" />
+        <img src={image1} alt="image1" className="w-full object-fill h-auto" />
       </ParallaxBannerLayer>
     </ParallaxBanner>
   );

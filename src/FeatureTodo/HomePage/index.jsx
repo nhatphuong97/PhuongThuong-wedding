@@ -23,6 +23,8 @@ import Invitation from "../component/invitation";
 import LoveSongMain from "../component/LoveSong";
 import ParallaxDevide from "../component/ParallaxDevide";
 import classNames from "classnames";
+import Album from "../component/Album";
+import Moment from "../component/Moment";
 
 HomePageWedding.propTypes = {};
 
@@ -342,7 +344,7 @@ function HomePageWedding(props) {
           //   // scale: scaleProgress,
           //   opacity: opacityProgress,
           // }}
-          className="content-wrapper text-base relative"
+          className="flex flex-col text-base relative"
         >
           {/* <motion.div
               initial={{ opacity: 0, tra: 20 }}
@@ -391,7 +393,7 @@ function HomePageWedding(props) {
               </motion.div>
             </div> */}
           <div className="devide h-[100px] bg-red-200"></div>
-          <div id="invitation" className="tw-invitation  mx-auto">
+          <div id="invitation" className="tw-invitation w-full  mx-auto">
             <Invitation />
           </div>
           <div className="devide h-[400px]"></div>
@@ -405,14 +407,47 @@ function HomePageWedding(props) {
           <div id="introduce" className="tw-introduce mt-20 mx-auto">
             <Introduce ref={introduceRef} />
           </div>
+          <div className="devide h-[200px]"></div>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+            className="introduce-title relative flex flex-row justify-center items-center w-full pb-20"
+          >
+            <div className="introduce-line"></div>
+            <div className="title  bg-heading-tile w-20 bg-origin-border border-spacing-3 h-20 flex bg-contain bg-no-repeat"></div>
+            <motion.div className="absolute bottom-10 ms-32 w-40 h-auto text-white bg-red-300 text-lg rounded-lg px-2 ">
+              {/* Đám cưới hả bà Zà */}
+              {/* <motion.div
+            animate={{
+              // y: [0, 50, 0, 50, 0],
+              opacity: 1,
+            }}
+            transition={{ repeat: Infinity, duration: 1 }}
+            initial={{ opacity: 0 }}
+            src={logo}
+            alt=""
+          >
+            Đám cưới hả bà Zà
+          </motion.div> */}
+            </motion.div>
 
-          <div id="moments" className="tw-moments flex h-[1000px]">
-            Moment
+            <div className="introduce-line"></div>
+          </motion.div>
+          <div id="moments" className="tw-moments flex h-full">
+            <Moment />
           </div>
-          <div id="album" className="tw-album flex h-[1000px]">
-            Album
+          <div className="devide h-[200px]"></div>
+
+          <div id="album" className="tw-album flex h-full  relative">
+            <Album />
           </div>
-          <div id="events" className="tw-events flex h-[1000px]">
+          <div className="devide h-[200px]"></div>
+
+          <div
+            id="events"
+            className="tw-events  h-[1000px] bg-red-400 relative"
+          >
             <Events ref={events} />
           </div>
           <div className="devide h-[200px]"></div>
@@ -420,6 +455,8 @@ function HomePageWedding(props) {
           <div id="love-song" className="tw-love-song flex h-[600px]">
             <LoveSongMain tracks={song} />
           </div>
+          <div className="devide h-[200px]"></div>
+
           <>
             <ParallaxDevide className="bg-red-50" />
           </>
