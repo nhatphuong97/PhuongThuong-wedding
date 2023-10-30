@@ -1,11 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import meet from "./../../../img/meet.webp";
-import meet from "./../../../img/cadong1.webp";
+import { Parallax, Background } from "react-parallax";
+
+import cadong from "./../../../img/anh_cuoi_1.webp";
 
 Moment.propTypes = {};
 
 function Moment(props) {
+  const insideStyles = {
+    background: "white",
+    padding: 20,
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%,-50%)",
+  };
   return (
     <div className="flex flex-col w-full bg-white h-auto">
       <div className="grid grid-cols-2 ">
@@ -15,18 +25,45 @@ function Moment(props) {
           </div>
           <img src={meet} alt="" className=" w-96 h-auto" />
 
-          <div className="font-playfair text-red-300 text-xl  w-96">
-            <p> We met on a rainy day at a local flea market.</p>
+          <div className="font-playfair text-red-300 text-lg  w-96">
+            <p>Bạn có tin vào duyên số không? với mình thì có nha.</p>
             <p>
-              As we talked and wandered, we found that we didn't want to go our
-              separate ways.
+              Tụi mình gặp nhau trong một lần đi hoạt động từ thiện, lần đầu
+              tiên mình gặp em đã cảm nhận được sự ấm áp mà em mang lại cho
+              những người xung quanh.
             </p>
-            <p>Before we knew it, the whole day had passed.</p>
+            <p>
+              Sau những lần trò chuyện vu vơ mình đã yêu em từ bao giờ không
+              hay.
+            </p>
             <p></p>
           </div>
-          <div></div>
         </div>
-        <div className={`m-title bg-red-200 bg-[url(${required})]`}> </div>
+        <div className={"m-title bg-red-100"}>
+          <div className="bg-red-500 w-auto h-full">
+            <Parallax
+              strength={400}
+              bgImage={cadong}
+              bgImageSizes="75% 50%"
+              className="bg-center"
+              // bgImageStyle={{
+              //   height: "350px",
+              //   maxWidth: "350px",
+              //   back
+              // }}
+            >
+              <div style={{ height: 500 }}>
+                <div style={insideStyles}>HTML inside the parallax</div>
+              </div>
+            </Parallax>
+          </div>
+        </div>
+      </div>
+      <div className="grid grid-cols-2 ">
+        <div className="mm-meet  flex flex-col gap-3 py-10  items-center">
+          <div className=""></div>
+        </div>
+        <div className={"m-title "}> </div>
       </div>
     </div>
   );
