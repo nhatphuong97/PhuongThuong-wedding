@@ -1,30 +1,35 @@
 {
   "files": {
-    "main.css": "/PhuongThuong-wedding/static/css/main.b17ba80a.css",
-    "main.js": "/PhuongThuong-wedding/static/js/main.2bea8bf4.js",
+    "main.css": "/PhuongThuong-wedding/static/css/main.41150023.css",
+    "main.js": "/PhuongThuong-wedding/static/js/main.0cd520db.js",
     "static/js/787.87c8eaef.chunk.js": "/PhuongThuong-wedding/static/js/787.87c8eaef.chunk.js",
     "static/media/thinkin_out.mp3": "/PhuongThuong-wedding/static/media/thinkin_out.9b31545aa6c12a4f29c2.mp3",
+    "static/media/perfect.mp3": "/PhuongThuong-wedding/static/media/perfect.83e561dd24f563ac71e1.mp3",
     "static/media/im_your.mp3": "/PhuongThuong-wedding/static/media/im_your.23ff2087537a0cec09d6.mp3",
     "static/media/IMG_3843.jpg": "/PhuongThuong-wedding/static/media/IMG_3843.bcd2a131c0b347d342e3.jpg",
     "static/media/DSC_4827.webp": "/PhuongThuong-wedding/static/media/DSC_4827.4d4f595b95e1cc64f4e0.webp",
     "static/media/vo.png": "/PhuongThuong-wedding/static/media/vo.fe250015718237ce8103.png",
     "static/media/chong.png": "/PhuongThuong-wedding/static/media/chong.865f0aee156f253ce30b.png",
     "static/media/cake.webp": "/PhuongThuong-wedding/static/media/cake.99776b6fabc73dbaa864.webp",
+    "static/media/thinkinout.webp": "/PhuongThuong-wedding/static/media/thinkinout.d375349a41828f516afd.webp",
+    "static/media/imyour.webp": "/PhuongThuong-wedding/static/media/imyour.9dd040fb7d205f88cf8e.webp",
     "static/media/savethedate_wh.gif": "/PhuongThuong-wedding/static/media/savethedate_wh.513ab09bbfae0d24da53.gif",
+    "static/media/fire.jpg": "/PhuongThuong-wedding/static/media/fire.9098e6c627f22a61d934.jpg",
+    "static/media/perfect.webp": "/PhuongThuong-wedding/static/media/perfect.344074f486f76239f812.webp",
     "static/media/airplane.png": "/PhuongThuong-wedding/static/media/airplane.0329d9558579085a69df.png",
     "static/media/heading.webp": "/PhuongThuong-wedding/static/media/heading.df66c47d536e48fff809.webp",
     "static/media/flower.webp": "/PhuongThuong-wedding/static/media/flower.43bfbb31a4c3ab029562.webp",
-    "static/media/pause.svg": "/PhuongThuong-wedding/static/media/pause.fb88548003ec45475f04bccffb40f95c.svg",
-    "static/media/prev.svg": "/PhuongThuong-wedding/static/media/prev.d4c47e5b22e682c88130b4d965732679.svg",
-    "static/media/next.svg": "/PhuongThuong-wedding/static/media/next.c885ec374c6965f6d700cd87ad2c9f50.svg",
     "index.html": "/PhuongThuong-wedding/index.html",
-    "static/media/play.svg": "/PhuongThuong-wedding/static/media/play.751c39f9c7c7f70fdb841c94ea0ff96d.svg",
-    "main.b17ba80a.css.map": "/PhuongThuong-wedding/static/css/main.b17ba80a.css.map",
-    "main.2bea8bf4.js.map": "/PhuongThuong-wedding/static/js/main.2bea8bf4.js.map",
+    "static/media/prev.svg": "/PhuongThuong-wedding/static/media/prev.e69aa19235c271e2ae44bd4499fa60a8.svg",
+    "static/media/next.svg": "/PhuongThuong-wedding/static/media/next.5cfcaad8b272bbbb9efb2e6b5170b5a2.svg",
+    "static/media/pause.svg": "/PhuongThuong-wedding/static/media/pause.8949df8cce40f4017e66dee06a40ab8a.svg",
+    "static/media/play.svg": "/PhuongThuong-wedding/static/media/play.e6f781707843654ee5499bc32b8074d6.svg",
+    "main.41150023.css.map": "/PhuongThuong-wedding/static/css/main.41150023.css.map",
+    "main.0cd520db.js.map": "/PhuongThuong-wedding/static/js/main.0cd520db.js.map",
     "787.87c8eaef.chunk.js.map": "/PhuongThuong-wedding/static/js/787.87c8eaef.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.b17ba80a.css",
-    "static/js/main.2bea8bf4.js"
+    "static/css/main.41150023.css",
+    "static/js/main.0cd520db.js"
   ]
 }
