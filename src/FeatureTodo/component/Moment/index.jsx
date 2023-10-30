@@ -39,21 +39,21 @@ function Moment(props) {
             <p></p>
           </div>
         </div>
-        <div className={"m-title bg-red-100"}>
-          <div className="bg-red-500 w-auto h-full">
+        <div className={"m-title"}>
+          <div className=" h-full w-auto flex flex-col justify-center">
             <Parallax
-              strength={400}
+              strength={700}
               bgImage={cadong}
-              bgImageSizes="75% 50%"
+              bgImageSizes="100% 100%"
               className="bg-center"
               // bgImageStyle={{
-              //   height: "350px",
+              //   height: "",
               //   maxWidth: "350px",
-              //   back
+              //   // "background-size": "cover",
               // }}
             >
-              <div style={{ height: 500 }}>
-                <div style={insideStyles}>HTML inside the parallax</div>
+              <div style={{ height: 400 }}>
+                {/* <div style={insideStyles}>HTML inside the parallax</div> */}
               </div>
             </Parallax>
           </div>
