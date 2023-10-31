@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./style.scss";
-import image1 from "./../../../img/parallax.png";
+import image1 from "./../../../img/bg-rung.webp";
 import {
   ParallaxProvider,
   useParallax,
   ParallaxBanner,
   ParallaxBannerLayer,
+  Parallax,
 } from "react-scroll-parallax";
 ParallaxDevide.propTypes = {};
 
@@ -22,24 +23,33 @@ function ParallaxDevide(props) {
   //   console.log(pageY);
   // });
 
-  // const { ref } = useParallax({
-  //   // speed: -10,
-  //   // translateY: [-100, 100],
-  // });
+  const { ref } = useParallax({
+    speed: 10,
+    translateX: ["-30", "-10"],
+    translateY: ["", ""],
+  });
 
   return (
-    <ParallaxBanner className="h-[500px] ">
-      <ParallaxBannerLayer
-        style={{ aspectRatio: "2 / 1" }}
-        speed={20}
-        className="aspect-[2/1] "
-        // translate={[-300, -600]}
-        scale={[1, 1]}
-        opacity={[1, 1]}
-      >
-        <img src={image1} alt="image1" className="w-full object-fill h-auto" />
-      </ParallaxBannerLayer>
-    </ParallaxBanner>
+    <div className="bg-red-300 h-[500px] w-full flex flex-col justify-center items-center ">
+      <div className="bg-black h-full w-[800px] overflow-hidden">
+        <img
+          ref={ref}
+          src={image1}
+          alt=""
+          className="h-[500px] w-[1200px] object-cover max-w-[1200px]"
+        />
+      </div>
+
+      {/* <div className="h-[300px] w-[500px] bg-black overflow-hidden">
+        <Parallax
+          speed={10}
+          scale={[1, 1]}
+          translateX={[-20, 10]}
+          style={{ overflow: "hidden" }}
+          translateY={["", ""]}
+        ></Parallax>
+      </div> */}
+    </div>
   );
 }
 

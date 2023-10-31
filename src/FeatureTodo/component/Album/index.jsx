@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import image1 from "./../../../img/IMG_3843.jpg";
+import image1 from "./../../../img/bg-rung.webp";
 Album.propTypes = {};
 
 function Album(props) {

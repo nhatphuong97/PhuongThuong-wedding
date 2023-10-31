@@ -18,28 +18,25 @@ const Introduce = (props, ref) => {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
-        className="introduce-title relative flex flex-row justify-center items-center w-full pb-20"
+        className="introduce-title relative flex flex-row justify-center items-center w-full "
       >
-        <div className="introduce-line"></div>
-        <div className="title  bg-heading-tile w-20 bg-origin-border border-spacing-3 h-20 flex bg-contain bg-no-repeat"></div>
-        <motion.div className="absolute bottom-10 ms-32 w-40 h-auto text-white bg-red-300 text-lg rounded-lg px-2 ">
-          {/* Đám cưới hả bà Zà */}
-          {/* <motion.div
-            animate={{
-              // y: [0, 50, 0, 50, 0],
-              opacity: 1,
-            }}
-            transition={{ repeat: Infinity, duration: 1 }}
-            initial={{ opacity: 0 }}
-            src={logo}
-            alt=""
-          >
-            Đám cưới hả bà Zà
-          </motion.div> */}
-        </motion.div>
+        {/* <div className="introduce-line"></div> */}
+        <div className="title  bg-heading-tile w-14 items-center bg-origin-border border-spacing-3 h-14 bg-contain bg-no-repeat"></div>
+        <div className="mm-title text-5xl mx-5 font-mono font- text-center text-red-400">
+          Introduce
+        </div>
 
-        <div className="introduce-line"></div>
+        {/* <div className="introduce-line"></div> */}
       </motion.div>
+
+      <div className="h-[100px]"></div>
+      <div className=" font-dancing text-red-400 ps-20 text-2xl pt-5 text-center tracking-normal pb-16">
+        <p>
+          Hạnh phúc nhất không phải giây phút được cùng nhau nắm tay bước đến lễ
+          đường
+        </p>
+        <p> Mà là giữ mãi nụ cười ấy theo năm tháng.</p>
+      </div>
       <div className=" grid md:grid-cols-2 grid-cols-1 grid-flow-row gap-2 transition-all duration-200">
         <motion.div
           initial={{ opacity: 0, x: -50 }}

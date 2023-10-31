@@ -142,11 +142,9 @@ function HomePageWedding(props) {
           <div className="w-full h-full bg-black bg-opacity-30  flex flex-col justify-center ">
             <div className="justify-center items-center flex ">
               <div className="tw-name-main">Nhật Phương</div>
-              <motion.img
+              <img
                 src={logoHeader}
                 alt=""
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
                 className={` lg:h-[150px] h-[20%]`}
               />
               <div className="tw-name-main">Hoài Thương</div>
@@ -397,13 +395,7 @@ function HomePageWedding(props) {
             <Invitation />
           </div>
           <div className="devide h-[400px]"></div>
-          <div className=" font-dancing text-red-400 ps-20 text-xl pt-5 text-center tracking-normal ">
-            <p>
-              Hạnh phúc nhất không phải giây phút được cùng nhau nắm tay bước
-              đến lễ đường
-            </p>
-            <p> Mà là giữ mãi nụ cười ấy theo năm tháng.</p>
-          </div>
+
           <div id="introduce" className="tw-introduce mt-20 mx-auto">
             <Introduce ref={introduceRef} />
           </div>
@@ -412,43 +404,35 @@ function HomePageWedding(props) {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
-            className="introduce-title relative flex flex-row justify-center items-center w-full pb-20"
+            className="introduce-title relative flex flex-row justify-center items-center w-full "
           >
-            <div className="introduce-line"></div>
-            <div className="title  bg-heading-tile w-20 bg-origin-border border-spacing-3 h-20 flex bg-contain bg-no-repeat"></div>
-            <motion.div className="absolute bottom-10 ms-32 w-40 h-auto text-white bg-red-300 text-lg rounded-lg px-2 ">
-              {/* Đám cưới hả bà Zà */}
-              {/* <motion.div
-            animate={{
-              // y: [0, 50, 0, 50, 0],
-              opacity: 1,
-            }}
-            transition={{ repeat: Infinity, duration: 1 }}
-            initial={{ opacity: 0 }}
-            src={logo}
-            alt=""
-          >
-            Đám cưới hả bà Zà
-          </motion.div> */}
-            </motion.div>
+            {/* <div className="introduce-line"></div> */}
+            <div className="title  bg-heading-tile w-14 items-center bg-origin-border border-spacing-3 h-14 bg-contain bg-no-repeat"></div>
+            <div className="mm-title text-5xl mx-5 font-mono font- text-center text-red-300">
+              Our Love Story
+            </div>
 
-            <div className="introduce-line"></div>
+            {/* <div className="introduce-line"></div> */}
           </motion.div>
+          <div className="devide h-[100px]"></div>
+
           <div id="moments" className="tw-moments flex h-full">
             <Moment />
           </div>
           <div className="devide h-[200px]"></div>
 
-          <div id="album" className="tw-album flex h-full  relative">
-            <Album />
+          <div
+            id="album"
+            className="tw-album flex h-[1000px] text-white relative"
+          >
+            {/* <Album /> */}
+            Album ở đây nè
           </div>
           <div className="devide h-[200px]"></div>
 
-          <div
-            id="events"
-            className="tw-events  h-[1000px] bg-red-400 relative"
-          >
-            <Events ref={events} />
+          <div id="events" className="tw-events  h-[1000px] relative">
+            {/* <Events ref={events} /> */}
+            Event ở đây nhé
           </div>
           <div className="devide h-[200px]"></div>
 
