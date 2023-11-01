@@ -27,7 +27,7 @@ function Moment(props) {
 
   const { ref } = useParallax({
     speed: 20,
-    translateX: ["0", "-15"],
+    translateX: ["-10", "-25"],
     translateY: ["", ""],
     easing: "easeInQuad",
   });
@@ -41,6 +41,7 @@ function Moment(props) {
             <p>The First</p>
             <p>Date</p>
           </div>
+          <div className="h-[2px] bg-vitange_green-20 w-[350px] my-2"></div>
 
           <div className="font-dosis  text-lg  w-[350px] text-vitange_green-20">
             <p className="text-2xl pb-2">
@@ -63,6 +64,9 @@ function Moment(props) {
           <img src={meet} alt="" className=" w-[350px] h-auto mt-5 mb-7" />
         </div>
         <div className="mm-meet row-span-2 h-[auto] flex flex-col p-3 justify-center gap-3 pt-10  text-white items-center">
+          <div className="checkin text-vitange_green-40 font-vollkorn text-3xl">
+            Checkin
+          </div>
           <div className="grid grid-cols-1 gap-2">
             {DalatPost.map((post, i) =>
               i % 2 == 0 ? (
@@ -101,13 +105,14 @@ function Moment(props) {
         </div>
         <div
           className={
-            "m-title h-[800px] bg-red flex  flex-col   items-center justify-center"
+            "m-title h-[800px] bg-red flex  flex-col  items-center justify-center"
           }
         >
-          <div className="font-vollkorn text-4xl w-[350px] text-vitange_green-40">
+          <div className="font-vollkorn text-4xl w-[350px]  text-vitange_green-40">
             <p>Mermory</p>
-            <p>DaLat</p>
+            <p>DaLat 🌲</p>
           </div>
+          <div className="h-[2px] bg-vitange_green-20 w-[350px] my-2"></div>
           <div className="font-dosis  text-lg  w-[350px] text-vitange_green-20">
             <p className="text-2xl pb-2">
               Có nơi mà khi nhắc đến sẽ làm bạn nhớ về một nửa của mình.
@@ -118,7 +123,7 @@ function Moment(props) {
               điểm checkin trở nên quen thuộc cứ như đây mà nơi mình được sinh
               ra vậy. Đà Lạt cũng là nơi đầu tiên mà tụi mình đến cùng nhau.
               Chắc hẳn các bạn cũng như mình và có thật nhiều kỉ niệm với nơi
-              này. Cùng tham quan một số điểm checkin ở đây nha 🌲🌲
+              này. Cùng tham quan một số điểm checkin ở đây nha
             </p>
           </div>
         </div>
@@ -129,7 +134,7 @@ function Moment(props) {
                 ref={ref}
                 src={cadong}
                 alt=""
-                className="h-full w-[120%] object-cover object-center max-w-[120%]"
+                className="h-full w-[140%] object-cover object-center max-w-[140%]"
               />
             </div>
           </div>
