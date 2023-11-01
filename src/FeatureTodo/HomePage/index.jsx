@@ -36,9 +36,59 @@ function HomePageWedding(props) {
   const introduceRef = useRef(null);
   const events = useRef(null);
   const divElementRef = useRef(null);
-  useEffect(() => {
-    console.log("show", showMenu);
-  }, [showMenu]);
+  const refNav = useRef(null);
+
+  const [color, setColor] = useState("#FCA5A5");
+  const [classCss, setClassCss] = useState("isNomarl");
+
+  // const changeColor = () => {
+  //   console.log(color);
+  //   console.log(window.scrollY);
+  //   console.log(elementToScroll11);
+  //   if (window.scrollY >= 2897) {
+  //     setColor("#3A4D39");
+  //     elementToScroll11.classList.remove("isSticky");
+  //     elementToScroll11.classList.add("isNotSticky");
+  //   } else {
+  //     setColor("#fff");
+  //     elementToScroll11.classList.add("isSticky");
+  //     elementToScroll11.classList.remove("isNotSticky");
+  //   }
+
+  //   elementToScroll11.addEventListener("s");
+  //   // if (entry.intersectionRatio === 1) {
+  //   //   elementToScroll11.target.classList.remove("isSticky");
+  //   //   elementToScroll11.target.classList.add("isNotSticky");
+  //   // } else {
+  //   //   elementToScroll11.target.classList.add("isSticky");
+  //   //   elementToScroll11.target.classList.remove("isNotSticky");
+  //   // }
+  // };
+
+  window.addEventListener("scroll", () => {
+    console.log(window.scrollY);
+    if (window.scrollY < 620) {
+      setColor("#FCA5A5");
+      document.title = "Wedding ❤️";
+
+      // refNav.current.classList.add("isSticky");
+      // refNav.current.classList.remove("isNotSticky");
+      setClassCss("isNomarl");
+    } else if (620 <= window.scrollY && window.scrollY < 1395) {
+      setColor("#f87a75");
+      document.title = "Thư Mời ❤️";
+      setClassCss("isInvitation");
+    } else if (1395 <= window.scrollY && window.scrollY < 2822) {
+      setColor("#fc9b3c");
+      document.title = "Giới Thiệu ❤️";
+      setClassCss("isIntroduce");
+    } else if (2822 <= window.scrollY) {
+      setColor("#fff");
+      document.title = "Khoảnh Khắc 🌲 ";
+      setClassCss("isMoments");
+    }
+  });
+
   const displayResponsiveMenu = () => {
     setShowMenu(!showMenu);
   };
@@ -56,27 +106,12 @@ function HomePageWedding(props) {
   };
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
-    console.log({ "1 chạy": "1" });
-    scrollMenu();
     return () => {
       document.removeEventListener("mousedown", handleOutsideClick);
-      console.log({ "2 chạy": "2" });
     };
   }, []);
 
-  window.addEventListener("scroll", function (e) {
-    // lastScrollY = window.scrollY;
-    // console.log(lastScrollY);
-    // scroll();
-  });
-
   const handleOutsideClick = (event) => {
-    // console.log({
-    //   1: menuRef.current,
-    //   2: menuRef.current.contains(event.target),
-    //   3: showMenu,
-    // });
-
     if (
       menuRef.current &&
       !menuRef.current.contains(event.target) &&
@@ -86,10 +121,6 @@ function HomePageWedding(props) {
     }
   };
 
-  //Event Scroll menu
-  // document.addEventListener("DOMContentLoaded", function () {
-
-  // });
   const handleScrollToHeader = () => scroll.scrollToTop();
   // const handleScrollToHeader = () =>
   //   window.scroll({
@@ -98,33 +129,33 @@ function HomePageWedding(props) {
   //     behavior: "smooth",
   //   });
 
-  //Event scroll Menu
-  const scrollMenu = () => {
-    const elementToScroll = document.querySelector(".nav-show");
-    const observer = new IntersectionObserver(
-      (entries, observer) => {
-        entries.forEach((entry) => {
-          console.log("nav", entry);
-          console.log("nav", entries.intersectionRatio);
-          entry.target.classList.toggle(
-            "isSticky",
-            entry.intersectionRatio < 1
-          );
+  // //Event scroll Menu
+  // const scrollMenu = () => {
+  //   const elementToScroll = document.querySelector(".nav-show");
+  //   const observer = new IntersectionObserver(
+  //     (entries, observer) => {
+  //       entries.forEach((entry) => {
+  //         console.log("nav", entry);
+  //         console.log("nav", entries.intersectionRatio);
+  //         entry.target.classList.toggle(
+  //           "isSticky",
+  //           entry.intersectionRatio < 1
+  //         );
 
-          if (entry.intersectionRatio === 1) {
-            entry.target.classList.remove("isSticky");
-            entry.target.classList.add("isNotSticky");
-          } else {
-            entry.target.classList.add("isSticky");
-            entry.target.classList.remove("isNotSticky");
-          }
-        });
-      },
-      { threshold: 1 }
-    );
+  //         // if (entry.intersectionRatio === 1) {
+  //         //   entry.target.classList.remove("isSticky");
+  //         //   entry.target.classList.add("isNotSticky");
+  //         // } else {
+  //         //   entry.target.classList.add("isSticky");
+  //         //   entry.target.classList.remove("isNotSticky");
+  //         // }
+  //       });
+  //     },
+  //     { threshold: 1 }
+  //   );
 
-    observer.observe(elementToScroll);
-  };
+  //   observer.observe(elementToScroll);
+  // };
 
   //Animation transform
 
@@ -169,7 +200,10 @@ function HomePageWedding(props) {
         </div>
 
         {/* END background */}
-        <nav className="nav-show p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-3 sticky z-50 -top-1">
+        <nav
+          ref={refNav}
+          className={` ${classCss} p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-3 sticky z-50 -top-1`}
+        >
           <motion.div
             // whileHover={{ color: "#F14F62", scale: 1.2 }}
             // whileTap={{ scale: 0.9 }}
@@ -180,6 +214,7 @@ function HomePageWedding(props) {
             // variants={showHideVar}
             className="logo font-bold basis-2/6 text-center text-xl lg:text-2xl font-mono cursor-pointer font-dosis"
             onClick={handleScrollToHeader}
+            style={{ color: color }}
           >
             WeddingPages.
           </motion.div>
@@ -407,8 +442,8 @@ function HomePageWedding(props) {
             className="introduce-title relative flex flex-row justify-center items-center w-full "
           >
             {/* <div className="introduce-line"></div> */}
-            <div className="title  bg-heading-tile w-14 items-center bg-origin-border border-spacing-3 h-14 bg-contain bg-no-repeat"></div>
-            <div className="mm-title text-5xl mx-5 font-mono font- text-center text-red-300">
+            {/* <div className="title  bg-heading-tile w-14 items-center bg-origin-border border-spacing-3 h-14 bg-contain bg-no-repeat"></div> */}
+            <div className="mm-title text-5xl mx-5 font-playfair text-center text-vitange_green-20">
               Our Love Story
             </div>
 

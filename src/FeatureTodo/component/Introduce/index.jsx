@@ -22,7 +22,7 @@ const Introduce = (props, ref) => {
       >
         {/* <div className="introduce-line"></div> */}
         <div className="title  bg-heading-tile w-14 items-center bg-origin-border border-spacing-3 h-14 bg-contain bg-no-repeat"></div>
-        <div className="mm-title text-5xl mx-5 font-mono font- text-center text-red-400">
+        <div className="mm-title text-5xl mx-5 font-playfair text-center text-orange-600">
           Introduce
         </div>
 
@@ -30,7 +30,7 @@ const Introduce = (props, ref) => {
       </motion.div>
 
       <div className="h-[100px]"></div>
-      <div className=" font-dancing text-red-400 ps-20 text-2xl pt-5 text-center tracking-normal pb-16">
+      <div className=" font-dancing text-orange-400 ps-20 text-2xl pt-5 text-center tracking-normal pb-16">
         <p>
           Hạnh phúc nhất không phải giây phút được cùng nhau nắm tay bước đến lễ
           đường

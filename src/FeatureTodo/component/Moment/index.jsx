@@ -3,10 +3,7 @@ import PropTypes from "prop-types";
 import meet from "./../../../img/meet.webp";
 
 import cadong from "./../../../img/bg-rung.webp";
-import dalat1 from "./../../../dalat/dalat1.webp";
-import dalat2 from "./../../../dalat/dalat2.webp";
-import dalat3 from "./../../../dalat/dalat3.webp";
-import dalat4 from "./../../../dalat/dalat4.webp";
+import DalatPost from "./../../constant/blog_dalat";
 
 import {
   ParallaxProvider,
@@ -32,25 +29,97 @@ function Moment(props) {
     speed: 20,
     translateX: ["0", "-15"],
     translateY: ["", ""],
+    easing: "easeInQuad",
   });
+
+  console.log({ sasd: DalatPost });
   return (
     <div className="flex flex-col items-center w-full  h-auto">
       <div className="grid grid-cols-2  w-full">
-        <div className="mm-meet h-[800px] flex flex-col py-10  text-red-500 items-center">
-          <div className="font-playfair text-3xl  ">The First Date</div>
-          <img src={meet} alt="" className=" w-[350px] h-auto mt-5 mb-7" />
+        <div className="mm-meet h-[800px] flex flex-col justify-center py-10 gap-2 text-vitange_green-30 items-center">
+          <div className="font-vollkorn text-4xl w-[350px] text-vitange_green-500">
+            <p>The First</p>
+            <p>Date</p>
+          </div>
 
-          <div className="font-playfair  text-base  w-[350px]">
-            <p>Bạn có tin vào duyên số không? mình thì có nha ^^.</p>
+          <div className="font-dosis  text-lg  w-[350px] text-vitange_green-20">
+            <p className="text-2xl pb-2">
+              Bạn có tin vào duyên số không? mình thì có nha ^^.
+            </p>
             <p>
               Tụi mình gặp nhau trong một lần hoạt động từ thiện, chuyến đi đó
               là lần đầu tiên trong đời mình được đi bộ hơn 10km trong rừng núi,
               chợt trong đoàn mình tìm thấy em. Khoảnh khắc em quan tâm mọi
-              người đã lan tỏa sự thiện cảm, ấm áp .Và chắc có lẽ mình đã say
+              người như lan tỏa sự thiện cảm, ấm áp .Và chắc có lẽ mình đã say
               nắng nụ cười của e từ giây phút ấy.
             </p>
-            <p></p>
-            <p></p>
+          </div>
+        </div>
+        <div
+          className={
+            "m-title h-[800px] bg-red flex bg-vitange_green-10 flex-col items-center justify-center"
+          }
+        >
+          <img src={meet} alt="" className=" w-[350px] h-auto mt-5 mb-7" />
+        </div>
+        <div className="mm-meet row-span-2 h-[auto] flex flex-col p-3 justify-center gap-3 pt-10  text-white items-center">
+          <div className="grid grid-cols-1 gap-2">
+            {DalatPost.map((post, i) =>
+              i % 2 == 0 ? (
+                <div className="item-post flex flex-row gap-5 h-[300px] bg-vitange_green-20 text-white w-[60%] border  mx-auto ">
+                  <img
+                    src={post.image}
+                    alt=""
+                    className={`h-full w-[50%] object-cover   `}
+                  />
+                  <div className="detail  flex flex-col gap-3 py-10 pr-2 text-white">
+                    <div className="font-dosis text-xs ">{post.date}</div>
+                    <div className="font-playfair font-bold ">{post.title}</div>
+
+                    <div className="font-dosis ">{post.description}</div>
+                  </div>
+                </div>
+              ) : (
+                <div className="item-post flex flex-row gap-5 h-[300px] w-[60%] border  mx-auto ">
+                  <img
+                    src={post.image}
+                    alt=""
+                    className={`h-full w-[50%] object-cover  ${
+                      i == 1 ? "object-left " : ""
+                    }`}
+                  />
+                  <div className="detail  flex flex-col gap-3 py-10 pr-2 text-black">
+                    <div className="font-dosis text-xs ">{post.date}</div>
+                    <div className="font-playfair font-bold ">{post.title}</div>
+
+                    <div className="font-dosis  ">{post.description}</div>
+                  </div>
+                </div>
+              )
+            )}
+          </div>
+        </div>
+        <div
+          className={
+            "m-title h-[800px] bg-red flex  flex-col   items-center justify-center"
+          }
+        >
+          <div className="font-vollkorn text-4xl w-[350px] text-vitange_green-40">
+            <p>Mermory</p>
+            <p>DaLat</p>
+          </div>
+          <div className="font-dosis  text-lg  w-[350px] text-vitange_green-20">
+            <p className="text-2xl pb-2">
+              Có nơi mà khi nhắc đến sẽ làm bạn nhớ về một nửa của mình.
+            </p>
+            <p>
+              Tụi mình đã đến đây rất nhiều lần thế nhưng khi nhắc về Đà Lạt thì
+              cảm giác bồi hồi trong lòng vẫn hiện hữu. Hàng quán hay các địa
+              điểm checkin trở nên quen thuộc cứ như đây mà nơi mình được sinh
+              ra vậy. Đà Lạt cũng là nơi đầu tiên mà tụi mình đến cùng nhau.
+              Chắc hẳn các bạn cũng như mình và có thật nhiều kỉ niệm với nơi
+              này. Cùng tham quan một số điểm checkin ở đây nha 🌲🌲
+            </p>
           </div>
         </div>
         <div className={"m-title "}>
@@ -62,13 +131,72 @@ function Moment(props) {
                 alt=""
                 className="h-full w-[120%] object-cover object-center max-w-[120%]"
               />
-              {/* <div className="absolute" style={insideStyles}>
-                {" "}
-                Ảnh chỗ này sẽ đổi để phù hợp với màu
-              </div> */}
+            </div>
+          </div>
+        </div>{" "}
+      </div>
+    </div>
+  );
+}
+
+export default Moment;
+
+{
+  /* <div className="item-post flex flex-row gap-5 h-[300px] w-[50%] border bg-red-300 border-red-200 mx-auto ">
+<img
+  src={dalat1}
+  alt=""
+  className="h-full w-[50%] object-cover object-center "
+/>
+<div className="detail  flex flex-col gap-3 py-10 pr-2 text-white">
+  <div className="font-dosis text-xs ">Mar 22 * 2 min</div>
+  <div className="font-playfair font-bold ">
+    Transform your winter blues into winter creativity
+  </div>
+  <div className="font-dosis ">
+    Create a blog post subtitle that summarizes your post in a few
+    short, punchy sentences and entices your audience to
+  </div>
+</div>
+</div>
+<div className="item-post flex flex-row gap-5 h-[300px] w-[50%] border  mx-auto ">
+<img
+  src={dalat2}
+  alt=""
+  className="h-full w-[50%] object-cover object-left "
+/>
+<div className="detail  flex flex-col gap-3 py-10 pr-2 text-black">
+  <div className="font-dosis text-xs ">Mar 22 * 2 min</div>
+  <div className="font-playfair font-bold ">
+    Transform your winter blues into winter creativity
+  </div>
+  <div className="font-dosis ">
+    Create a blog post subtitle that summarizes your post in a few
+    short, punchy sentences and entices your audience to
+  </div>
+</div>
+</div> */
+}
+{
+  /* <div className={"m-title "}>
+          <div className="bg-red-300 h-[800px] w-full flex flex-col justify-center items-center ">
+            <div className="bg-black h-full  overflow-hidden relative ">
+              <img
+                ref={ref}
+                src={cadong}
+                alt=""
+                className="h-full w-[120%] object-cover object-center max-w-[120%]"
+              />
+             
             </div>
 
-            {/* <div className="h-[300px] w-[500px] bg-black overflow-hidden">
+   
+          </div>
+        </div> */
+}
+
+{
+  /* <div className="h-[300px] w-[500px] bg-black overflow-hidden">
         <Parallax
           speed={10}
           scale={[1, 1]}
@@ -76,47 +204,5 @@ function Moment(props) {
           style={{ overflow: "hidden" }}
           translateY={["", ""]}
         ></Parallax>
-      </div> */}
-          </div>
-        </div>
-        <div className="mm-meet h-[auto] flex flex-col p-3 justify-center bg-red-100 gap-3 text-white items-center">
-          <div className="grid grid-cols-3 gap-3 w-[60%]">
-            <img
-              src={dalat4}
-              alt=""
-              className="h-auto max-w-auto object-cover object-center "
-            />
-            <img
-              src={dalat4}
-              alt=""
-              className="h-auto max-w-auto object-cover object-center "
-            />
-            <img
-              src={dalat4}
-              alt=""
-              className="h-auto max-w-auto object-cover object-center "
-            />
-            <img
-              src={dalat4}
-              alt=""
-              className="h-auto max-w-auto object-cover object-center "
-            />
-            <img
-              src={dalat4}
-              alt=""
-              className="h-auto max-w-auto object-cover object-center "
-            />
-            <img
-              src={dalat4}
-              alt=""
-              className="h-auto max-w-auto object-cover object-center "
-            />
-          </div>
-        </div>
-        <div className={"m-title h-[800px] bg-red"}> </div>
-      </div>
-    </div>
-  );
+      </div> */
 }
-
-export default Moment;

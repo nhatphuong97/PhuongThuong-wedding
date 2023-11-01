@@ -54,6 +54,13 @@ module.exports = {
           50: "#BBEDF2",
           60: "#fcdce2",
         },
+        vitange_green: {
+          10: "#ECE3CE",
+          20: "#739072",
+          30: "#669b6b",
+          40: "#4F6F52",
+          50: "#3A4D39",
+        },
       },
       keyframes: {
         transright: {
