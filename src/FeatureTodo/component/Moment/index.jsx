@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import meet from "./../../../img/meet.webp";
+import meet from "./../../../dalat/matcha.webp";
 
-import cadong from "./../../../img/bg-rung.webp";
+import dalat5 from "./../../../img/bg-rung.webp";
 import DalatPost from "./../../constant/blog_dalat";
 
 import {
@@ -29,7 +29,7 @@ function Moment(props) {
     speed: 20,
     translateX: ["-10", "-25"],
     translateY: ["", ""],
-    easing: "easeInQuad",
+    easing: "easeInOutQuad",
   });
 
   console.log({ sasd: DalatPost });
@@ -41,11 +41,11 @@ function Moment(props) {
             <p>The First</p>
             <p>Date</p>
           </div>
-          <div className="h-[2px] bg-vitange_green-20 w-[350px] my-2"></div>
+          {/* <div className="h-[2px] bg-vitange_green-20 w-[350px] my-2"></div> */}
 
           <div className="font-dosis  text-lg  w-[350px] text-vitange_green-20">
-            <p className="text-2xl pb-2">
-              Bạn có tin vào duyên số không? mình thì có nha ^^.
+            <p className="text-xl pb-2">
+              Bạn có tin vào duyên số không? mình thì có nha ^ ^
             </p>
             <p>
               Tụi mình gặp nhau trong một lần hoạt động từ thiện, chuyến đi đó
@@ -58,25 +58,34 @@ function Moment(props) {
         </div>
         <div
           className={
-            "m-title h-[800px] bg-red flex bg-vitange_green-10 flex-col items-center justify-center"
+            "m-title h-[800px] bg-red flex matcha flex-col items-center justify-center"
           }
         >
-          <img src={meet} alt="" className=" w-[350px] h-auto mt-5 mb-7" />
+          <img
+            src={meet}
+            alt=""
+            className=" w-[350px] h-auto mt-5 mb-7 shadow-md shadow-vitange_green-20"
+          />
         </div>
         <div className="mm-meet row-span-2 h-[auto] flex flex-col p-3 justify-center gap-3 pt-10  text-white items-center">
           <div className="checkin text-vitange_green-40 font-vollkorn text-3xl">
             Checkin
           </div>
-          <div className="grid grid-cols-1 gap-2">
+          <div className="grid grid-cols-1 gap-4">
             {DalatPost.map((post, i) =>
               i % 2 == 0 ? (
-                <div className="item-post flex flex-row gap-5 h-[300px] bg-vitange_green-20 text-white w-[60%] border  mx-auto ">
+                <div
+                  key={"dalat" + i}
+                  className="item-post flex flex-row gap-5 h-[300px] bg-vitange_green-20 text-white w-[60%] border  mx-auto "
+                >
                   <img
                     src={post.image}
                     alt=""
-                    className={`h-full w-[50%] object-cover   `}
+                    className={`h-full w-[50%] object-cover flex-1 ${
+                      i == 2 ? "object-left " : ""
+                    }`}
                   />
-                  <div className="detail  flex flex-col gap-3 py-10 pr-2 text-white">
+                  <div className="detail  flex flex-col gap-3 py-10 pr-2 text-white  flex-1">
                     <div className="font-dosis text-xs ">{post.date}</div>
                     <div className="font-playfair font-bold ">{post.title}</div>
 
@@ -84,15 +93,17 @@ function Moment(props) {
                   </div>
                 </div>
               ) : (
-                <div className="item-post flex flex-row gap-5 h-[300px] w-[60%] border  mx-auto ">
+                <div
+                  key={"dalat" + i}
+                  className="item-post flex flex-row gap-5 h-[300px] w-[60%] border  mx-auto "
+                >
                   <img
                     src={post.image}
                     alt=""
-                    className={`h-full w-[50%] object-cover  ${
-                      i == 1 ? "object-left " : ""
+                    className={`h-full w-[50%] object-cover    flex-1
                     }`}
                   />
-                  <div className="detail  flex flex-col gap-3 py-10 pr-2 text-black">
+                  <div className="detail  flex flex-col gap-3 py-10  flex-1 pr-2 text-black">
                     <div className="font-dosis text-xs ">{post.date}</div>
                     <div className="font-playfair font-bold ">{post.title}</div>
 
@@ -114,16 +125,17 @@ function Moment(props) {
           </div>
           <div className="h-[2px] bg-vitange_green-20 w-[350px] my-2"></div>
           <div className="font-dosis  text-lg  w-[350px] text-vitange_green-20">
-            <p className="text-2xl pb-2">
+            <p className="text-xl pb-2">
               Có nơi mà khi nhắc đến sẽ làm bạn nhớ về một nửa của mình.
             </p>
             <p>
               Tụi mình đã đến đây rất nhiều lần thế nhưng khi nhắc về Đà Lạt thì
               cảm giác bồi hồi trong lòng vẫn hiện hữu. Hàng quán hay các địa
-              điểm checkin trở nên quen thuộc cứ như đây mà nơi mình được sinh
-              ra vậy. Đà Lạt cũng là nơi đầu tiên mà tụi mình đến cùng nhau.
-              Chắc hẳn các bạn cũng như mình và có thật nhiều kỉ niệm với nơi
-              này. Cùng tham quan một số điểm checkin ở đây nha
+              điểm checkin trở nên quen thuộc nhưng mà để hỏi về nơi mình muốn
+              đến nhất thì vẫn là Đà Lạt. Đây cũng là nơi đầu tiên tụi mình cùng
+              nhau trải nghiệm. Chắc hẳn các bạn cũng như mình và có thật nhiều
+              kỉ niệm với nơi này. Cùng tham quan một số điểm checkin ở đây nha
+              ^ ^
             </p>
           </div>
         </div>
@@ -132,9 +144,9 @@ function Moment(props) {
             <div className="bg-black h-full  overflow-hidden relative ">
               <img
                 ref={ref}
-                src={cadong}
+                src={dalat5}
                 alt=""
-                className="h-full w-[140%] object-cover object-center max-w-[140%]"
+                className="h-full w-[140vw] object-cover object-center max-w-[140%]"
               />
             </div>
           </div>

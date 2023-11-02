@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect, lazy, Suspense } from "react";
 import PropTypes from "prop-types";
 import { button } from "@material-tailwind/react";
 import { NavLink, Route } from "react-router-dom";
@@ -11,20 +11,19 @@ import {
   Variants,
 } from "framer-motion";
 import logoHeader from "./../../img/savethedate_wh.gif";
-import airplane from "./../../img/airplane.png";
 import { Link, animateScroll as scroll, scroller } from "react-scroll";
-
 // import { HashLink as Link } from "react-router-hash-link";
 import CountDownTime from "../component/CountDownTime";
-import Introduce from "../component/Introduce";
 import "./style.scss";
-import Events from "../component/Events";
-import Invitation from "../component/invitation";
-import LoveSongMain from "../component/LoveSong";
-import ParallaxDevide from "../component/ParallaxDevide";
 import classNames from "classnames";
-import Album from "../component/Album";
-import Moment from "../component/Moment";
+
+const Introduce = React.lazy(() => import("../component/Introduce"));
+const Invitation = React.lazy(() => import("../component/invitation"));
+const LoveSongMain = React.lazy(() => import("../component/LoveSong"));
+const ParallaxDevide = React.lazy(() => import("../component/ParallaxDevide"));
+const Moment = React.lazy(() => import("../component/Moment"));
+const Album = React.lazy(() => import("../component/Album"));
+const Events = React.lazy(() => import("../component/Events"));
 
 HomePageWedding.propTypes = {};
 
@@ -41,49 +40,41 @@ function HomePageWedding(props) {
   const [color, setColor] = useState("#FCA5A5");
   const [classCss, setClassCss] = useState("isNomarl");
 
-  // const changeColor = () => {
-  //   console.log(color);
-  //   console.log(window.scrollY);
-  //   console.log(elementToScroll11);
-  //   if (window.scrollY >= 2897) {
-  //     setColor("#3A4D39");
-  //     elementToScroll11.classList.remove("isSticky");
-  //     elementToScroll11.classList.add("isNotSticky");
-  //   } else {
-  //     setColor("#fff");
-  //     elementToScroll11.classList.add("isSticky");
-  //     elementToScroll11.classList.remove("isNotSticky");
-  //   }
-
-  //   elementToScroll11.addEventListener("s");
-  //   // if (entry.intersectionRatio === 1) {
-  //   //   elementToScroll11.target.classList.remove("isSticky");
-  //   //   elementToScroll11.target.classList.add("isNotSticky");
-  //   // } else {
-  //   //   elementToScroll11.target.classList.add("isSticky");
-  //   //   elementToScroll11.target.classList.remove("isNotSticky");
-  //   // }
-  // };
-
   window.addEventListener("scroll", () => {
-    console.log(window.scrollY);
+    // let elem = document.querySelector(".nav-show");
+    let invitation = document
+      .querySelector(".devide-invitation")
+      .getBoundingClientRect();
+    let introduce = document
+      .querySelector(".devide-introduce")
+      .getBoundingClientRect();
+    let moments = document
+      .querySelector(".devide-moments")
+      .getBoundingClientRect();
+    let root = document.querySelector(".root").getBoundingClientRect();
+
+    let invitationTop = invitation.top - root.top;
+    let introduceTop = introduce.top - root.top;
+    let momentsTop = moments.top - root.top;
     if (window.scrollY < 620) {
       setColor("#FCA5A5");
       document.title = "Wedding ❤️";
 
-      // refNav.current.classList.add("isSticky");
-      // refNav.current.classList.remove("isNotSticky");
       setClassCss("isNomarl");
-    } else if (620 <= window.scrollY && window.scrollY < 1395) {
+    } else if (
+      invitationTop <= window.scrollY &&
+      window.scrollY < introduceTop
+    ) {
       setColor("#f87a75");
       document.title = "Thư Mời ❤️";
       setClassCss("isInvitation");
-    } else if (1395 <= window.scrollY && window.scrollY < 2822) {
+    } else if (introduceTop <= window.scrollY && window.scrollY < momentsTop) {
       setColor("#fc9b3c");
       document.title = "Giới Thiệu ❤️";
       setClassCss("isIntroduce");
-    } else if (2822 <= window.scrollY) {
+    } else if (momentsTop <= window.scrollY) {
       setColor("#fff");
+
       document.title = "Khoảnh Khắc 🌲 ";
       setClassCss("isMoments");
     }
@@ -164,7 +155,7 @@ function HomePageWedding(props) {
   return (
     <>
       {/* ref={scrollRef} style={{ overflow: "scroll" }} */}
-      <div className="root">
+      <div className="root" id="parrent">
         <div
           ref={headerRef}
           className="slider-top flex w-full relative lg:h-[700px]  md:h-[600px] h-[500px] bg-image-main bg-local md:bg-fixed bg-cover
@@ -202,7 +193,7 @@ function HomePageWedding(props) {
         {/* END background */}
         <nav
           ref={refNav}
-          className={` ${classCss} p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-3 sticky z-50 -top-1`}
+          className={` ${classCss}  p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-3 sticky z-50 -top-1`}
         >
           <motion.div
             // whileHover={{ color: "#F14F62", scale: 1.2 }}
@@ -269,7 +260,7 @@ function HomePageWedding(props) {
               <Link
                 spy={true}
                 smooth={true}
-                offset={-50}
+                offset={-300}
                 duration={400}
                 // delay={1000}
                 isDynamic={true}
@@ -425,63 +416,65 @@ function HomePageWedding(props) {
                 Events & Parties
               </motion.div>
             </div> */}
-          <div className="devide h-[100px] bg-red-200"></div>
-          <div id="invitation" className="tw-invitation w-full  mx-auto">
-            <Invitation />
-          </div>
-          <div className="devide h-[400px]"></div>
-
-          <div id="introduce" className="tw-introduce mt-20 mx-auto">
-            <Introduce ref={introduceRef} />
-          </div>
-          <div className="devide h-[200px]"></div>
-          <motion.div
-            initial={{ opacity: 0, y: 50 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-            className="introduce-title relative flex flex-row justify-center items-center w-full "
-          >
-            {/* <div className="introduce-line"></div> */}
-            {/* <div className="title  bg-heading-tile w-14 items-center bg-origin-border border-spacing-3 h-14 bg-contain bg-no-repeat"></div> */}
-            <div className="mm-title text-5xl mx-5 font-playfair text-center text-vitange_green-20">
-              Our Love Story
+          <div className="devide h-[100px] bg-red-200  devide-invitation "></div>
+          <Suspense>
+            <div id="invitation" className=" w-full  tw-invitation mx-auto">
+              <Invitation />
             </div>
+            <div className=" h-[200px] devide-introduce "></div>
 
-            {/* <div className="introduce-line"></div> */}
-          </motion.div>
-          <div className="devide h-[100px]"></div>
+            <div id="introduce" className="tw-introduce mt-20 mx-auto">
+              <Introduce ref={introduceRef} />
+            </div>
+            <div className=" devide-moments  h-[200px]"></div>
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+              className="introduce-title relative flex flex-row justify-center items-center w-full "
+            >
+              {/* <div className="introduce-line"></div> */}
+              {/* <div className="title  bg-heading-tile w-14 items-center bg-origin-border border-spacing-3 h-14 bg-contain bg-no-repeat"></div> */}
+              <div className="mm-title text-5xl mx-5 font-playfair text-center text-vitange_green-20">
+                Our Love Story
+              </div>
 
-          <div id="moments" className="tw-moments flex h-full">
-            <Moment />
-          </div>
-          <div className="devide h-[200px]"></div>
+              {/* <div className="introduce-line"></div> */}
+            </motion.div>
+            <div className="devide h-[100px]"></div>
 
-          <div
-            id="album"
-            className="tw-album flex h-[1000px] text-white relative"
-          >
-            {/* <Album /> */}
-            Album ở đây nè
-          </div>
-          <div className="devide h-[200px]"></div>
+            <div id="moments" className="tw-moments flex h-full">
+              <Moment />
+            </div>
+            <div className="devide h-[200px]"></div>
 
-          <div id="events" className="tw-events  h-[1000px] relative">
-            {/* <Events ref={events} /> */}
-            Event ở đây nhé
-          </div>
-          <div className="devide h-[200px]"></div>
+            <div
+              id="album"
+              className="tw-album flex h-[1000px] text-white relative"
+            >
+              {/* <Album /> */}
+              Album ở đây nè
+            </div>
+            <div className="devide h-[200px]"></div>
 
-          <div id="love-song" className="tw-love-song flex h-[600px]">
-            <LoveSongMain tracks={song} />
-          </div>
-          <div className="devide h-[200px]"></div>
+            <div id="events" className="tw-events  h-[1000px] relative">
+              {/* <Events ref={events} /> */}
+              Event ở đây nhé
+            </div>
+            <div className="devide h-[200px]"></div>
 
-          <>
-            <ParallaxDevide className="bg-red-50" />
-          </>
-          <div id="send-love" className="tw-send-love flex h-[1000px]">
-            Send love
-          </div>
+            <div id="love-song" className="tw-love-song flex h-[600px]">
+              <LoveSongMain tracks={song} />
+            </div>
+            <div className="devide h-[200px]"></div>
+
+            <>
+              <ParallaxDevide className="bg-red-50" />
+            </>
+            <div id="send-love" className="tw-send-love flex h-[1000px]">
+              Send love
+            </div>
+          </Suspense>
           <footer>footer</footer>
         </motion.div>
       </div>
