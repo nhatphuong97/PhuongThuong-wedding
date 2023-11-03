@@ -8,14 +8,14 @@ import { useScroll, useTransform, motion } from "framer-motion";
 Invitation.propTypes = {};
 
 function Invitation(props) {
-  const divElementRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: { divElementRef },
-    offset: ["0 1", "1.33 1"],
-  });
+  // const divElementRef = useRef(null);
+  // const { scrollYProgress } = useScroll({
+  //   target: { divElementRef },
+  //   offset: ["0 1", "1.33 1"],
+  // });
 
-  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [1, 2]);
+  // const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  // const scaleProgress = useTransform(scrollYProgress, [0, 1], [1, 2]);
 
   return (
     <div>

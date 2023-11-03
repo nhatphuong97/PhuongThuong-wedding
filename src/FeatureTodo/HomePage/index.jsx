@@ -1,4 +1,11 @@
-import React, { useState, useRef, useEffect, lazy, Suspense } from "react";
+import React, {
+  useState,
+  useRef,
+  useEffect,
+  lazy,
+  Suspense,
+  Profiler,
+} from "react";
 import PropTypes from "prop-types";
 import { button } from "@material-tailwind/react";
 import { NavLink, Route } from "react-router-dom";
@@ -83,18 +90,18 @@ function HomePageWedding(props) {
   const displayResponsiveMenu = () => {
     setShowMenu(!showMenu);
   };
-  const { scrollYProgress } = useScroll({
-    target: { divElementRef },
-    offset: ["0 1", "1.33 1"],
-  });
+  // const { scrollYProgress } = useScroll({
+  //   target: { divElementRef },
+  //   offset: ["0 1", "1.33 1"],
+  // });
 
-  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
+  // const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.5, 1]);
+  // const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
 
-  const showHideVar = {
-    visible: { opacity: 1 },
-    hidden: { opacity: 0 },
-  };
+  // const showHideVar = {
+  //   visible: { opacity: 1 },
+  //   hidden: { opacity: 0 },
+  // };
   useEffect(() => {
     document.addEventListener("mousedown", handleOutsideClick);
     return () => {
@@ -152,32 +159,42 @@ function HomePageWedding(props) {
 
   // scroll();
   // const addClassName
+
+  const onCallbackRenderProfiler = (
+    id, // the "id" prop of the Profiler tree that has just committed
+    phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
+    actualDuration, // time spent rendering the committed update
+    baseDuration, // estimated time to render the entire subtree without memoization
+    startTime, // when React began rendering this update
+    commitTime, // when React committed this update
+    interactions
+  ) => {};
   return (
     <>
-      {/* ref={scrollRef} style={{ overflow: "scroll" }} */}
-      <div className="root" id="parrent">
-        <div
-          ref={headerRef}
-          className="slider-top flex w-full relative lg:h-[700px]  md:h-[600px] h-[500px] bg-image-main bg-local md:bg-fixed bg-cover
+      <Profiler id="div-root" onRender={onCallbackRenderProfiler}>
+        <div className="root" id="parrent">
+          <div
+            ref={headerRef}
+            className="slider-top flex w-full relative lg:h-[700px]  md:h-[600px] h-[500px] bg-image-main bg-local md:bg-fixed bg-cover
                bg-no-repeat bg-center bg-slate-600 ] -z-10"
-        >
-          <div className="w-full h-full bg-black bg-opacity-30  flex flex-col justify-center ">
-            <div className="justify-center items-center flex ">
-              <div className="tw-name-main">Nhật Phương</div>
-              <img
-                src={logoHeader}
-                alt=""
-                className={` lg:h-[150px] h-[20%]`}
-              />
-              <div className="tw-name-main">Hoài Thương</div>
+          >
+            <div className="w-full h-full bg-black bg-opacity-30  flex flex-col justify-center ">
+              <div className="justify-center items-center flex ">
+                <div className="tw-name-main">Nhật Phương</div>
+                <img
+                  src={logoHeader}
+                  alt=""
+                  className={` lg:h-[150px] h-[20%]`}
+                />
+                <div className="tw-name-main">Hoài Thương</div>
+              </div>
             </div>
-          </div>
-          <div className=" flex absolute items-center bottom-0 left-0 right-0 mb-5 justify-center">
-            <CountDownTime listData={12}>
-              12 ngày 3 giờ 15 phút 8 giây
-            </CountDownTime>
-          </div>
-          {/* DIV Máy bay ( đang ẩn) <div className=" absolute w-16 lg:w-20 flex bottom-0 left-1/3 ">
+            <div className=" flex absolute items-center bottom-0 left-0 right-0 mb-5 justify-center">
+              <CountDownTime listData={12}>
+                12 ngày 3 giờ 15 phút 8 giây
+              </CountDownTime>
+            </div>
+            {/* DIV Máy bay ( đang ẩn) <div className=" absolute w-16 lg:w-20 flex bottom-0 left-1/3 ">
             <motion.img
               initial={{ opacity: 1, x: 0, y: 0 }}
               whileInView={{ opacity: 1, x: 50, y: 0 }}
@@ -188,46 +205,48 @@ function HomePageWedding(props) {
               className=""
             />
           </div> */}
-        </div>
+          </div>
 
-        {/* END background */}
-        <nav
-          ref={refNav}
-          className={` ${classCss}  p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-3 sticky z-50 -top-1`}
-        >
-          <motion.div
-            // whileHover={{ color: "#F14F62", scale: 1.2 }}
-            // whileTap={{ scale: 0.9 }}
-            // // animate={{ fontSize: 50 }}
-            // initial="hidden"
-            // whileInView="visible"
-            // transition={{ duration: 0.2 }}
-            // variants={showHideVar}
-            className="logo font-bold basis-2/6 text-center text-xl lg:text-2xl font-mono cursor-pointer font-dosis"
-            onClick={handleScrollToHeader}
-            style={{ color: color }}
+          {/* END background */}
+          <nav
+            ref={refNav}
+            className={` ${classNames([
+              classCss,
+            ])}  p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-3 sticky z-50 -top-1`}
           >
-            WeddingPages.
-          </motion.div>
-          <ul
-            ref={menuRef}
-            className={`${showMenu ? "flex" : "hidden"} tw-menu-item-show 
+            <motion.div
+              // whileHover={{ color: "#F14F62", scale: 1.2 }}
+              // whileTap={{ scale: 0.9 }}
+              // // animate={{ fontSize: 50 }}
+              // initial="hidden"
+              // whileInView="visible"
+              // transition={{ duration: 0.2 }}
+              // variants={showHideVar}
+              className="logo font-bold basis-2/6 text-center text-xl lg:text-2xl font-mono cursor-pointer font-dosis"
+              onClick={handleScrollToHeader}
+              style={{ color: color }}
+            >
+              WeddingPages.
+            </motion.div>
+            <ul
+              ref={menuRef}
+              className={`${showMenu ? "flex" : "hidden"} tw-menu-item-show 
                 lg:flex lg:basis-3/6 font-cuprum font-bold lg:item-center transition-all duration-300
                  gap-4 uppercase text-sm lg:justify-cente animate-slide-down`}
-          >
-            <li className="tw-top-menu-item">
-              <Link
-                smooth={true}
-                offset={-50}
-                duration={400}
-                // delay={1000}
-                isDynamic={true}
-                to={"tw-invitation"}
-              >
-                Invitation
-              </Link>
-            </li>
-            {/* <NavLink
+            >
+              <li className="tw-top-menu-item">
+                <Link
+                  smooth={true}
+                  offset={-50}
+                  duration={400}
+                  // delay={1000}
+                  isDynamic={true}
+                  to={"tw-invitation"}
+                >
+                  Invitation
+                </Link>
+              </li>
+              {/* <NavLink
               style={({ isActive }) => {
                 return isActive ? { color: "red" } : {};
               }}
@@ -242,83 +261,83 @@ function HomePageWedding(props) {
               Home
             </NavLink> */}
 
-            <li className="tw-top-menu-item">
-              <Link
-                spy={true}
-                smooth={true}
-                offset={-50}
-                duration={400}
-                // delay={1000}
-                isDynamic={true}
-                to={"tw-introduce"}
-              >
-                Introduce
-              </Link>
-            </li>
+              <li className="tw-top-menu-item">
+                <Link
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={400}
+                  // delay={1000}
+                  isDynamic={true}
+                  to={"tw-introduce"}
+                >
+                  Introduce
+                </Link>
+              </li>
 
-            <li className="tw-top-menu-item">
-              <Link
-                spy={true}
-                smooth={true}
-                offset={-300}
-                duration={400}
-                // delay={1000}
-                isDynamic={true}
-                to={"tw-moments"}
-              >
-                Moments
-              </Link>
-            </li>
-            <li className="tw-top-menu-item">
-              <Link
-                spy={true}
-                smooth={true}
-                offset={-50}
-                duration={400}
-                isDynamic={true}
-                to={"tw-album"}
-              >
-                Album
-              </Link>
-            </li>
-            <li className="tw-top-menu-item">
-              <Link
-                spy={true}
-                smooth={true}
-                offset={-50}
-                duration={400}
-                isDynamic={true}
-                to={"tw-events"}
-              >
-                Events
-              </Link>
-            </li>
-            <li className="tw-top-menu-item">
-              <Link
-                spy={true}
-                smooth={true}
-                offset={-100}
-                duration={400}
-                isDynamic={true}
-                to={"tw-love-song"}
-              >
-                Love Song
-              </Link>
-            </li>
-            <li className="tw-top-menu-item">
-              <Link
-                spy={true}
-                smooth={true}
-                offset={-50}
-                duration={400}
-                isDynamic={true}
-                to={"tw-send-love"}
-              >
-                Send Love
-              </Link>
-            </li>
-          </ul>
-          {/* DIV Giỏ Hàng <ul className="basis-3/6 lg:basis-1/6 flex flex-row justify-end  font-medium ml-5 relative text-gray-500 ">
+              <li className="tw-top-menu-item">
+                <Link
+                  spy={true}
+                  smooth={true}
+                  offset={-300}
+                  duration={400}
+                  // delay={1000}
+                  isDynamic={true}
+                  to={"tw-moments"}
+                >
+                  Moments
+                </Link>
+              </li>
+              <li className="tw-top-menu-item">
+                <Link
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={400}
+                  isDynamic={true}
+                  to={"tw-album"}
+                >
+                  Album
+                </Link>
+              </li>
+              <li className="tw-top-menu-item">
+                <Link
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={400}
+                  isDynamic={true}
+                  to={"tw-events"}
+                >
+                  Events
+                </Link>
+              </li>
+              <li className="tw-top-menu-item">
+                <Link
+                  spy={true}
+                  smooth={true}
+                  offset={-100}
+                  duration={400}
+                  isDynamic={true}
+                  to={"tw-love-song"}
+                >
+                  Love Song
+                </Link>
+              </li>
+              <li className="tw-top-menu-item">
+                <Link
+                  spy={true}
+                  smooth={true}
+                  offset={-50}
+                  duration={400}
+                  isDynamic={true}
+                  to={"tw-send-love"}
+                >
+                  Send Love
+                </Link>
+              </li>
+            </ul>
+            {/* DIV Giỏ Hàng <ul className="basis-3/6 lg:basis-1/6 flex flex-row justify-end  font-medium ml-5 relative text-gray-500 ">
             <li className="tw-top-menu-item">
               <a href="/" className="flex items-center">
                 <svg
@@ -340,37 +359,37 @@ function HomePageWedding(props) {
               </a>
             </li>
           </ul> */}
-          <div className="lg:hidden relative  h-full w-full basis-1/6 flex item-center cursor-pointer">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="tw-icon"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+            <div className="lg:hidden relative  h-full w-full basis-1/6 flex item-center cursor-pointer">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="tw-icon"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3.75 5.25h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5m-16.5 4.5h16.5"
+                />
+              </svg>
+              <div
+                ref={buttonRef}
+                className="absolute h-[1.5rem]  w-[1.5rem] "
+                onClick={displayResponsiveMenu}
               />
-            </svg>
-            <div
-              ref={buttonRef}
-              className="absolute h-[1.5rem]  w-[1.5rem] "
-              onClick={displayResponsiveMenu}
-            />
-          </div>
-        </nav>
-        <motion.div
-          // ref={divElementRef}
-          // style={{
-          //   // scale: scaleProgress,
-          //   opacity: opacityProgress,
-          // }}
-          className="flex flex-col text-base relative"
-        >
-          {/* <motion.div
+            </div>
+          </nav>
+          <motion.div
+            // ref={divElementRef}
+            // style={{
+            //   // scale: scaleProgress,
+            //   opacity: opacityProgress,
+            // }}
+            className="flex flex-col text-base relative"
+          >
+            {/* <motion.div
               initial={{ opacity: 0, tra: 20 }}
               whileInView={{ opacity: 1, position: 200 }}
               transition={{ duration: 0.4 }}
@@ -378,7 +397,7 @@ function HomePageWedding(props) {
             >
               <div className="w-full h-full bg-black bg-opacity-30"></div>
             </motion.div> */}
-          {/* <div className="test-motion">
+            {/* <div className="test-motion">
               <motion.div
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -416,13 +435,11 @@ function HomePageWedding(props) {
                 Events & Parties
               </motion.div>
             </div> */}
-          <div className="devide h-[100px] bg-red-200  devide-invitation "></div>
-          <Suspense>
+            <div className="devide h-[100px] bg-red-200  devide-invitation "></div>
             <div id="invitation" className=" w-full  tw-invitation mx-auto">
               <Invitation />
             </div>
             <div className=" h-[200px] devide-introduce "></div>
-
             <div id="introduce" className="tw-introduce mt-20 mx-auto">
               <Introduce ref={introduceRef} />
             </div>
@@ -447,7 +464,6 @@ function HomePageWedding(props) {
               <Moment />
             </div>
             <div className="devide h-[200px]"></div>
-
             <div
               id="album"
               className="tw-album flex h-[1000px] text-white relative"
@@ -456,7 +472,6 @@ function HomePageWedding(props) {
               Album ở đây nè
             </div>
             <div className="devide h-[200px]"></div>
-
             <div id="events" className="tw-events  h-[1000px] relative">
               {/* <Events ref={events} /> */}
               Event ở đây nhé
@@ -468,16 +483,16 @@ function HomePageWedding(props) {
             </div>
             <div className="devide h-[200px]"></div>
 
-            <>
-              <ParallaxDevide className="bg-red-50" />
-            </>
+            <ParallaxDevide className="bg-red-50" />
+
             <div id="send-love" className="tw-send-love flex h-[1000px]">
               Send love
             </div>
-          </Suspense>
-          <footer>footer</footer>
-        </motion.div>
-      </div>
+            <footer>footer</footer>
+          </motion.div>
+        </div>
+      </Profiler>
+      {/* ref={scrollRef} style={{ overflow: "scroll" }} */}
     </>
   );
 }
