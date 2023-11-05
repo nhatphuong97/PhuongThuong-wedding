@@ -437,11 +437,16 @@ function HomePageWedding(props) {
             </div> */}
             <div className="devide h-[100px] bg-red-200  devide-invitation "></div>
             <div id="invitation" className=" w-full  tw-invitation mx-auto">
+              <Suspense>
               <Invitation />
+
+              </Suspense>
             </div>
             <div className=" h-[200px] devide-introduce "></div>
             <div id="introduce" className="tw-introduce mt-20 mx-auto">
+              <Suspense>
               <Introduce ref={introduceRef} />
+              </Suspense>
             </div>
             <div className=" devide-moments  h-[200px]"></div>
             <motion.div
