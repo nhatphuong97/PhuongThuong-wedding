@@ -2,9 +2,7 @@ import React, { forwardRef, useRef } from "react";
 import PropTypes from "prop-types";
 import "./style.scss";
 const events = (props, ref) => {
-  //phần phía trên test ref
   const itemRef = ref;
-  console.log("ref", itemRef);
   return (
     <div ref={itemRef} className="w-full flex">
       <div className="events-main flex flex-row container mx-auto justify-center  relative">

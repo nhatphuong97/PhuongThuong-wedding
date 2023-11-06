@@ -6,23 +6,20 @@ import React, {
   Suspense,
   Profiler,
 } from "react";
-import PropTypes from "prop-types";
-import { button } from "@material-tailwind/react";
-import { NavLink, Route } from "react-router-dom";
+
 import song from "../constant/song";
-import {
-  color,
-  motion,
-  useScroll,
-  useTransform,
-  Variants,
-} from "framer-motion";
+import { motion } from "framer-motion";
 import logoHeader from "./../../img/savethedate_wh.gif";
 import { Link, animateScroll as scroll, scroller } from "react-scroll";
 // import { HashLink as Link } from "react-router-hash-link";
 import CountDownTime from "../component/CountDownTime";
 import "./style.scss";
 import classNames from "classnames";
+import { useDispatch, useSelector } from "react-redux";
+import { playSong, pauseSong } from "../component/Redux/action/music_action";
+import { songSelector } from "../component/Redux/selectors/stateSelector";
+import { ReactComponent as mute } from "./../../icon/mute.svg";
+import { ReactComponent as unMute } from "./../../icon/unmute.svg";
 
 const Introduce = React.lazy(() => import("../component/Introduce"));
 const Invitation = React.lazy(() => import("../component/invitation"));
@@ -44,8 +41,22 @@ function HomePageWedding(props) {
   const divElementRef = useRef(null);
   const refNav = useRef(null);
 
+  // Redux here
+  const dispatchRedux = useDispatch();
+  const songState = useSelector((state) => state.songReducer.songs);
+  console.log(songState);
+
+  const handlePlayAndPauseSong = () => {
+    if (songState.isPlaying) {
+      dispatchRedux(pauseSong());
+    } else {
+      dispatchRedux(playSong());
+    }
+  };
+
   const [color, setColor] = useState("#FCA5A5");
   const [classCss, setClassCss] = useState("isNomarl");
+  const [classCssSong, setClassCssSong] = useState("isNomarlSong");
 
   window.addEventListener("scroll", () => {
     // let elem = document.querySelector(".nav-show");
@@ -68,22 +79,26 @@ function HomePageWedding(props) {
       document.title = "Wedding ❤️";
 
       setClassCss("isNomarl");
+      setClassCssSong("isNomarlSong");
     } else if (
       invitationTop <= window.scrollY &&
       window.scrollY < introduceTop
     ) {
-      setColor("#f87a75");
+      setColor("#F87A75");
       document.title = "Thư Mời ❤️";
       setClassCss("isInvitation");
+      setClassCssSong("isInvitationSong");
     } else if (introduceTop <= window.scrollY && window.scrollY < momentsTop) {
-      setColor("#fc9b3c");
+      setColor("#FC9B3C");
       document.title = "Giới Thiệu ❤️";
       setClassCss("isIntroduce");
+      setClassCssSong("isIntroduceSong");
     } else if (momentsTop <= window.scrollY) {
       setColor("#fff");
 
       document.title = "Khoảnh Khắc 🌲 ";
       setClassCss("isMoments");
+      setClassCssSong("isMomentsSong");
     }
   });
 
@@ -120,45 +135,9 @@ function HomePageWedding(props) {
   };
 
   const handleScrollToHeader = () => scroll.scrollToTop();
-  // const handleScrollToHeader = () =>
-  //   window.scroll({
-  //     top: 0,
-  //     left: 0,
-  //     behavior: "smooth",
-  //   });
 
-  // //Event scroll Menu
-  // const scrollMenu = () => {
-  //   const elementToScroll = document.querySelector(".nav-show");
+  //Sự kiện handle khi vùng view mong muốn đang ở trên màn hình
   //   const observer = new IntersectionObserver(
-  //     (entries, observer) => {
-  //       entries.forEach((entry) => {
-  //         console.log("nav", entry);
-  //         console.log("nav", entries.intersectionRatio);
-  //         entry.target.classList.toggle(
-  //           "isSticky",
-  //           entry.intersectionRatio < 1
-  //         );
-
-  //         // if (entry.intersectionRatio === 1) {
-  //         //   entry.target.classList.remove("isSticky");
-  //         //   entry.target.classList.add("isNotSticky");
-  //         // } else {
-  //         //   entry.target.classList.add("isSticky");
-  //         //   entry.target.classList.remove("isNotSticky");
-  //         // }
-  //       });
-  //     },
-  //     { threshold: 1 }
-  //   );
-
-  //   observer.observe(elementToScroll);
-  // };
-
-  //Animation transform
-
-  // scroll();
-  // const addClassName
 
   const onCallbackRenderProfiler = (
     id, // the "id" prop of the Profiler tree that has just committed
@@ -172,7 +151,7 @@ function HomePageWedding(props) {
   return (
     <>
       <Profiler id="div-root" onRender={onCallbackRenderProfiler}>
-        <div className="root" id="parrent">
+        <div className="root relative" id="parrent">
           <div
             ref={headerRef}
             className="slider-top flex w-full relative lg:h-[700px]  md:h-[600px] h-[500px] bg-image-main bg-local md:bg-fixed bg-cover
@@ -215,13 +194,6 @@ function HomePageWedding(props) {
             ])}  p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-3 sticky z-50 -top-1`}
           >
             <motion.div
-              // whileHover={{ color: "#F14F62", scale: 1.2 }}
-              // whileTap={{ scale: 0.9 }}
-              // // animate={{ fontSize: 50 }}
-              // initial="hidden"
-              // whileInView="visible"
-              // transition={{ duration: 0.2 }}
-              // variants={showHideVar}
               className="logo font-bold basis-2/6 text-center text-xl lg:text-2xl font-mono cursor-pointer font-dosis"
               onClick={handleScrollToHeader}
               style={{ color: color }}
@@ -246,20 +218,6 @@ function HomePageWedding(props) {
                   Invitation
                 </Link>
               </li>
-              {/* <NavLink
-              style={({ isActive }) => {
-                return isActive ? { color: "red" } : {};
-              }}
-              onClick={() =>
-                scroller.scrollTo("introduce", {
-                  smooth: true,
-                  offset: -70,
-                  duration: 500,
-                })
-              }
-            >
-              Home
-            </NavLink> */}
 
               <li className="tw-top-menu-item">
                 <Link
@@ -337,28 +295,7 @@ function HomePageWedding(props) {
                 </Link>
               </li>
             </ul>
-            {/* DIV Giỏ Hàng <ul className="basis-3/6 lg:basis-1/6 flex flex-row justify-end  font-medium ml-5 relative text-gray-500 ">
-            <li className="tw-top-menu-item">
-              <a href="/" className="flex items-center">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth="1.5"
-                  stroke="currentColor"
-                  className=" inline-block w-6 h-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
-                  />
-                </svg>
-                <span>Cart</span>
-                <span className="tw-badge-item bg-red-400">10</span>
-              </a>
-            </li>
-          </ul> */}
+
             <div className="lg:hidden relative  h-full w-full basis-1/6 flex item-center cursor-pointer">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -438,14 +375,13 @@ function HomePageWedding(props) {
             <div className="devide h-[100px] bg-red-200  devide-invitation "></div>
             <div id="invitation" className=" w-full  tw-invitation mx-auto">
               <Suspense>
-              <Invitation />
-
+                <Invitation />
               </Suspense>
             </div>
             <div className=" h-[200px] devide-introduce "></div>
             <div id="introduce" className="tw-introduce mt-20 mx-auto">
               <Suspense>
-              <Introduce ref={introduceRef} />
+                <Introduce ref={introduceRef} />
               </Suspense>
             </div>
             <div className=" devide-moments  h-[200px]"></div>
@@ -495,9 +431,46 @@ function HomePageWedding(props) {
             </div>
             <footer>footer</footer>
           </motion.div>
+          <div
+            className={`song-fixed h-auto w-max fixed bottom-4 left-4 ${classNames(
+              [classCssSong]
+            )} p-1 rounded-lg`}
+            onClick={handlePlayAndPauseSong}
+          >
+            {songState.isPlaying ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="w-6 h-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 9.75L19.5 12m0 0l2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6l4.72-4.72a.75.75 0 011.28.531V19.94a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.506-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.395C2.806 8.757 3.63 8.25 4.51 8.25H6.75z"
+                />
+              </svg>
+            )}
+          </div>
         </div>
       </Profiler>
-      {/* ref={scrollRef} style={{ overflow: "scroll" }} */}
     </>
   );
 }

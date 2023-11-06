@@ -4,14 +4,21 @@ import TracksController from "./song_controller";
 import song from "../../constant/song";
 import imageFire from "../../../img/fire.jpg";
 import { progress } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
+import { songSelector } from "../Redux/selectors/stateSelector";
+import { playSong, pauseSong } from "../Redux/action/music_action";
 
 LoveSongMain.propTypes = {};
 
 function LoveSongMain({ tracks }) {
+  const songState = useSelector(songSelector);
+  const dispatchSong = useDispatch();
+  console.log({ a: songState });
+
   const [trackIndex, setTrackIndex] = useState(0);
 
   const [trackProgress, setTrackProgress] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
+  // const [isPlaying, setIsPlaying] = useState(false);
   const { title, artist, color, image, audioSrc } = song[trackIndex];
 
   // Refs dùng useRef để không reRender lại app
@@ -30,7 +37,6 @@ function LoveSongMain({ tracks }) {
     progressMinute.current = `${minuteProgress} : ${secondProgress}`;
   };
   const calDuration = () => {
-    console.log({ duration: duration });
     const secondDuration = ("0" + Math.floor(duration % 60)).slice(-2);
     const minuteDuration = ("0" + Math.floor(duration / 60)).slice(-2);
     if (!isNaN(duration)) {
@@ -66,6 +72,16 @@ function LoveSongMain({ tracks }) {
     }
   };
 
+  const setIsPlaying = (value) => {
+    console.log(value);
+
+    if (value) {
+      dispatchSong(playSong());
+    } else {
+      dispatchSong(pauseSong());
+    }
+  };
+
   const onScrub = (value) => {
     // Clear any timers already running
     clearInterval(intervalRef.current);
@@ -75,7 +91,7 @@ function LoveSongMain({ tracks }) {
 
   const onScrubEnd = () => {
     // If not already playing, start
-    if (!isPlaying) {
+    if (!songState.isPlaying) {
       setIsPlaying(true);
     }
     startTimer();
@@ -90,7 +106,7 @@ function LoveSongMain({ tracks }) {
   };
 
   useEffect(() => {
-    if (isPlaying) {
+    if (songState.isPlaying) {
       audioRef.current.play();
       startTimer();
     } else {
@@ -99,9 +115,7 @@ function LoveSongMain({ tracks }) {
     if (durationMinute.current == "00 : 00") {
       calDuration();
     }
-
-    console.log("isPlaying", isPlaying);
-  }, [isPlaying]);
+  }, [songState.isPlaying]);
 
   // useEffect(() => {
   //   calDuration();
@@ -166,7 +180,7 @@ function LoveSongMain({ tracks }) {
           <div className="flex w-[350px] h-auto flex-row mt-2 items-center ">
             <div className="basis-[10%]">
               <TracksController
-                isPlaying={isPlaying}
+                isPlaying={songState.isPlaying}
                 onPlayPauseClick={setIsPlaying}
                 toNextSong={toPrevTrack}
                 toPrevSong={toNextTrack}

@@ -12,7 +12,6 @@ function CategoriesPage(props) {
   useEffect(() => {
     const getAllCategory = async () => {
       setCategories(await categoriesApi.getAll());
-      console.log("categories", categories);
     };
 
     getAllCategory();

@@ -32,7 +32,6 @@ function Moment(props) {
     easing: "easeInOutQuad",
   });
 
-  console.log({ sasd: DalatPost });
   return (
     <div className="flex flex-col items-center w-full  h-auto">
       <div className="grid grid-cols-2  w-full">

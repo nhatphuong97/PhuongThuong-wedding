@@ -5,13 +5,19 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { BrowserRouter, HashRouter } from "react-router-dom";
 import { ParallaxProvider } from "react-scroll-parallax";
+import storeRedux from "./FeatureTodo/component/Redux/store";
+import { Provider } from "react-redux";
+
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
   <HashRouter>
     <ParallaxProvider>
+      <Provider store={storeRedux}>
       <App />
+
+      </Provider>
     </ParallaxProvider>
   </HashRouter>
 

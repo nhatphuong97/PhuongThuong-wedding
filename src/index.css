@@ -52,21 +52,6 @@
     @apply text-xl h-[1/2] py-1 text-white font-cuprum font-bold;
   }
 
-  .isInvitation {
-    @apply bg-red-100 text-red-400;
-  }
-
-  .isIntroduce {
-    @apply bg-orange-200 text-white;
-  }
-
-  .isNomarl {
-    @apply text-red-300 border border-b-2 border-b-love-60;
-  }
-
-  .isMoments {
-    @apply text-white bg-vitange_green-40;
-  }
 
   .tw-dinhamroi-banoi {
     @apply h-[100vh] w-full bg-red-200 text-2xl font-dosis text-center relative flex flex-col justify-center items-center;
