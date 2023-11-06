@@ -432,9 +432,9 @@ function HomePageWedding(props) {
             <footer>footer</footer>
           </motion.div>
           <div
-            className={`song-fixed h-auto w-max fixed bottom-4 left-4 ${classNames(
+            className={`song-fixed h-auto w-max fixed bottom-6 left-6 ${classNames(
               [classCssSong]
-            )} p-1 rounded-lg`}
+            )} p-1 rounded-full`}
             onClick={handlePlayAndPauseSong}
           >
             {songState.isPlaying ? (
