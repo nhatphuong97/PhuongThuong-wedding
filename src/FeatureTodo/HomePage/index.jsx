@@ -16,10 +16,11 @@ import CountDownTime from "../component/CountDownTime";
 import "./style.scss";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
-import { playSong, pauseSong } from "../component/Redux/action/music_action";
+// import { playSong, pauseSong } from "../component/Redux/action/music_action";
 import { songSelector } from "../component/Redux/selectors/stateSelector";
 import { ReactComponent as mute } from "./../../icon/mute.svg";
 import { ReactComponent as unMute } from "./../../icon/unmute.svg";
+import { songsSlice } from "../component/Redux/reducer/music_reducer";
 
 const Introduce = React.lazy(() => import("../component/Introduce"));
 const Invitation = React.lazy(() => import("../component/invitation"));
@@ -28,7 +29,6 @@ const ParallaxDevide = React.lazy(() => import("../component/ParallaxDevide"));
 const Moment = React.lazy(() => import("../component/Moment"));
 const Album = React.lazy(() => import("../component/Album"));
 const Events = React.lazy(() => import("../component/Events"));
-
 HomePageWedding.propTypes = {};
 
 function HomePageWedding(props) {
@@ -43,14 +43,16 @@ function HomePageWedding(props) {
 
   // Redux here
   const dispatchRedux = useDispatch();
-  const songState = useSelector((state) => state.songReducer.songs);
+  const songState = useSelector(songSelector);
   console.log(songState);
 
   const handlePlayAndPauseSong = () => {
     if (songState.isPlaying) {
-      dispatchRedux(pauseSong());
+      // dispatchRedux(pauseSong());
+      dispatchRedux(songsSlice.actions.pauseSong());
     } else {
-      dispatchRedux(playSong());
+      // dispatchRedux(playSong());
+      dispatchRedux(songsSlice.actions.playSong());
     }
   };
 
@@ -296,7 +298,7 @@ function HomePageWedding(props) {
               </li>
             </ul>
 
-            <div className="lg:hidden relative  h-full w-full basis-1/6 flex item-center cursor-pointer">
+            <div className="lg:hidden relative  h-full w-full basis-1/6 flex item-center cursor-pointer transition-all">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

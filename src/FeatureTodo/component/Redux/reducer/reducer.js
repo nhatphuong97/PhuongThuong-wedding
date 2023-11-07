@@ -6,3 +6,5 @@ import songReducer from "./music_reducer";
 export const allReducers = combineReducers({
   songReducer,
 });
+
+// phần này không dùng nữa vì đã combine ra theo configueStore rồi

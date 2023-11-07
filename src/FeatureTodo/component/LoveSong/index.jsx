@@ -5,13 +5,14 @@ import song from "../../constant/song";
 import imageFire from "../../../img/fire.jpg";
 import { progress } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { songSelector } from "../Redux/selectors/stateSelector";
-import { playSong, pauseSong } from "../Redux/action/music_action";
+import { calculateSelector } from "../Redux/selectors/stateSelector";
+// import { playSong, pauseSong } from "../Redux/action/music_action";
+import { songsSlice } from "../Redux/reducer/music_reducer";
 
 LoveSongMain.propTypes = {};
 
 function LoveSongMain({ tracks }) {
-  const songState = useSelector(songSelector);
+  const songState = useSelector(calculateSelector);
   const dispatchSong = useDispatch();
   console.log({ a: songState });
 
@@ -76,9 +77,9 @@ function LoveSongMain({ tracks }) {
     console.log(value);
 
     if (value) {
-      dispatchSong(playSong());
+      dispatchSong(songsSlice.actions.playSong());
     } else {
-      dispatchSong(pauseSong());
+      dispatchSong(songsSlice.actions.pauseSong());
     }
   };
 
