@@ -9,10 +9,8 @@ import React, {
 
 import song from "../constant/song";
 import { motion } from "framer-motion";
-import logoHeader from "./../../img/savethedate_wh.gif";
 import { Link, animateScroll as scroll, scroller } from "react-scroll";
 // import { HashLink as Link } from "react-router-hash-link";
-import CountDownTime from "../component/CountDownTime";
 import "./style.scss";
 import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
@@ -20,10 +18,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { songSelector } from "../component/Redux/selectors/stateSelector";
 import { ReactComponent as mute } from "./../../icon/mute.svg";
 import { ReactComponent as unMute } from "./../../icon/unmute.svg";
-import {
-  songsSlice,
-  createSong,
-} from "../component/Redux/reducer/music_reducer";
+
+import HeaderSlide from "../component/HeaderSlide";
 
 const Introduce = React.lazy(() => import("../component/Introduce"));
 const Invitation = React.lazy(() => import("../component/invitation"));
@@ -158,7 +154,7 @@ function HomePageWedding(props) {
     <>
       <Profiler id="div-root" onRender={onCallbackRenderProfiler}>
         <div className="root relative" id="parrent">
-          <div
+          {/* <div
             ref={headerRef}
             className="slider-top flex w-full relative lg:h-[700px]  md:h-[600px] h-[500px] bg-image-main bg-local md:bg-fixed bg-cover
                bg-no-repeat bg-center bg-slate-600 ] -z-10"
@@ -180,9 +176,12 @@ function HomePageWedding(props) {
                 12 ngày 3 giờ 15 phút 8 giây
               </CountDownTime>
             </div>
-    
-          </div>
-
+          </div> */}
+          <HeaderSlide
+            className=""
+          >
+         
+          </HeaderSlide>
           {/* END background */}
           <nav
             ref={refNav}
