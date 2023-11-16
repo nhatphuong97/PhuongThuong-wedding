@@ -100,5 +100,5 @@ module.exports = {
       "slide-down": "slide1 .5s ease-out",
     },
   },
-  plugins: [],
+  plugins: [require("flowbite/plugin")],
 };

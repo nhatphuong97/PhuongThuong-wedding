@@ -20,7 +20,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { songSelector } from "../component/Redux/selectors/stateSelector";
 import { ReactComponent as mute } from "./../../icon/mute.svg";
 import { ReactComponent as unMute } from "./../../icon/unmute.svg";
-import { songsSlice } from "../component/Redux/reducer/music_reducer";
+import {
+  songsSlice,
+  createSong,
+} from "../component/Redux/reducer/music_reducer";
 
 const Introduce = React.lazy(() => import("../component/Introduce"));
 const Invitation = React.lazy(() => import("../component/invitation"));
@@ -49,10 +52,11 @@ function HomePageWedding(props) {
   const handlePlayAndPauseSong = () => {
     if (songState.isPlaying) {
       // dispatchRedux(pauseSong());
-      dispatchRedux(songsSlice.actions.pauseSong());
+      // dispatchRedux(songsSlice.actions.pauseSong({ song: 12, status: "song" }));
     } else {
       // dispatchRedux(playSong());
-      dispatchRedux(songsSlice.actions.playSong());
+      // dispatchRedux(songsSlice.actions.playSong(12, "song"));
+      // dispatchRedux(createSong());
     }
   };
 
@@ -163,6 +167,7 @@ function HomePageWedding(props) {
               <div className="justify-center items-center flex ">
                 <div className="tw-name-main">Nhật Phương</div>
                 <img
+                  loading="lazy"
                   src={logoHeader}
                   alt=""
                   className={` lg:h-[150px] h-[20%]`}
@@ -175,17 +180,7 @@ function HomePageWedding(props) {
                 12 ngày 3 giờ 15 phút 8 giây
               </CountDownTime>
             </div>
-            {/* DIV Máy bay ( đang ẩn) <div className=" absolute w-16 lg:w-20 flex bottom-0 left-1/3 ">
-            <motion.img
-              initial={{ opacity: 1, x: 0, y: 0 }}
-              whileInView={{ opacity: 1, x: 50, y: 0 }}
-              viewport={{ root: scrollRef }}
-              transition={{ duration: 1 }}
-              src={airplane}
-              alt=""
-              className=""
-            />
-          </div> */}
+    
           </div>
 
           {/* END background */}
@@ -444,13 +439,13 @@ function HomePageWedding(props) {
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke-width="1.5"
+                strokeWidth="1.5"
                 stroke="currentColor"
-                class="w-6 h-6"
+                className="w-6 h-6"
               >
                 <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
                   d="M19.114 5.636a9 9 0 010 12.728M16.463 8.288a5.25 5.25 0 010 7.424M6.75 8.25l4.72-4.72a.75.75 0 011.28.53v15.88a.75.75 0 01-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.01 9.01 0 012.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75z"
                 />
               </svg>

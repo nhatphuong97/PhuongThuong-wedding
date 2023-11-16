@@ -28,7 +28,7 @@ function Invitation(props) {
                 the Wedding weekend
               </div>
               <div className="bg-flower max-w-full h-auto bg-no-repeat bg-contain bg-center">
-                <img src={logo} alt="logo" />
+                <img loading="lazy" src={logo} alt="logo" />
               </div>
               <div className="text-lg text-red-400 font-cuprum">
                 Saturday 6 Jan. 2024

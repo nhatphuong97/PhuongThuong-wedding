@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import "./style.scss";
 import { color, motion, Variants } from "framer-motion";
 import logo from "../../../img/damcuiha.png";
+import vo from "../../../img/vo.png";
+import chong from "../../../img/chong.png";
 
 const Introduce = (props, ref) => {
   //phần phía trên test ref
@@ -44,7 +46,14 @@ const Introduce = (props, ref) => {
           transition={{ duration: 1 }}
           className="introduce-image flex overflow-hidden "
         >
-          <div className="introduce-image-vochong bg-image-chong"></div>
+          <div className="introduce-image-vochong">
+            <img
+              className="w-full h-full object-contain transition-transform duration-300  hover:scale-110"
+              loading="lazy"
+              src={chong}
+              alt="chong"
+            />
+          </div>
         </motion.div>
         <div className="introduce-info">
           <div className="introduce-name">Groom Nhật Phương </div>
@@ -69,7 +78,14 @@ const Introduce = (props, ref) => {
           transition={{ duration: 1 }}
           className="introduce-image flex overflow-hidden"
         >
-          <div className="bg-image-vo introduce-image-vochong"></div>
+          <div className=" introduce-image-vochong">
+            <img
+              className="w-full h-full object-contain transition-transform duration-300  hover:scale-110"
+              loading="lazy"
+              src={vo}
+              alt="vo"
+            />
+          </div>
         </motion.div>
       </div>
 

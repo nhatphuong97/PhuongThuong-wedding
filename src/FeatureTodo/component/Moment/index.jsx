@@ -61,6 +61,7 @@ function Moment(props) {
           }
         >
           <img
+            loading="lazy"
             src={meet}
             alt=""
             className=" w-[350px] h-auto mt-5 mb-7 shadow-md shadow-vitange_green-20"
@@ -78,6 +79,7 @@ function Moment(props) {
                   className="item-post flex flex-row gap-5 h-[300px] bg-vitange_green-20 text-white w-[60%] border  mx-auto "
                 >
                   <img
+                    loading="lazy"
                     src={post.image}
                     alt=""
                     className={`h-full w-[50%] object-cover flex-1 ${
@@ -97,6 +99,7 @@ function Moment(props) {
                   className="item-post flex flex-row gap-5 h-[300px] w-[60%] border  mx-auto "
                 >
                   <img
+                    loading="lazy"
                     src={post.image}
                     alt=""
                     className={`h-full w-[50%] object-cover    flex-1
@@ -142,6 +145,7 @@ function Moment(props) {
           <div className="bg-red-300 h-[800px] w-full flex flex-col justify-center items-center ">
             <div className="bg-black h-full  overflow-hidden relative ">
               <img
+                                loading="lazy"
                 ref={ref}
                 src={dalat5}
                 alt=""

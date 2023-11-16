@@ -24,7 +24,7 @@
 }
 
 .introduce-image-vochong {
-  @apply hover:scale-125 scale-110 transition-transform duration-300  bg-top mb-0 flex w-full h-full bg-contain;
+  @apply transition-transform duration-300  bg-top mb-0 flex w-full h-full bg-contain;
 }
 .introduce-title {
   @apply text-orange-300 font-dancing text-4xl my-5 font-bold;

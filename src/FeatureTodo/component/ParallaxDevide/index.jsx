@@ -33,6 +33,7 @@ function ParallaxDevide(props) {
     <div className="bg-red-300 h-[500px] w-full flex flex-col justify-center items-center ">
       <div className="bg-black h-full w-[800px] overflow-hidden">
         <img
+          loading="lazy"
           ref={ref}
           src={image1}
           alt=""
