@@ -39,19 +39,18 @@
   }
 
   .tw-name-main {
-    @apply text-2xl md:text-3xl lg:text-5xl text-white mx-4 font-dancing tracking-wider text-center;
+    @apply text-3xl md:text-4xl lg:text-5xl text-white mx-4 font-dancing tracking-wider text-center my-5;
   }
   .tw-count-down-time-block-item {
     @apply w-16 h-auto mx-3  bg-opacity-30 border border-b-2 flex flex-col border-white border-spacing-4 rounded-md;
   }
   .tw-text-item {
-    @apply text-xl  bg-white w-full font-cuprum  text-red-300 rounded-b-sm;
+    @apply text-xl  bg-white w-full font-cuprum  text-red-400 rounded-b-sm;
   }
 
   .tw-number-item {
     @apply text-xl h-[1/2] py-1 text-white font-cuprum font-bold;
   }
-
 
   .tw-dinhamroi-banoi {
     @apply h-[100vh] w-full bg-red-200 text-2xl font-dosis text-center relative flex flex-col justify-center items-center;
