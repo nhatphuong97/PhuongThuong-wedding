@@ -57,26 +57,26 @@ function Moment(props) {
         </div>
         <div
           className={
-            "m-title h-[800px] bg-red flex matcha flex-col items-center justify-center"
+            "m-title h-[800px]  flex matcha flex-col items-center justify-center  bg-vitange_green-60"
           }
         >
           <img
             loading="lazy"
             src={meet}
             alt=""
-            className=" w-[350px] h-auto mt-5 mb-7 shadow-md shadow-vitange_green-20"
+            className=" w-[350px] h-auto mt-5 mb-7 shadow-md shadow-vitange_green-40 rounded-xl"
           />
         </div>
         <div className="mm-meet row-span-2 h-[auto] flex flex-col p-3 justify-center gap-3 pt-10  text-white items-center">
           <div className="checkin text-vitange_green-40 font-vollkorn text-3xl">
             Checkin
           </div>
-          <div className="grid grid-cols-1 gap-4">
+          <div className="grid grid-cols-1 gap-6">
             {DalatPost.map((post, i) =>
               i % 2 == 0 ? (
                 <div
                   key={"dalat" + i}
-                  className="item-post flex flex-row gap-5 h-[300px] bg-vitange_green-20 text-white w-[60%] border  mx-auto "
+                  className="item-post flex flex-row gap-5 h-[300px] shadow-md shadow-vitange_green-30 bg-vitange_green-20 text-white w-[60%] border  mx-auto "
                 >
                   <img
                     loading="lazy"
@@ -96,7 +96,7 @@ function Moment(props) {
               ) : (
                 <div
                   key={"dalat" + i}
-                  className="item-post flex flex-row gap-5 h-[300px] w-[60%] border  mx-auto "
+                  className="item-post flex flex-row gap-5 h-[300px] w-[60%] shadow-md shadow-vitange_green-30 border  mx-auto "
                 >
                   <img
                     loading="lazy"
@@ -142,10 +142,10 @@ function Moment(props) {
           </div>
         </div>
         <div className={"m-title "}>
-          <div className="bg-red-300 h-[800px] w-full flex flex-col justify-center items-center ">
+          <div className="bg-red-300 h-full w-full flex flex-col justify-center items-center ">
             <div className="bg-black h-full  overflow-hidden relative ">
               <img
-                                loading="lazy"
+                loading="lazy"
                 ref={ref}
                 src={dalat5}
                 alt=""
@@ -160,69 +160,3 @@ function Moment(props) {
 }
 
 export default Moment;
-
-{
-  /* <div className="item-post flex flex-row gap-5 h-[300px] w-[50%] border bg-red-300 border-red-200 mx-auto ">
-<img
-  src={dalat1}
-  alt=""
-  className="h-full w-[50%] object-cover object-center "
-/>
-<div className="detail  flex flex-col gap-3 py-10 pr-2 text-white">
-  <div className="font-dosis text-xs ">Mar 22 * 2 min</div>
-  <div className="font-playfair font-bold ">
-    Transform your winter blues into winter creativity
-  </div>
-  <div className="font-dosis ">
-    Create a blog post subtitle that summarizes your post in a few
-    short, punchy sentences and entices your audience to
-  </div>
-</div>
-</div>
-<div className="item-post flex flex-row gap-5 h-[300px] w-[50%] border  mx-auto ">
-<img
-  src={dalat2}
-  alt=""
-  className="h-full w-[50%] object-cover object-left "
-/>
-<div className="detail  flex flex-col gap-3 py-10 pr-2 text-black">
-  <div className="font-dosis text-xs ">Mar 22 * 2 min</div>
-  <div className="font-playfair font-bold ">
-    Transform your winter blues into winter creativity
-  </div>
-  <div className="font-dosis ">
-    Create a blog post subtitle that summarizes your post in a few
-    short, punchy sentences and entices your audience to
-  </div>
-</div>
-</div> */
-}
-{
-  /* <div className={"m-title "}>
-          <div className="bg-red-300 h-[800px] w-full flex flex-col justify-center items-center ">
-            <div className="bg-black h-full  overflow-hidden relative ">
-              <img
-                ref={ref}
-                src={cadong}
-                alt=""
-                className="h-full w-[120%] object-cover object-center max-w-[120%]"
-              />
-             
-            </div>
-
-   
-          </div>
-        </div> */
-}
-
-{
-  /* <div className="h-[300px] w-[500px] bg-black overflow-hidden">
-        <Parallax
-          speed={10}
-          scale={[1, 1]}
-          translateX={[-20, 10]}
-          style={{ overflow: "hidden" }}
-          translateY={["", ""]}
-        ></Parallax>
-      </div> */
-}

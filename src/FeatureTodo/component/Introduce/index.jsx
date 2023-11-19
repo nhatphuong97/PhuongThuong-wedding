@@ -24,7 +24,7 @@ const Introduce = (props, ref) => {
       >
         {/* <div className="introduce-line"></div> */}
         <div className="title  bg-heading-tile w-14 items-center bg-origin-border border-spacing-3 h-14 bg-contain bg-no-repeat"></div>
-        <div className="mm-title text-5xl mx-5 font-playfair text-center text-orange-600">
+        <div className="mm-title text-5xl mx-5 font-playfair text-center text-orange-400">
           Introduce
         </div>
 

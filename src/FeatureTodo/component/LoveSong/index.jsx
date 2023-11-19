@@ -154,7 +154,7 @@ function LoveSongMain({ tracks }) {
   }, []);
   return (
     <div className="div-song-under grid grid-flow-col  grid-cols-2">
-      <div className="div-left bg-red-200 px-5 text-white text-end">
+      <div className="div-left bg-red-300 px-5 text-white text-end">
         <div className="flex flex-col h-full justify-center align-middle">
           <div className="song-title ">Every Song Tells a Story.</div>
           <div className="song-content">
@@ -166,18 +166,17 @@ function LoveSongMain({ tracks }) {
           </div>
         </div>
       </div>
-      <div className="bg-red-200 relative">
+      <div className="bg-red-300 relative">
         <div className="div-right absolute flex flex-col  -top-[70px] left-[20%]">
           <div className="w-[350px] h-auto -pt-[20%] ">
             <img src={imageFire} alt="" />
           </div>
-          <div className="song_name mt-3 text-red-400 text-2xl font-playfair">
+          <div className="song_name mt-3 text-white text-4xl font-dancing">
             {title}
           </div>
-          <div className="song_artist text-red-400 text-sm font-playfair">
+          <div className="song_artist text-white text-base font-playfair">
             {artist}
           </div>
-
           <div className="flex w-[350px] h-auto flex-row mt-2 items-center ">
             <div className="basis-[10%]">
               <TracksController
@@ -203,12 +202,20 @@ function LoveSongMain({ tracks }) {
             {/* <h1 className=" basis-[15%]  font-playfair text-center bg-slate-400 justify-center align-middle text-ellipsis">
               {progressMinute.current}
             </h1> */}
-            <h1 className="basis-[12%] text-red-400 w-max font-vollkorn text-sm text-center ">
+            <h1 className="basis-[12%] text-white w-max font-vollkorn text-sm text-center ">
               {progressMinute.current}
             </h1>
-            <h1 className="basis-[15%] text-red-400 w-max font-vollkorn text-sm text-center ">
+            <h1 className="basis-[15%] text-white w-max font-vollkorn text-sm text-center ">
               / {durationMinute.current}
             </h1>
+          </div>
+          <div className="list relative h-full w-full my-2">
+            <div className="bg-white opacity-30 w-full absolute h-full rounded-sm"></div>
+            {tracks.map((track) => (
+              <div className="text-white px-2" key={track.title}>
+                {track.title}
+              </div>
+            ))}
           </div>
         </div>
       </div>

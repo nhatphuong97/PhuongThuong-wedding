@@ -60,6 +60,7 @@ module.exports = {
           30: "#669b6b",
           40: "#4F6F52",
           50: "#3A4D39",
+          60: "#F1F6EA",
         },
       },
       keyframes: {
@@ -100,5 +101,5 @@ module.exports = {
       "slide-down": "slide1 .5s ease-out",
     },
   },
-  plugins: [require("flowbite/plugin")],
+  plugins: [],
 };

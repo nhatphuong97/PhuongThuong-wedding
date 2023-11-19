@@ -20,6 +20,7 @@ import { ReactComponent as mute } from "./../../icon/mute.svg";
 import { ReactComponent as unMute } from "./../../icon/unmute.svg";
 
 import HeaderSlide from "../component/HeaderSlide";
+import { songsSlice } from "../component/Redux/reducer/music_reducer";
 
 const Introduce = React.lazy(() => import("../component/Introduce"));
 const Invitation = React.lazy(() => import("../component/invitation"));
@@ -48,10 +49,10 @@ function HomePageWedding(props) {
   const handlePlayAndPauseSong = () => {
     if (songState.isPlaying) {
       // dispatchRedux(pauseSong());
-      // dispatchRedux(songsSlice.actions.pauseSong({ song: 12, status: "song" }));
+      dispatchRedux(songsSlice.actions.pauseSong({ song: 12, status: "song" }));
     } else {
       // dispatchRedux(playSong());
-      // dispatchRedux(songsSlice.actions.playSong(12, "song"));
+      dispatchRedux(songsSlice.actions.playSong(12, "song"));
       // dispatchRedux(createSong());
     }
   };
@@ -71,11 +72,15 @@ function HomePageWedding(props) {
     let moments = document
       .querySelector(".devide-moments")
       .getBoundingClientRect();
+    let love_song = document
+      .querySelector(".devide-love-song")
+      .getBoundingClientRect();
     let root = document.querySelector(".root").getBoundingClientRect();
 
     let invitationTop = invitation.top - root.top;
     let introduceTop = introduce.top - root.top;
     let momentsTop = moments.top - root.top;
+    let loveSongTop = love_song.top - root.top;
     if (window.scrollY < 620) {
       setColor("#FCA5A5");
       document.title = "Wedding ❤️";
@@ -87,20 +92,32 @@ function HomePageWedding(props) {
       window.scrollY < introduceTop
     ) {
       setColor("#F87A75");
-      document.title = "Thư Mời ❤️";
+      document.title = "Invitation ❤️";
       setClassCss("isInvitation");
       setClassCssSong("isInvitationSong");
     } else if (introduceTop <= window.scrollY && window.scrollY < momentsTop) {
-      setColor("#FC9B3C");
-      document.title = "Giới Thiệu ❤️";
+      setColor("#fff");
+      document.title = "Introduce ❤️";
       setClassCss("isIntroduce");
       setClassCssSong("isIntroduceSong");
-    } else if (momentsTop <= window.scrollY) {
+    } else if (momentsTop <= window.scrollY && window.scrollY < loveSongTop) {
       setColor("#fff");
 
-      document.title = "Khoảnh Khắc 🌲 ";
+      document.title = "Moment 🌲";
       setClassCss("isMoments");
       setClassCssSong("isMomentsSong");
+    } else if (window.scrollY > momentsTop) {
+      setColor("#fff");
+      document.title = "Love Song ❤️";
+
+      setClassCss("isLoveSong");
+      setClassCssSong("isNomarlSong");
+    } else if (loveSongTop <= window.scrollY) {
+      setColor("#fff");
+      document.title = "Love Song ❤️";
+
+      setClassCss("isLoveSong");
+      setClassCssSong("isNomarlSong");
     }
   });
 
@@ -154,35 +171,7 @@ function HomePageWedding(props) {
     <>
       <Profiler id="div-root" onRender={onCallbackRenderProfiler}>
         <div className="root relative" id="parrent">
-          {/* <div
-            ref={headerRef}
-            className="slider-top flex w-full relative lg:h-[700px]  md:h-[600px] h-[500px] bg-image-main bg-local md:bg-fixed bg-cover
-               bg-no-repeat bg-center bg-slate-600 ] -z-10"
-          >
-            <div className="w-full h-full bg-black bg-opacity-30  flex flex-col justify-center ">
-              <div className="justify-center items-center flex ">
-                <div className="tw-name-main">Nhật Phương</div>
-                <img
-                  loading="lazy"
-                  src={logoHeader}
-                  alt=""
-                  className={` lg:h-[150px] h-[20%]`}
-                />
-                <div className="tw-name-main">Hoài Thương</div>
-              </div>
-            </div>
-            <div className=" flex absolute items-center bottom-0 left-0 right-0 mb-5 justify-center">
-              <CountDownTime listData={12}>
-                12 ngày 3 giờ 15 phút 8 giây
-              </CountDownTime>
-            </div>
-          </div> */}
-          <HeaderSlide
-            className=""
-          >
-         
-          </HeaderSlide>
-          {/* END background */}
+          <HeaderSlide className=""></HeaderSlide>
           <nav
             ref={refNav}
             className={` ${classNames([
@@ -413,7 +402,7 @@ function HomePageWedding(props) {
               {/* <Events ref={events} /> */}
               Event ở đây nhé
             </div>
-            <div className="devide h-[200px]"></div>
+            <div className="devide-love-song h-[200px]"></div>
 
             <div id="love-song" className="tw-love-song flex h-[600px]">
               <LoveSongMain tracks={song} />

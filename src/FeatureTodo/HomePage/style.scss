@@ -8,15 +8,19 @@
 }
 
 .isInvitation {
-  @apply bg-red-100 text-red-400;
+  @apply bg-white text-red-400;
 }
 
 .isIntroduce {
-  @apply bg-orange-200 text-white;
+  @apply bg-orange-300 text-white;
 }
 
 .isNomarl {
-  @apply text-red-300 border border-b-2 border-b-love-60;
+  @apply text-red-400 border bg-white border-b-2 border-b-white;
+}
+
+.isLoveSong {
+  @apply text-white border bg-red-300 border-b-2 border-b-white;
 }
 
 .isMoments {
@@ -30,7 +34,7 @@
 
 .isIntroduceSong {
   // @apply text-white  border-b-2 border-b-orange-500 bg-orange-300;
-  @apply text-orange-500 border border-orange-200 border-b-2 border-b-orange-500 bg-white;
+  @apply text-orange-700 border border-orange-200 border-b-2 border-b-orange-500 bg-white;
 }
 
 .isNomarlSong {

@@ -63,7 +63,7 @@ function Calendar(props) {
   return (
     <div className="items-center justify-center flex">
       <table className="w-max text-sm text-left block table-auto font-cuprum">
-        <thead className="text-base text-red-500">
+        <thead className="text-base text-white">
           <tr>
             {/* <th scope="col" class="px-6 py-3">
               Product name

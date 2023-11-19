@@ -14,7 +14,10 @@ function TracksController({
 }) {
   return (
     <div className="flex flex-row gap-3 mr-2 w-max h-max justify-center ">
-      <span className="icon_music flex items-center " onClick={toPrevSong}>
+      <span
+        className="icon_music flex items-center text-white"
+        onClick={toPrevSong}
+      >
         <Prev />
       </span>
       {!isPlaying ? (
