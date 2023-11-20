@@ -8,15 +8,15 @@
 }
 
 .introduce-image {
-  @apply bg-red-200 bg-cover w-[250px] h-[250px] sm:h-[280px]  sm:w-[280px] mx-auto  rounded-md bg-center;
+  @apply bg-cover w-[250px] h-[250px] sm:h-[280px]  sm:w-[280px] mx-auto bg-red-200 rounded-md bg-center;
 }
 
 .introduce-info {
-  @apply w-[250px] h-[250px] sm:h-[280px]  sm:w-[280px] mx-auto rounded-md flex bg-red-200 flex-col justify-center  overflow-x-hidden;
+  @apply w-[250px] h-[250px] sm:h-[280px]  sm:w-[280px] mx-auto rounded-md flex bg-red-100 flex-col justify-center  overflow-x-hidden;
 }
 
 .introduce-name {
-  @apply text-white text-4xl text-center  p-2 font-dancing font-bold;
+  @apply text-4xl text-center  p-2 font-dancing font-bold text-red-400;
 }
 
 .introduce-description {

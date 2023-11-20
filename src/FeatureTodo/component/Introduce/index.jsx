@@ -42,7 +42,7 @@ const Introduce = (props, ref) => {
         >
           <div className="introduce-image-vochong">
             <img
-              className="w-full h-full object-contain transition-transform duration-300  hover:scale-110"
+              className="w-full h-full object-contain transition-transform duration-300 scale-125  hover:scale-110"
               loading="lazy"
               src={chong}
               alt="chong"
@@ -50,7 +50,10 @@ const Introduce = (props, ref) => {
           </div>
         </motion.div>
         <div className="introduce-info">
-          <div className="introduce-name">Groom Nhật Phương </div>
+          <div className="introduce-name">
+            <p>Nhật Phương</p>
+            <p className="font-playfair text-base">Groom</p>
+          </div>
           <div className="introduce-description">
             {/* Nhật Phương */}
             {/* Chàng trai IT vui vẻ, hòa đồng. Luôn yêu thương gia đình và những
@@ -58,7 +61,10 @@ const Introduce = (props, ref) => {
           </div>
         </div>
         <div className="introduce-info order-last md:order-none">
-          <div className="introduce-name">Bridge Hoài Thương</div>
+          <div className="introduce-name">
+            <p>Hoài Thương</p>
+            <p className="font-playfair text-base">Bridge </p>
+          </div>
           <div className="introduce-description">
             {/* Hoài Thương */}
             {/* Một cô gái cá tính, mạnh mẽ và phóng khoáng. Luôn thích khám phá
@@ -74,7 +80,7 @@ const Introduce = (props, ref) => {
         >
           <div className=" introduce-image-vochong">
             <img
-              className="w-full h-full object-contain transition-transform duration-300  hover:scale-110"
+              className="w-full h-full object-contain transition-transform duration-300 scale-125 hover:scale-110"
               loading="lazy"
               src={vo}
               alt="vo"
@@ -84,7 +90,7 @@ const Introduce = (props, ref) => {
       </div>
       <div className="h-[100px]"></div>
 
-      <div className=" font-cuprum text-red-400  text-2xl pt-5 text-center tracking-normal ">
+      <div className=" font-cuprum text-red-400  text-xl pt-5 text-center tracking-normal ">
         <p>
           Hạnh phúc nhất không phải giây phút được cùng nhau nắm tay bước đến lễ
           đường

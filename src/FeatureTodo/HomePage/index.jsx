@@ -21,6 +21,7 @@ import { ReactComponent as unMute } from "./../../icon/unmute.svg";
 
 import HeaderSlide from "../component/HeaderSlide";
 import { songsSlice } from "../component/Redux/reducer/music_reducer";
+import { useParallax } from "react-scroll-parallax";
 
 const Introduce = React.lazy(() => import("../component/Introduce"));
 const Invitation = React.lazy(() => import("../component/invitation"));
@@ -61,6 +62,11 @@ function HomePageWedding(props) {
   const [classCss, setClassCss] = useState("isNomarl");
   const [classCssSong, setClassCssSong] = useState("isNomarlSong");
 
+  const { ref } = useParallax({
+    speed: 40,
+    translateY: ["-30", "40"],
+    easing: "easeInOutQuad",
+  });
   window.addEventListener("scroll", () => {
     // let elem = document.querySelector(".nav-show");
     let invitation = document
@@ -369,6 +375,17 @@ function HomePageWedding(props) {
                 <Introduce ref={introduceRef} />
               </Suspense>
             </div>
+            <div className="h-[200px]"></div>
+
+            <div className="w-full h-[700px] overflow-hidden relative">
+              <img
+                loading="lazy"
+                ref={ref}
+                src={"https://i.imgur.com/hgRHOsV.jpg"}
+                alt=""
+                className="w-full h-[1200px] object-cover object-center "
+              />
+            </div>
             <div className=" devide-moments  h-[200px]"></div>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -378,6 +395,7 @@ function HomePageWedding(props) {
             >
               {/* <div className="introduce-line"></div> */}
               {/* <div className="title  bg-heading-tile w-14 items-center bg-origin-border border-spacing-3 h-14 bg-contain bg-no-repeat"></div> */}
+
               <div className="mm-title text-5xl mx-5 font-playfair text-center text-vitange_green-20">
                 Our Love Story
               </div>
