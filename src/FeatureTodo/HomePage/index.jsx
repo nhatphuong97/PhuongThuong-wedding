@@ -176,10 +176,10 @@ function HomePageWedding(props) {
             ref={refNav}
             className={` ${classNames([
               classCss,
-            ])}  p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-3 sticky z-50 -top-1`}
+            ])}  p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-1 sticky z-50 -top-1`}
           >
             <motion.div
-              className="logo font-bold basis-2/6 text-center text-xl lg:text-2xl font-mono cursor-pointer font-dosis"
+              className="logo font-bold basis-2/6 text-center text-xl invisible lg:text-2xl font-mono cursor-pointer font-dosis"
               onClick={handleScrollToHeader}
               style={{ color: color }}
             >
@@ -363,7 +363,7 @@ function HomePageWedding(props) {
                 <Invitation />
               </Suspense>
             </div>
-            <div className=" h-[200px] devide-introduce "></div>
+            <div className=" h-[400px] devide-introduce "></div>
             <div id="introduce" className="tw-introduce mt-20 mx-auto">
               <Suspense>
                 <Introduce ref={introduceRef} />
@@ -417,7 +417,7 @@ function HomePageWedding(props) {
             <footer>footer</footer>
           </motion.div>
           <div
-            className={`song-fixed h-auto w-max fixed bottom-6 left-6 ${classNames(
+            className={`song-fixed h-auto w-max fixed bottom-6 left-6 z-[60] ${classNames(
               [classCssSong]
             )} p-1 rounded-full`}
             onClick={handlePlayAndPauseSong}

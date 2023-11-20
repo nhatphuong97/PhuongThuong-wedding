@@ -35,7 +35,7 @@ function Moment(props) {
   return (
     <div className="flex flex-col items-center w-full  h-auto">
       <div className="grid grid-cols-2  w-full">
-        <div className="mm-meet h-[800px] flex flex-col justify-center py-10 gap-2 text-vitange_green-30 items-center">
+        <div className="mm-meet h-[800px] flex flex-col justify-center py-10 gap-2 text-vitange_green-30  items-center">
           <div className="font-vollkorn text-4xl w-[350px] text-vitange_green-500">
             <p>The First</p>
             <p>Date</p>
@@ -57,7 +57,7 @@ function Moment(props) {
         </div>
         <div
           className={
-            "m-title h-[800px]  flex matcha flex-col items-center justify-center  bg-vitange_green-60"
+            "m-title h-[800px]  flex matcha flex-col items-center justify-center   bg-vitange_green-60"
           }
         >
           <img
@@ -67,16 +67,14 @@ function Moment(props) {
             className=" w-[350px] h-auto mt-5 mb-7 shadow-md shadow-vitange_green-40 rounded-xl"
           />
         </div>
-        <div className="mm-meet row-span-2 h-[auto] flex flex-col p-3 justify-center gap-3 pt-10  text-white items-center">
-          <div className="checkin text-vitange_green-40 font-vollkorn text-3xl">
-            Checkin
-          </div>
+        <div className="mm-meet row-span-2 h-[auto] flex flex-col p-3 justify-center gap-3 pt-10 bg-vitange_green-60 text-white items-center">
+          <div className="checkin text-vitange_green-40 font-vollkorn text-3xl"></div>
           <div className="grid grid-cols-1 gap-6">
             {DalatPost.map((post, i) =>
               i % 2 == 0 ? (
                 <div
                   key={"dalat" + i}
-                  className="item-post flex flex-row gap-5 h-[300px] shadow-md shadow-vitange_green-30 bg-vitange_green-20 text-white w-[60%] border  mx-auto "
+                  className="item-post flex flex-row gap-5 h-[300px] shadow-md bg-white   w-[60%] border  mx-auto "
                 >
                   <img
                     loading="lazy"
@@ -86,7 +84,7 @@ function Moment(props) {
                       i == 2 ? "object-left " : ""
                     }`}
                   />
-                  <div className="detail  flex flex-col gap-3 py-10 pr-2 text-white  flex-1">
+                  <div className="detail  flex flex-col gap-3 py-10 pr-2 text-vitange_green-50  flex-1">
                     <div className="font-dosis text-xs ">{post.date}</div>
                     <div className="font-playfair font-bold ">{post.title}</div>
 
@@ -96,7 +94,7 @@ function Moment(props) {
               ) : (
                 <div
                   key={"dalat" + i}
-                  className="item-post flex flex-row gap-5 h-[300px] w-[60%] shadow-md shadow-vitange_green-30 border  mx-auto "
+                  className="item-post flex flex-row gap-5 h-[300px] w-[60%] shadow-md  bg-white   border  mx-auto "
                 >
                   <img
                     loading="lazy"
@@ -118,10 +116,10 @@ function Moment(props) {
         </div>
         <div
           className={
-            "m-title h-[800px] bg-red flex  flex-col  items-center justify-center"
+            "m-title h-[800px] bg-red flex  flex-col  items-center justify-center "
           }
         >
-          <div className="font-vollkorn text-4xl w-[350px]  text-vitange_green-40">
+          <div className="font-vollkorn text-4xl w-[350px]  text-vitange_green-40 ">
             <p>Mermory</p>
             <p>DaLat 🌲</p>
           </div>

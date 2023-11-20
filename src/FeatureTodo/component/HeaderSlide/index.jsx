@@ -4,8 +4,9 @@ import CountDownTime from "../CountDownTime";
 import { motion, AnimatePresence } from "framer-motion";
 
 const listImage = [
-  "https://i.imgur.com/JMn4EKH.jpg",
-  "https://i.imgur.com/Q3xyZlF.jpg",
+  "https://i.imgur.com/AP7iiwJ.jpg",
+  "https://i.imgur.com/1uo5QDi.jpg",
+  "https://i.imgur.com/898j6ea.jpg",
 ];
 const variable = {
   inital: {
@@ -13,7 +14,7 @@ const variable = {
     scale: 1,
   },
   animate: {
-    opacity: [0, 1, 1, 1, 0],
+    opacity: [0, 1, 1, 1, 1, 0],
     scale: 1.2,
   },
   //   exit: {
@@ -61,7 +62,7 @@ function HeaderSlide(props) {
   //   };
 
   useEffect(() => {
-    const id = setInterval(next2, 4000);
+    const id = setInterval(next2, 5000);
     return () => clearInterval(id);
   }, [index]);
   return (
@@ -76,15 +77,16 @@ function HeaderSlide(props) {
           variants={variable}
           initial="inital"
           animate="animate"
-          loading="lazy"
-          transition={{ duration: 4, ease: "linear" }}
+          transition={{ duration: 5, ease: "linear" }}
           src={listImage[index]}
           alt=""
-          key={listImage[index]}
+          key={index}
         />
       </div>
       <div className="w-full absolute h-full bg-black bg-opacity-20  flex flex-col justify-center " />
-
+      <motion.div className=" absolute text-white text-center text-2xl top-5 left-5 lg:text-4xl cursor-pointer font-italianno">
+        Wedding
+      </motion.div>
       <div className="w-full absolute h-full flex flex-col justify-center overflow-hidden ">
         <div className="justify-center items-center flex flex-col">
           <div className="tw-name-main">Nhật Phương</div>

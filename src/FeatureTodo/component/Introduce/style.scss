@@ -8,15 +8,15 @@
 }
 
 .introduce-image {
-  @apply bg-orange-200 bg-cover w-[300px] h-[300px] sm:h-[350px]  sm:w-[350px] mx-auto  rounded-full bg-center shadow-lg shadow-orange-600;
+  @apply bg-red-200 bg-cover w-[250px] h-[250px] sm:h-[280px]  sm:w-[280px] mx-auto  rounded-md bg-center;
 }
 
 .introduce-info {
-  @apply w-[300px] h-[300px] sm:h-[350px]  sm:w-[350px] mx-auto  flex bg-orange-200 flex-col justify-center  overflow-x-hidden;
+  @apply w-[250px] h-[250px] sm:h-[280px]  sm:w-[280px] mx-auto rounded-md flex bg-red-200 flex-col justify-center  overflow-x-hidden;
 }
 
 .introduce-name {
-  @apply text-white text-4xl text-center p-2 font-dancing font-bold;
+  @apply text-white text-4xl text-center  p-2 font-dancing font-bold;
 }
 
 .introduce-description {
@@ -27,9 +27,9 @@
   @apply transition-transform duration-300  bg-top mb-0 flex w-full h-full bg-contain;
 }
 .introduce-title {
-  @apply text-orange-300 font-dancing text-4xl my-5 font-bold;
+  @apply text-red-300 font-dancing text-4xl my-5 font-bold;
 }
 
 .introduce-line {
-  @apply w-10 h-1 bg-orange-200 bg-center mx-3 rounded-sm;
+  @apply w-10 h-1 bg-red-200 bg-center mx-3 rounded-sm;
 }

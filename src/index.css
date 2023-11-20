@@ -42,10 +42,10 @@
     @apply text-3xl md:text-4xl lg:text-5xl text-white mx-4 font-dancing tracking-wider text-center my-5;
   }
   .tw-count-down-time-block-item {
-    @apply w-14 h-auto mx-3  bg-opacity-30  border-2 flex flex-col border-white border-spacing-4 rounded-md;
+    @apply w-14 h-auto mx-3  bg-opacity-30  border-2 flex flex-col border-white border-spacing-4 rounded-t-md;
   }
   .tw-text-item {
-    @apply text-lg  border-t-4 border-t-white w-full bg-white font-dosis  text-red-400 rounded-b-sm;
+    @apply text-sm  border-t-4 border-t-white w-full  font-cuprum bg-black  text-white bg-opacity-20;
   }
 
   .tw-number-item {

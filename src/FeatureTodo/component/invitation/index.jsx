@@ -45,19 +45,9 @@ function Invitation(props) {
               </div>
             </div>
 
-            {/* <div className=" font-dancing text-red-400  text-xl pt-5  tracking-normal ">
-              <p>
-                Hạnh phúc nhất không phải giây phút được cùng nhau nắm tay bước
-                đến lễ đường
-              </p>
-              <p> Mà là giữ mãi nụ cười ấy theo năm tháng.</p>
-            </div> */}
+           
             <div className=" font-dancing text-red-500   text-2xl pt-5  tracking-widest ">
-              {/* <p>
-                We are delighted to invite you to our wedding celebration. It
-                will be intimate, cozy and full of love. Get ready for a day of
-                joy and fun.
-              </p> */}
+             
             </div>
           </div>
           <div className=" h-full  py-32 flex-col w-1/4 flex  rounded-tr-full">
