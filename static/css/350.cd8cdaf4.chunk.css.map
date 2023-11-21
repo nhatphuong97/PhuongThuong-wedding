@@ -1,1 +1,0 @@
-{"version":3,"file":"static/css/350.cd8cdaf4.chunk.css","mappings":"AACE,gDAIA","sources":["FeatureTodo/component/Events/style.scss"],"sourcesContent":[".introduce-main {\r\n  @apply flex flex-row;\r\n}\r\n\r\n.introduce-two {\r\n  @apply bg-local md:bg-fixed bg-cover\r\n  bg-no-repeat bg-center bg-slate-600;\r\n}\r\n"],"names":[],"sourceRoot":""}
