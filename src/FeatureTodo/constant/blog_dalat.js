@@ -2,8 +2,6 @@ import dalat1 from "../../dalat/dalat1.webp";
 import dalat2 from "../../dalat/dalat2.webp";
 import dalat3 from "../../dalat/dalat3.webp";
 import dalat4 from "../../dalat/dalat4.webp";
-import dalat5 from "../../dalat/dalat5.webp";
-import dalat6 from "../../dalat/dalat6.webp";
 import dalat8 from "../../dalat/dalat8.webp";
 
 // eslint-disable-next-line import/no-anonymous-default-export

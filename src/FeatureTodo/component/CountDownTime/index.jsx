@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { color, motion, Variants } from "framer-motion";
 import { date } from "../../constant/constant";
+import { memo } from "react";
 
 CountDownTime.propTypes = {
   listData: PropTypes.number,
@@ -88,4 +89,4 @@ function CountDownTime(props) {
   );
 }
 
-export default CountDownTime;
+export default memo(CountDownTime);

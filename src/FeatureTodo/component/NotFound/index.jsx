@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
 NotFound.propTypes = {};
@@ -21,4 +21,4 @@ function NotFound(props) {
   );
 }
 
-export default NotFound;
+export default memo(NotFound);

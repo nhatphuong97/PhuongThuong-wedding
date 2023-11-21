@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { memo, useRef } from "react";
 import PropTypes from "prop-types";
 import "./style.scss";
 import Calendar from "../Calendar";
@@ -45,10 +45,7 @@ function Invitation(props) {
               </div>
             </div>
 
-           
-            <div className=" font-dancing text-red-500   text-2xl pt-5  tracking-widest ">
-             
-            </div>
+            <div className=" font-dancing text-red-500   text-2xl pt-5  tracking-widest "></div>
           </div>
           <div className=" h-full  py-32 flex-col w-1/4 flex  rounded-tr-full">
             <Calendar />
@@ -81,4 +78,4 @@ function Invitation(props) {
   );
 }
 
-export default Invitation;
+export default memo(Invitation);

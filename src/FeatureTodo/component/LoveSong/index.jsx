@@ -5,16 +5,18 @@ import song from "../../constant/song";
 import imageFire from "../../../img/fire.jpg";
 import { progress } from "framer-motion";
 import { useDispatch, useSelector } from "react-redux";
-import { calculateSelector } from "../Redux/selectors/stateSelector";
+import { songSelector } from "../Redux/selectors/stateSelector";
 // import { playSong, pauseSong } from "../Redux/action/music_action";
 import { songsSlice } from "../Redux/reducer/music_reducer";
+import { memo } from "react";
 
 LoveSongMain.propTypes = {};
 
 function LoveSongMain({ tracks }) {
-  const songState = useSelector(calculateSelector);
+  const songState = useSelector(songSelector);
   const dispatchSong = useDispatch();
   console.log({ a: songState });
+  console.log({ a: "reder-lovesong" });
 
   const [trackIndex, setTrackIndex] = useState(0);
 
@@ -153,8 +155,8 @@ function LoveSongMain({ tracks }) {
     };
   }, []);
   return (
-    <div className="div-song-under grid grid-flow-col  grid-cols-2">
-      <div className="div-left bg-red-300 px-5 text-white text-end">
+    <div className="div-song-under grid grid-flow-col w-full grid-cols-2">
+      <div className="div-left bg-red-300 px-5 text-white text-end ">
         <div className="flex flex-col h-full justify-center align-middle">
           <div className="song-title ">Every Song Tells a Story.</div>
           <div className="song-content">
@@ -169,7 +171,7 @@ function LoveSongMain({ tracks }) {
       <div className="bg-red-300 relative">
         <div className="div-right absolute flex flex-col  -top-[70px] left-[20%]">
           <div className="w-[350px] h-auto -pt-[20%] ">
-            <img src={imageFire} alt="" />
+            <img loading="lazy" src={imageFire} alt="" />
           </div>
           <div className="song_name mt-3 text-white text-4xl font-dancing">
             {title}
@@ -223,4 +225,4 @@ function LoveSongMain({ tracks }) {
   );
 }
 
-export default LoveSongMain;
+export default memo(LoveSongMain);

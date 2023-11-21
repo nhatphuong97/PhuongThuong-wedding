@@ -2,12 +2,11 @@ import React, { useEffect, useState, useCallback } from "react";
 import logoHeader from "./../../../img/savethedate_wh.gif";
 import CountDownTime from "../CountDownTime";
 import { motion, AnimatePresence } from "framer-motion";
+import { memo } from "react";
+import anhbia1 from "./../../../img_bia/anhbia1.webp";
+import anhbia2 from "./../../../img_bia/anhbia2.webp";
 
-const listImage = [
-  "https://i.imgur.com/AP7iiwJ.jpg",
-  "https://i.imgur.com/1uo5QDi.jpg",
-  "https://i.imgur.com/898j6ea.jpg",
-];
+const listImage = [anhbia1, anhbia2];
 const variable = {
   inital: {
     opacity: 0,
@@ -26,16 +25,6 @@ const variable = {
 
 function HeaderSlide(props) {
   const [index, setIndex] = useState(0);
-
-  const next1 = useCallback(() => {
-    if (index === listImage.length - 1) {
-      setIndex(0);
-      return;
-    }
-    setIndex(index + 1);
-
-    console.log(index);
-  });
 
   const next2 = () => {
     console.log(index);
@@ -76,6 +65,7 @@ function HeaderSlide(props) {
           className="w-full object-cover"
           variants={variable}
           initial="inital"
+          loading="lazy"
           animate="animate"
           transition={{ duration: 5, ease: "linear" }}
           src={listImage[index]}
@@ -101,4 +91,4 @@ function HeaderSlide(props) {
   );
 }
 
-export default HeaderSlide;
+export default memo(HeaderSlide);

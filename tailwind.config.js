@@ -32,7 +32,6 @@ module.exports = {
     },
     extend: {
       backgroundImage: {
-        "image-main": "url('/src/img/DSC_4827.webp')",
         "image-one": "url('/src/img/bg-rung.webp')",
         "image-vo": "url('/src/img/vo.png')",
         "image-chong": "url('/src/img/chong.png')",
@@ -43,7 +42,6 @@ module.exports = {
         cadong: "url('/src/img/cadong1.webp')",
         perfect: "url('/src/mp3/perfect.webp')",
         flower: "url('/src/img/flower.webp')",
-        damcuiha: "url('/src/img/damcuiha.png')",
       },
       colors: {
         love: {

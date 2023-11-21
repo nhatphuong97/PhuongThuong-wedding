@@ -56,7 +56,7 @@ import song from "../../../constant/song";
 // Một điểm hay nữa là reducer có thể mutate data trực tiếp.
 // Bản chất bên dưới họ sử dụng thư viện Immerjs
 
-// Slice rất tiện nó trả về cho chúng ta 2 field là reducer : là reducer hiện hữu trong slice và thứ 2 là actions : giúp ta không cần tạo các ac tion nữa
+// Slice rất tiện nó trả về cho chúng ta 2 field là reducer : là reducer hiện hữu trong slice và thứ 2 là actions : giúp ta không cần tạo các action nữa
 export const songsSlice = createSlice({
   name: "songs",
   initialState: {
@@ -67,6 +67,7 @@ export const songsSlice = createSlice({
   reducers: {
     playSong: (state, action) => {
       state.isPlaying = true;
+    
       state.status = "PLAY_SONG";
     }, // type : 'songs/playSong'
     pauseSong: (state, action) => {

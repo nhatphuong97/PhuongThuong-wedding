@@ -9,6 +9,7 @@ import {
   ParallaxBannerLayer,
   Parallax,
 } from "react-scroll-parallax";
+import { memo } from "react";
 ParallaxDevide.propTypes = {};
 
 function ParallaxDevide(props) {
@@ -54,4 +55,5 @@ function ParallaxDevide(props) {
   );
 }
 
-export default ParallaxDevide;
+export default memo(ParallaxDevide);
+

@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { memo } from "react";
 
 Calendar.propTypes = {};
 
@@ -152,4 +153,4 @@ function Calendar(props) {
   );
 }
 
-export default Calendar;
+export default memo(Calendar);

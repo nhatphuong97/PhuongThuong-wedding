@@ -12,6 +12,7 @@ import {
   ParallaxBannerLayer,
   Parallax,
 } from "react-scroll-parallax";
+import { memo } from "react";
 Moment.propTypes = {};
 
 function Moment(props) {
@@ -35,7 +36,7 @@ function Moment(props) {
   return (
     <div className="flex flex-col items-center w-full  h-auto">
       <div className="grid grid-cols-2  w-full">
-        <div className="mm-meet h-[800px] flex flex-col justify-center py-10 gap-2 text-vitange_green-30  items-center">
+        <div className="mm-meet h-[600px] flex flex-col justify-center py-10 gap-2 text-vitange_green-30  items-center">
           <div className="font-vollkorn text-4xl w-[350px] text-vitange_green-500">
             <p>The First</p>
             <p>Date</p>
@@ -57,17 +58,17 @@ function Moment(props) {
         </div>
         <div
           className={
-            "m-title h-[800px]  flex matcha flex-col items-center justify-center   bg-vitange_green-60"
+            "m-title h-[600px]  flex matcha flex-col items-center justify-center   bg-vitange_green-60"
           }
         >
           <img
             loading="lazy"
             src={meet}
             alt=""
-            className=" w-[350px] h-auto mt-5 mb-7 shadow-md shadow-vitange_green-40 rounded-xl"
+            className=" w-[350px] md:w-[350px]  h-auto mt-5 mb-7 shadow-md shadow-vitange_green-40 rounded-xl"
           />
         </div>
-        <div className="mm-meet row-span-2 h-[auto] flex flex-col p-3 justify-center gap-3 pt-10 bg-vitange_green-60 text-white items-center">
+        <div className="mm-meet row-span-3 h-[auto] flex flex-col p-3 justify-center gap-3 pt-10 bg-vitange_green-60 text-white items-center">
           <div className="checkin text-vitange_green-40 font-vollkorn text-3xl"></div>
           <div className="grid grid-cols-1 gap-6">
             {DalatPost.map((post, i) =>
@@ -157,4 +158,4 @@ function Moment(props) {
   );
 }
 
-export default Moment;
+export default memo(Moment);

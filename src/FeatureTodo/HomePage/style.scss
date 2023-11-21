@@ -12,7 +12,7 @@
 }
 
 .isIntroduce {
-  @apply bg-red-300 text-white;
+  @apply bg-white text-red-400 border-b-2 border-red-300;
 }
 
 .isNomarl {
@@ -24,7 +24,7 @@
 }
 
 .isMoments {
-  @apply text-white bg-vitange_green-40;
+  @apply text-vitange_green-40 bg-white  border-b-2 border-vitange_green-40;
 }
 
 .isInvitationSong {

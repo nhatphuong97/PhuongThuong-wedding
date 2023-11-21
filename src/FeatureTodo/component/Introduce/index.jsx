@@ -1,8 +1,6 @@
-import React, { forwardRef, useRef } from "react";
-import PropTypes from "prop-types";
+import React, { forwardRef } from "react";
 import "./style.scss";
-import { color, motion, Variants } from "framer-motion";
-import logo from "../../../img/damcuiha.png";
+import { motion } from "framer-motion";
 import vo from "../../../img/vo.png";
 import chong from "../../../img/chong.png";
 

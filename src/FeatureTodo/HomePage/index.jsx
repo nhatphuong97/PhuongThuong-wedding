@@ -16,8 +16,7 @@ import classNames from "classnames";
 import { useDispatch, useSelector } from "react-redux";
 // import { playSong, pauseSong } from "../component/Redux/action/music_action";
 import { songSelector } from "../component/Redux/selectors/stateSelector";
-import { ReactComponent as mute } from "./../../icon/mute.svg";
-import { ReactComponent as unMute } from "./../../icon/unmute.svg";
+import anhbia1 from "./../../img_bia/anhbia1.webp";
 
 import HeaderSlide from "../component/HeaderSlide";
 import { songsSlice } from "../component/Redux/reducer/music_reducer";
@@ -45,7 +44,8 @@ function HomePageWedding(props) {
   // Redux here
   const dispatchRedux = useDispatch();
   const songState = useSelector(songSelector);
-  console.log(songState);
+  console.log(songsSlice);
+  // console.log({ songState: songsSlice.redu });
 
   const handlePlayAndPauseSong = () => {
     if (songState.isPlaying) {
@@ -63,8 +63,8 @@ function HomePageWedding(props) {
   const [classCssSong, setClassCssSong] = useState("isNomarlSong");
 
   const { ref } = useParallax({
-    speed: 40,
-    translateY: ["-30", "40"],
+    speed: 10,
+    translateY: ["-20", "100"],
     easing: "easeInOutQuad",
   });
   window.addEventListener("scroll", () => {
@@ -102,12 +102,12 @@ function HomePageWedding(props) {
       setClassCss("isInvitation");
       setClassCssSong("isInvitationSong");
     } else if (introduceTop <= window.scrollY && window.scrollY < momentsTop) {
-      setColor("#fff");
+      setColor("#f87188");
       document.title = "Introduce ❤️";
       setClassCss("isIntroduce");
       setClassCssSong("isIntroduceSong");
     } else if (momentsTop <= window.scrollY && window.scrollY < loveSongTop) {
-      setColor("#fff");
+      setColor("#4F6F52");
 
       document.title = "Moment 🌲";
       setClassCss("isMoments");
@@ -185,17 +185,17 @@ function HomePageWedding(props) {
             ])}  p-[1em] pt-[calc(1em + 1px)] flex flex-row justify-between items-center transition-all duration-200 py-1 sticky z-50 -top-1`}
           >
             <motion.div
-              className="logo font-bold basis-2/6 text-center text-xl invisible lg:text-2xl font-mono cursor-pointer font-dosis"
+              className="logo font-bold basis-2/6 text-center text-2xl  lg:text-3xl  cursor-pointer font-italianno"
               onClick={handleScrollToHeader}
               style={{ color: color }}
             >
-              WeddingPages.
+              Wedding.
             </motion.div>
             <ul
               ref={menuRef}
               className={`${showMenu ? "flex" : "hidden"} tw-menu-item-show 
-                lg:flex lg:basis-3/6 font-cuprum font-bold lg:item-center transition-all duration-300
-                 gap-4 uppercase text-sm lg:justify-cente animate-slide-down`}
+               md: lg:flex lg:basis-3/6 font-cuprum font-bold lg:item-center transition-all duration-300
+                 gap-4 uppercase text-sm lg:justify-center animate-slide-down`}
             >
               <li className="tw-top-menu-item">
                 <Link
@@ -287,7 +287,7 @@ function HomePageWedding(props) {
               </li>
             </ul>
 
-            <div className="lg:hidden relative  h-full w-full basis-1/6 flex item-center cursor-pointer transition-all">
+            <div className="lg:hidden relative  h-full w-full basis-1/6 flex justify-center item-center cursor-pointer transition-all">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -309,19 +309,19 @@ function HomePageWedding(props) {
               />
             </div>
           </nav>
-          <motion.div
+          <div
             // ref={divElementRef}
             // style={{
             //   // scale: scaleProgress,
             //   opacity: opacityProgress,
             // }}
-            className="flex flex-col text-base relative"
+            className="flex flex-col items-center text-base relative"
           >
             {/* <motion.div
               initial={{ opacity: 0, tra: 20 }}
               whileInView={{ opacity: 1, position: 200 }}
               transition={{ duration: 0.4 }}
-              className="slider flex-row relative flex h-[600px] bg-[url('/src/img/DSC_4827.webp')] items-center bg-cover bg-no-repeat bg-center bg-slate-600 animate-slide-down "
+              className="slider flex-row relative flex h-[600px]  items-center bg-cover bg-no-repeat bg-center bg-slate-600 animate-slide-down "
             >
               <div className="w-full h-full bg-black bg-opacity-30"></div>
             </motion.div> */}
@@ -363,8 +363,10 @@ function HomePageWedding(props) {
                 Events & Parties
               </motion.div>
             </div> */}
-            <div className="devide h-[100px] bg-red-200  devide-invitation "></div>
-            <div id="invitation" className=" w-full  tw-invitation mx-auto">
+            <div
+              id="invitation"
+              className=" w-full devide-invitation tw-invitation mx-auto"
+            >
               <Suspense>
                 <Invitation />
               </Suspense>
@@ -375,18 +377,18 @@ function HomePageWedding(props) {
                 <Introduce ref={introduceRef} />
               </Suspense>
             </div>
-            <div className="h-[200px]"></div>
+            <div className=" devide-moments h-[200px]"></div>
 
-            <div className="w-full h-[700px] overflow-hidden relative">
+            <div className="w-[50%] h-[600px]  overflow-hidden relative">
               <img
                 loading="lazy"
                 ref={ref}
-                src={"https://i.imgur.com/hgRHOsV.jpg"}
+                src={anhbia1}
                 alt=""
-                className="w-full h-[1200px] object-cover object-center "
+                className="w-full h-[1000px] object-cover object-center "
               />
             </div>
-            <div className=" devide-moments  h-[200px]"></div>
+            <div className="  h-[200px]"></div>
             <motion.div
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -412,7 +414,7 @@ function HomePageWedding(props) {
               id="album"
               className="tw-album flex h-[1000px] text-white relative"
             >
-              {/* <Album /> */}
+              <Album />
               Album ở đây nè
             </div>
             <div className="devide h-[200px]"></div>
@@ -433,7 +435,7 @@ function HomePageWedding(props) {
               Send love
             </div>
             <footer>footer</footer>
-          </motion.div>
+          </div>
           <div
             className={`song-fixed h-auto w-max fixed bottom-6 left-6 z-[60] ${classNames(
               [classCssSong]
