@@ -48,7 +48,7 @@ function Album(props) {
       <div className="col-span-2 bg-red-100 h-full w-auto ">
         <img loading="lazy" src={image} alt="" className={`object-cover   }`} />
       </div>
-      <div className="row-span-1">
+      <div className="row-span-1 items-start">
         <img
           loading="lazy"
           src={image}

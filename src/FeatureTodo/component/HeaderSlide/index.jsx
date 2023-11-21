@@ -6,7 +6,11 @@ import { memo } from "react";
 import anhbia1 from "./../../../img_bia/anhbia1.webp";
 import anhbia2 from "./../../../img_bia/anhbia2.webp";
 
-const listImage = [anhbia1, anhbia2];
+const listImage = [
+  "https://i.imgur.com/1uo5QDi.jpg",
+  "https://i.imgur.com/gDGHj32.jpg",
+  "https://i.imgur.com/48Ae2d6.jpg",
+];
 const variable = {
   inital: {
     opacity: 0,

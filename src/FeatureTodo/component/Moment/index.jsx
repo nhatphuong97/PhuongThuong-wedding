@@ -35,7 +35,7 @@ function Moment(props) {
 
   return (
     <div className="flex flex-col items-center w-full  h-auto">
-      <div className="grid grid-cols-2  w-full">
+      <div className="grid lg:grid-cols-2 grid-cols-1 w-full">
         <div className="mm-meet h-[600px] flex flex-col justify-center py-10 gap-2 text-vitange_green-30  items-center">
           <div className="font-vollkorn text-4xl w-[350px] text-vitange_green-500">
             <p>The First</p>
