@@ -64,8 +64,8 @@ function HomePageWedding(props) {
 
   const { ref } = useParallax({
     speed: 10,
-    translateY: ["-20", "100"],
-    easing: "easeInOutQuad",
+    translateY: ["-20", "40"],
+    easing: "easeIn",
   });
   window.addEventListener("scroll", () => {
     // let elem = document.querySelector(".nav-show");
@@ -379,13 +379,13 @@ function HomePageWedding(props) {
             </div>
             <div className=" devide-moments h-[200px]"></div>
 
-            <div className="w-[50%] h-[600px]  overflow-hidden relative">
+            <div className=" w-full lg:w-[70%] h-[400px] xl:h-[600px] overflow-hidden relative">
               <img
                 loading="lazy"
                 ref={ref}
                 src={anhbia1}
                 alt=""
-                className="w-full h-[1000px] object-cover object-center "
+                className="w-full h-[800px] xl:h-[1000px] object-cover object-center "
               />
             </div>
             <div className="  h-[200px]"></div>

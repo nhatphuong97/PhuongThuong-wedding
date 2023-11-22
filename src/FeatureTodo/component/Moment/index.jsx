@@ -35,15 +35,15 @@ function Moment(props) {
 
   return (
     <div className="flex flex-col items-center w-full  h-auto">
-      <div className="grid lg:grid-cols-2 grid-cols-1 w-full">
-        <div className="mm-meet h-[600px] flex flex-col justify-center py-10 gap-2 text-vitange_green-30  items-center">
-          <div className="font-vollkorn text-4xl w-[350px] text-vitange_green-500">
+      <div className="grid lg:grid-cols-2 grid-cols-1 w-full rever">
+        <div className="mm-meet -order-1 lg:-order-2 h-[600px]  w-full px-2 flex flex-col justify-center py-10 gap-2 text-vitange_green-30  items-center">
+          <div className="font-vollkorn text-4xl text-start w-full text-vitange_green-500">
             <p>The First</p>
             <p>Date</p>
           </div>
           {/* <div className="h-[2px] bg-vitange_green-20 w-[350px] my-2"></div> */}
 
-          <div className="font-dosis  text-lg  w-[350px] text-vitange_green-20">
+          <div className="font-dosis  text-lg   text-vitange_green-20">
             <p className="text-xl pb-2">
               Bạn có tin vào duyên số không? mình thì có nha ^ ^
             </p>
@@ -58,14 +58,14 @@ function Moment(props) {
         </div>
         <div
           className={
-            "m-title h-[600px]  flex matcha flex-col items-center justify-center   bg-vitange_green-60"
+            "m-title h-[300px] lg:h-[600px] -order-2 lg:-order-1  flex matcha flex-col items-center justify-center   bg-vitange_green-60"
           }
         >
           <img
             loading="lazy"
             src={meet}
             alt=""
-            className=" w-[350px] md:w-[350px]  h-auto mt-5 mb-7 shadow-md shadow-vitange_green-40 rounded-xl"
+            className=" w-[200px] md:w-[350px]  h-auto mt-5 mb-7 shadow-md shadow-vitange_green-40 rounded-xl"
           />
         </div>
         <div className="mm-meet row-span-3 h-[auto] flex flex-col p-3 justify-center gap-3 pt-10 bg-vitange_green-60 text-white items-center">
@@ -75,40 +75,49 @@ function Moment(props) {
               i % 2 == 0 ? (
                 <div
                   key={"dalat" + i}
-                  className="item-post flex flex-row gap-5 h-[300px] shadow-md bg-white   w-[60%] border  mx-auto "
+                  className="item-post flex flex-col md:flex-row gap-5 h-full md:h[350px] shadow-md bg-white  w-[90%] md:w-[60%] border  mx-auto "
                 >
                   <img
                     loading="lazy"
                     src={post.image}
                     alt=""
-                    className={`h-full w-[50%] object-cover flex-1 ${
-                      i == 2 ? "object-left " : ""
+                    className={`h-full w-full md:w-[50%] object-cover flex-1 ${
+                      i == 2 ? "left-2 " : ""
                     }`}
                   />
-                  <div className="detail  flex flex-col gap-3 py-10 pr-2 text-vitange_green-50  flex-1">
-                    <div className="font-dosis text-xs ">{post.date}</div>
+                  <div className="detail flex flex-col h-max gap-3 md:py-10 lgpr-2 text-vitange_green-50  flex-1 p-3">
+                    <div className="font-dosis text-xs h-full w-full ">
+                      {post.date}
+                    </div>
                     <div className="font-playfair font-bold ">{post.title}</div>
 
-                    <div className="font-dosis ">{post.description}</div>
+                    <div className="font-dosis overflow-ellipsis">
+                      {post.description}
+                    </div>
                   </div>
                 </div>
               ) : (
                 <div
                   key={"dalat" + i}
-                  className="item-post flex flex-row gap-5 h-[300px] w-[60%] shadow-md  bg-white   border  mx-auto "
+                  className="item-post flex flex-col md:flex-row gap-5 h-full md:h[350px] shadow-md bg-white  w-[90%] md:w-[60%] border  mx-auto "
                 >
                   <img
                     loading="lazy"
                     src={post.image}
                     alt=""
-                    className={`h-full w-[50%] object-cover    flex-1
+                    className={`h-full w-full md:w-[50%] object-cover flex-1 ${
+                      i == 2 ? "left-2 " : ""
                     }`}
                   />
-                  <div className="detail  flex flex-col gap-3 py-10  flex-1 pr-2 text-black">
-                    <div className="font-dosis text-xs ">{post.date}</div>
+                  <div className="detail flex flex-col h-max gap-3 md:py-10 lgpr-2 text-vitange_green-50  flex-1 p-3">
+                    <div className="font-dosis text-xs h-full w-full ">
+                      {post.date}
+                    </div>
                     <div className="font-playfair font-bold ">{post.title}</div>
 
-                    <div className="font-dosis  ">{post.description}</div>
+                    <div className="font-dosis overflow-ellipsis">
+                      {post.description}
+                    </div>
                   </div>
                 </div>
               )
